@@ -1,0 +1,12 @@
+Foundations of Directed Type Theory: Bridging Category Theory and Homotopy Type Theory
+
+*Summary*
+
+The topic of this grant is to lay the theoretical and practical foundations for a new generation of Type Theory. Type Theory is the foundation of proof systeems supporting formal reasoning and it is at the same time a very high level programming language. Type Theory is used in Mathematics to support domain specific reasoing using the synthetic apporach.
+
+The main innovation is to amend the symmetric equality type by a directed counterpart which is called the hom type. This is natural from the point of Homotopy Type Theory where equality of structures corresponds to isomorphisms, but what is lacking is the the same kind of support for morphisms. The resulting system is called directed type theory as opposed to the traditional undirected theory.
+
+The need for directed type theory shows up in many ways: one example are so called free theorems whcih reflect the fact that type theory is representation independent. We suggest that this can be tackled using a 
+
+*unfinished*
+
