@@ -1,0 +1,825 @@
+\documentclass[a4paper,11pt]{article}
+% \documentclass[a4paper,11pt, twocolumn]{article}
+
+%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[compact,medium]{titlesec} % option 'small' is optional
+\usepackage{amsfonts,amstext,amssymb}
+\usepackage[dvips,pdftex]{graphicx}
+\usepackage[british]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true  % Remove the boxes
+, linktocpage=true % Make page numbers (not section titles) links in ToC
+, linkcolor=NavyBlue    % Colour for internal links
+, citecolor=Green  % Colour for bibliographical citations
+, urlcolor=BrickRed % Colour for (external) urls
+]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{csquotes}
+
+\usepackage[backend=biber,style=alphabetic,maxnames=99]{biblatex}
+\addbibresource{master.bib}
+%%% Font:
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[most]{tcolorbox}
+%%% Saves space within lists, but needs to be revisited later:
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, nolistsep}
+\setlist[enumerate]{noitemsep, nolistsep}
+
+%%% for the gantt chart
+\usepackage{pgfgantt}
+\usepackage{stackengine}
+
+\usepackage{bbding} % For the solid diamond symbol in the gantt chart
+\colorlet{nottColour}{MidnightBlue!60}
+\colorlet{strathColour}{JungleGreen!60}
+\colorlet{deliverable}{Goldenrod}
+\newcommand{\solidbowtie}{\blacktriangleright\!\!\blacktriangleleft}
+\newcommand{\deliv}{\textcolor{deliverable}{\raisebox{-.25em}{\DiamondSolid}}}
+\newcommand{\teamm}[2]{\raisebox{-.25em}{\ensuremath{\overset{\textup{#1}}{\text{\textcolor{#2}{$\solidbowtie$}}}}}}
+\newcommand{\tmN}{\teamm{N}{nottColour}}
+\newcommand{\tmS}{\teamm{S}{strathColour}}
+
+\usepackage[noabbrev,capitalise]{cleveref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% possibly useful
+%\usepackage{todonotes}
+
+
+%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Taken from TCS paper: boxed goal, lots of options to play with
+\newtcolorbox{boxedgoal}{%
+	%enhanced jigsaw,
+	%    sharp corners,
+	colback=white,
+	borderline={1pt}{-2pt}{black},
+	left=4pt,
+	right=4pt,
+	top=4pt,
+	bottom=4pt,
+	%    fontupper={\setlength{\parindent}{20pt}},
+	title={\textit{\textbf{Project Goal}}},
+	boxrule=.8pt,
+	%    colbacktitle=white,
+	%    coltitle=black
+	%    fonttitle=\bfseries
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Disable hyperref for citations
+\let\oldcite\cite
+\renewcommand*\cite[1]{{\protect\NoHyper\oldcite{#1}\protect\endNoHyper}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\summarySpace}{\vspace*{.0cm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Tweaking %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0 pt}
+\setlength{\parskip}{1ex}
+
+\renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{0pt}
+
+\renewcommand{\paragraph}[1]{\textbf{#1.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Meta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Applications of the Transfinite to Homotopy Type Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+	\makeatletter
+	\begin{center}
+		%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+		%  \centerline{\rule{185mm}{.5mm}}
+		{\Large {\bf \centerline{\@title}}}
+		\centerline{\rule{165mm}{.5mm}}
+	\end{center}
+	\makeatother
+
+
+	\vspace*{-0.75cm}
+	\section{Vision}
+
+
+%%% GRAHAM'S VERSION (with tweaks):
+Software bugs can lead to the loss of lives and money, particularly in a
+safety-critical context. The mathematical formalisation of software can
+prevent this by equipping programs with computer-checked proofs of
+correctness. Homotopy type theory (HoTT), a constructive foundation
+for mathematics and verified programming, offers one approach to
+large-scale formalisation. Unfortunately, many required extensions
+to HoTT are added in an ad-hoc fashion, leading to poorly understood semantics.
+For example, the addition of sized types to HoTT,
+as implemented in the language Agda, has made the system inconsistent.
+%
+Our proposed solution to such foundational problems is to justify
+extensions of HoTT using the theory of \emph{transfinite ordinals}, which
+forms the theoretical foundation for analogous concepts in set theory.
+%To do this,
+We will first develop a completely constructive and
+computational account of ordinals that we can then apply to HoTT,
+which will in turn support practical improvements for Agda.
+
+
+\subsection{Introduction}
+
+
+Dependent type theories function as bases for both programming languages and proof assistants.
+Such programming
+languages allow the user to equip a program with a rigorous specification, resulting in software that is guaranteed to be free from bugs.
+Examples include the formally verified compiler CompCert~\cite{Leroy-BKSPF-2016} and the encryption used in Google's web browser Chrome~\cite{erbsen2019simple,MIT:CoqForGoogle}.
+%
+In proof assistants, the language of dependent type theory is used to formulate and formally verify mathematical statements and their proofs (e.g., \cite{MathematicalComponents,mathlib2020}).
+%
+A recent striking success is the formalisation of a major result by Clausen and Scholze, with Fields medallist Scholze stating that he finds it %\emph{``absolutely insane that interactive proof assistants are now at the level that within a very reasonable time span they can formally verify difficult original research''}
+``absolutely insane'' that proof assistants can now formally verify difficult original research~\cite{scholze:tensor}.
+%
+%
+%%% original quote:
+% "I find it absolutely insane that interactive proof assistants are now at the level that within a very reasonable time span they can formally verify ifficult original research."
+% "absolutely insane that proof assistants can now formally verify difficult original research within a very reasonable time span"
+%
+% Another ongoing project on formalising modern mathematics is the \emph{Mathematical Components} library~\cite{mahboubi_mathComps} backed by the European Research Council and Microsoft.
+
+Key features of dependent type theories include the ability to specify new constructions as inductive datatypes and the fact that every program terminates. Traditionally, these are both semantically justified via the mathematical theory of ordinal numbers~\cite{aczelinductive,Floyd:1967},
+% ,Dybjer99afinite,dershowitz:termination},
+%
+%
+which generalise the natural numbers to study different degrees of infinity.
+The theory of ordinal numbers has been studied since the inception of set theory at the end of the 19th century, with far-reaching applications in mathematical logic and proof theory~\cite{Rathjen2007}.
+This substantial body of work has almost exclusively been carried out in a non-constructive meta-theory.
+Moreover, none of it has taken place in a formalised setting that makes it possible to reason about the meta-theory of type theory.
+This means that such semantic justifications cannot be done inside a proof assistant using the existing theory of ordinals, thus without the high degree of confidence provided by mechanical verification described above.
+
+In light of this, we propose to rigorously develop a constructive theory of ordinals which can do exactly this. % that is suitable for constructive and formalised reasoning about the meta-theory of type theories.
+We will work in homotopy type theory (HoTT), a recent and very successful version of dependent type theory~\cite{hott-book}.
+%
+On the one hand, the constructive theory of ordinals is an important foundational topic in mathematics that deserve a formal and completely rigorous treatment, which is provided by the language of type theory. On the other hand, we can use our constructive theory to reason about type theory itself.
+%
+The complication here is that ordinals appear in two very different roles: First, as an object of study \emph{inside} (i.e., \emph{internally to}) a given type theory, and second, as a device \emph{outside} (i.e., \emph{externally to}) the type theory we want to study.
+%
+% However, this requires a subtle separation of object- and meta-level which can be rather challenging.
+%
+With an innovative and novel strategy, we will combine both roles in a single development.
+The core idea is to exploit \emph{two-level type theory} (2LTT), a recent type theory providing an interface for rigorous reasoning on both the object- (internal) and meta-level (external)~\cite{annenkov_capriotti_kraus_sattler_2023}.
+Instantiating the theory in which we develop ordinals once with each of the levels of two-level type theory is exactly what is needed for the two roles.
+
+Not only does our strategy kill two birds with one stone, %but
+it also comes with benefits that go far beyond what two separate developments could achieve.
+Notably, a free by-product is the justification of computational properties in the form of judgemental equalities, making type theories more usable in practice.
+%
+%Finally, 
+We will utilise our theory to enhance the practical use of the proof assistant Agda~\cite{Agda} by addressing a %well-known and 
+significant problem with Agda's sized types~\cite{Agda-sized-types-unsound}. These were introduced as a mechanism for %users aimed at 
+proving termination of programs. Unfortunately, the mechanism was found to be unsound, undermining the correctness guarantee that a system such as Agda promises. The theory of ordinals that we will develop provides a consistent and semantically well-motivated alternative. %to these sized types.
+
+
+%%% old plan: (mostly implemented above):
+% DTT mini-intro (mention HoTT)
+%   -> 1. programming language (explain termination checker)
+%   -> 2. proof assistant
+
+% Ordinal theory mini-intro
+
+% 1,2 => two reasons for ordinals
+% 1. for termination
+% 2. formalised theory
+
+% unique selling point of this project: do both at the same time. Why is this hard? Because one is internal (i.e. want to use TT) and one meta-theoretical (i.e. need to reason about TT). We only now can do this because of 2LTT; there wasn't a good approach previously (risky/safe to claim this?)
+
+% Benefits of our approach [2LTT], "the whole is more than the sum of its parts":
+% - justify judgmental equalities
+
+
+
+% \begin{boxedgoal}
+	% We will develop a constructive theory of ordinals within the setting of homotopy type theory.
+	% Direct results of our project are:
+	% \begin{enumerate}
+		% 	\item Constructive and formalised mathematics.
+		% 	\item Justification of type-theoretic principles.
+		% 	\item Practical improvements for proof assistants such as Agda.
+		% \end{enumerate}
+	% \end{boxedgoal}
+
+
+
+% (old todo, not required anymore) Should we rethink the distribution of contents among 1.1 (Introduction) and 1.2 (Project outcomes)? -- Tom, Nicolai: think about it later if necessary.
+%
+\subsection{Project outcomes}\label{project-outcomes}
+
+Our project will stretch from pure theory, via applications to type theory, to practical implementation. %
+%Our project will span all the way from pure theory, via applications to type theory, to practical implementation.% in practice.
+%Our project will span pure theory, its applications to type theory, and its implementation in practice, ensuring maximum impact.
+
+\paragraph{Mathematical foundations}
+From the point of view of pure mathematics,
+the main outcome of our project will be a constructive theory of ordinal numbers in homotopy type theory, as well as its formalisation in the proof assistant Agda.
+Not only will this formalisation guarantee the highest levels of rigour, it will also allow others to build upon our development.
+Our work will include a %careful
+study of different notions of ordinals that become equivalent in classical settings but behave fundamentally differently from a computational perspective.
+Given their %the %important
+foundational role %of ordinals
+in mathematical logic, a constructive and formalised theory of ordinals
+%numbers
+will be a valuable addition to the body of formalised mathematics.
+
+% In classical mathematical foundations, ordinal numbers are fundamental with a rich and impressive theory and history. The proposed development will give constructive mathematicians access to a suitable analogue, complementing current constructive techniques.
+% %
+% Our development will be informed by a formalisation project that additionally will allow others to build upon in future mathematical developments
+
+\paragraph{Applications to type theory}
+As the developers of a powerful toolbox, we will naturally be the first to exploit it.
+We will use the theory of constructive ordinals to provide a justification for type theory itself: fundamental features, such as the construction of inductive datatypes, will be reduced to ordinal-theoretic observations.
+This reduction will go far beyond already understood inductive types to advanced and experimental features such as higher inductive-recursive types.
+%
+Moreover, unlike previous approaches to such a justification, our strategy using 2LTT will lead to fully formalised results.
+%
+%Our development will also clarify which features of a type theory can be seen as syntactic sugar that merely add convenience for the user. %, and which ones actually increase the complexity of the type theory. %, will be justified.
+%
+% Moreover, advanced and experimental features, such as higher induction-recursion, will be clarified through the lens of our theory.
+
+At this point, the constructive and computational nature of our work and our use of two-level type theory will pay off: Our implementation will yield a compiler of a rich type theory
+%with concepts identified as syntactic sugar
+to a small core type theory.
+%
+Another important and direct consequence of the usage of two-level type theory is the justification of judgemental equalities in the target type theory, which will make it more usable in practice.
+%
+In this way, our investigations will solidify two-level type theory as a suitable framework for the meta-theoretic study and formalisation of type theories.
+In particular, the modular nature of our approach will ensure that our reductions can be extended to additional features that type theorists may consider in the future.
+%Not only will this equip us with a modular framework that is easily extendable reduction
+
+
+%The increased understanding of ordinals in type theory will also yield results on the proof-theoretic strength of type-theoretic systems and modern-day proof assistants such as Agda.
+
+\paragraph{Improving Agda}
+The above type-theoretic results will find application in improving %the enhancement of 
+the proof assistant Agda. %Specifically, we will improve the interactions between the user and Agda's termination checker, for which the
+%Specifically, we will improve the interactions between the user and Agda's termination checker, for which the
+Specifically, we will make easier to prove termination in Agda, for which
+% TODO. We no longer improve the interactions! Maybe it's vague enough?
+%
+%Previously, 
+the mechanism of sized types was previously introduced. %for this purpose. 
+However, a fundamental problem with this mechanism is that it is unsound. Building on our ordinal-theoretic work, we will provide a sound and principled replacement.
+
+\subsection{Quality, impact, and timeliness}
+
+\paragraph{Importance and quality} %within the field}
+% of type theory and constructive mathematics}
+The importance of our work is highlighted by the fact that it addresses and exposes fundamental connections between two strands of research: the semantics of inductive types, and ordinal theory.
+%
+The study of advanced inductive types such as higher inductive-recursive types is an ongoing, challenging and well-known topic at the core of HoTT.
+%
+Within the wider context of mathematical foundations, ordinals are a central subject, especially in traditional set theory.
+Many projects within type theory also require ordinals, as witnessed by the number of auxiliary implementations (see e.g.\ \cite{Chan2022,Eremondi2023}), but an overarching development connecting the various approaches is missing. Our work will rectify this.
+%
+The quality of our research is evidenced by the high level of rigour we aim for by producing formalised proofs, the depth and range of our ideas, the stature of our collaborators, the high esteem of the venues we publish in, and our ambitious plan to tackle problems such as the semantics of higher inductive-recursive types, which have been open since the beginning of HoTT. %as a subject.
+
+
+\paragraph{Beneficiaries and impact}
+%
+Our direct beneficiaries are constructive mathematicians and type theorists, especially those working within HoTT, who will benefit from the ordinal-theoretic tools we will develop.
+%
+This includes research groups at highly prestigious institutions such as Cambridge, Carnegie Mellon and Chalmers, and the steady growth of this community is demonstrated by over 2,000 participants of the recent HoTTEST online summer school.
+%
+Our improvements to the Agda proof assistant, which has over 55,000 downloads from the Hackage repository alone, will directly benefit all Agda users.
+
+% . Agda has had over 55,000 downloads from the Hackage software repository alone. %, and has over 150 contributors
+% %--- impressive for an academic software project.
+
+Further immediate impact of our project will be increased trust in, and usability of, proof assistants.
+One group of core beneficiaries of this aspect will
+be mathematicians working on the mechanisation of results such as the large community for formalised mathematics using the Lean theorem prover~\cite{mathlib2020}, a recent success of which includes Fields Medallist Scholze's Liquid Tensor Experiment~\cite{scholze:tensor}.
+
+Another group of beneficiaries will be software engineers working on formal verification, a line of work which is pursued at many major companies such as Amazon, Facebook and Google, and which undoubtedly will expand. Hence in the longer term, our project will benefit the wider society and the economy through higher quality software with fewer bugs and better correctness guarantees.
+For the %scientifically interested general
+broader public, we will present a lay explanation of our research on the Computerphile Youtube channel---which has over 2.3 million subscribers---working with its creator Sean Riley in Nottingham.
+
+
+
+\paragraph{Timeliness of the project}
+HoTT, the main setting of our work,
+has attracted much attention since the special year program at the Institute for Advanced Study in Princeton 2012/13.
+It features frequently at top conferences such as the flagship conference \emph{Logic in Computer Science}, where HoTT papers have appeared in every year since 2012.
+HoTT also has its own dedicated international annual workshop since 2015, its own international online biweekly seminar series since 2018, its own international conference since 2019,
+%and the online summer school 2022 with 2,000 participants mentioned above.
+and summer schools with up to 2,000 (online) participants.
+
+This project is highly timely. With more and more people using proof assistants (see for example the {Proof Assistants Stack Exchange} (\url{https://proofassistants.stackexchange.com/}) launched last year), it is vital to be able to trust their correctness. However, features such as sized types in Agda are currently built on ad-hoc foundations, which our project will replace with principled ones based on a theory of ordinals.
+%
+Recent advances also mean that it is now feasible to carry out this project: (i) proof assistants have improved, e.g., cubical Agda can now be used to define certain ordinals as higher inductive types~\cite{ordTCS}; (ii) we now have a better understanding of ordinals in type theory thanks to our recent line of work~\cite{NordvallForsbergXu2020ord,KrausNordvallForsbergXu2021ordHoTT,ordTCS,dejong-kra-nf-xu:set-type-ordinals},
+as well as the work by Escard\'o~\cite{TypeTopologyOrdinals}; and (iii) two-level type theory is now available as a framework~\cite{annenkov_capriotti_kraus_sattler_2023}.
+
+\section{Approach} %(Programme and Methodology)}
+
+Our methodology exploits the most recent results in type theory, enabling us to go significantly beyond the state of the art (\cref{state-of-the-art}). The project is structured into four work packages (\cref{work-packages}).
+%is laid out in the four work packages of~\cref{work-packages}.
+
+\subsection{State of the art}\label{state-of-the-art}
+The theory of ordinals has almost exclusively been developed in a classical (non-computational) framework since its inception in the 19th century.
+%
+In order to make the theory usable in programming, it is necessary to phrase and develop it in a constructive (computational) setting.
+This is a challenging endeavour because many results on ordinals make fundamental use of the non-computational axioms of excluded middle and choice.
+Moreover, in traditional settings each ordinal can be faithfully presented in various ways with each representation serving its own purpose.
+%  This is a challenging endeavour for several reasons. One of them is that many results on ordinals make fundamental use of the non-computational axioms of excluded middle and choice. Another is that in the traditional setting each ordinal can be faithfully presented in various ways with each representation serving its own purpose.
+%
+% This is a challenging endeavour for several reasons, e.g.\ many results on ordinals make fundamental use of non-computational axioms such as excluded middle and choice, and in the traditional setting, each ordinal can be faithfully presented in various ways with each representation serving its own purpose.
+Constructively, we can still define many of these representations (e.g., Brouwer trees~\cite{lombardi_ordinals} or Cantor normal forms~\cite{NordvallForsbergXu2020ord}), but we can no longer freely translate between them, and each representation exhibits unique properties.
+
+One such representation%(extensional wellfounded orders) % Shortened to wellorders by Tom on 21 July.
+, wellorders,
+has been studied by Escard\'o and collaborators~\cite{TypeTopologyOrdinals} in the constructive setting of homotopy type theory (HoTT), but this representation lacks essential properties needed for the type-theoretic applications suggested in this proposal.
+%
+Many other representations have been studied in isolation by various authors, see our overview in~\cite{ordTCS}, but no single representation will be sufficient for the proposed project because each aspect requires a particular set of computational properties. Hence, we need to establish the relations between all representations.
+%
+In \textbf{WP1}, we will therefore rigorously develop a pluriform approach to constructive ordinals.
+
+Reasoning about the meta-theory of HoTT is challenging.
+The standard approach is to study models of HoTT, often done in a set-theoretic foundation with pen and paper and without a computer formalisation.
+However, because our plan is to justify type-theoretic concepts in a formal setting, we need a framework in which we can study and computer-verify the meta-theory of type theories.
+%
+For our goals, the most promising such framework is a version of %dependent
+type theory itself.
+%
+Firstly, this makes our work amenable to formalisation in popular proof assistants and secondly, the %good
+computational properties of type theory ensure that our reduction will give rise to an implementable algorithm.
+%
+There are two existing approaches to studying a type theory (the object theory) in another type theory (the host theory): shallow and deep embeddings. % of the object theory into the host theory.
+%
+A shallow embedding allows for good computational behaviour of the object theory, but also forces the object theory to inherit constructs from the host theory~\cite{PfenningElliot1988}, which makes any reduction pointless.
+A deep embedding allows the object theory to be totally different from the host theory, which is what we need; however, in practice, our project is unfeasible using deep embeddings due to the lack of computational behaviour and the resulting ``transport hell''~\cite{KapKovKra:embedding}.
+A sweet spot that enjoys some of the advantages of both approaches
+%that enjoys some of the desirable advantages of both approaches
+is \emph{two-level type theory (2LTT)}, which combines object theory (HoTT, the ``inner'' level) and host theory (a type theory with uniqueness of identity proofs (UIP), the ``outer'' level) into a single type theory.
+%
+The setting of 2LTT makes it possible to extract algorithms from our reduction and moreover, 2LTT has good semantics as any model of HoTT can be embedded into a model of 2LTT~\cite{annenkov_capriotti_kraus_sattler_2023}.
+%
+So far, 2LTT has been used to perform constructions that are not possible in the standard syntactic formulation of HoTT, but require additional assumptions validated by certain models.
+% that can be found in certain models.
+%Thus, 2LTT has so far been used to extend HoTT.
+%, it has so far not been used to study its meta-theory.
+However, in \textbf{WP2}, we will repurpose 2LTT to study the meta-theory of HoTT.
+%We will find a suitable configuration of the 2LTT framework so that our results on constructive ordinals can be applied on the two levels: that of the object and of the host theory.
+%
+%Making this possible is exactly what we do in \textbf{WP2},
+%where we find a suitable configuration of the 2LTT framework so that our results on constructive ordinals can be applied on the two levels: that of the object and of the host theory.
+This will enable us to employ the results from {WP1}---obtained by working \emph{in} HoTT---to reason \emph{about} HoTT, making the latter tractable.
+
+Inductive constructions are at the heart of dependent type theory. When giving semantics to a type theory in set theory, these inductive definitions are justified by indexing approximations with ordinal numbers~\cite{aczelinductive}.
+This remains true even when using category-theoretical abstractions such as initial algebras or containers~\cite{abb-alt-gha:containers}.
+%
+We identify two problems with giving such semantics: (i) it is informal and not backed up by computer verification, and (ii) it is not modular and needs to be redone whenever one wants to extend the given type theory.
+%
+Our approach in \textbf{WP3} solves both of these shortcomings by developing a core type theory with an inherent notion of ordinals, to which other type theories can be reduced in a computer-verified way.
+%
+Our development also generalises the results by Fiore, Pitts and Steenkamp~\cite{FiorePittsSteenkamp2022} to HoTT and to more general classes of inductive types. %quotient inductive-inductive types.
+
+
+
+% 6 July: Actually, we don't solve this problem. And the related problem of QITs is partially solved by Pitts et al., so we sacrify the paragraph.
+%%%
+% More specific to HoTT are \emph{higher} inductive types, extending the concept of inductive types. While they are a central concept of HoTT, giving semantics to them and proving their consistency in general is an open problem of the HoTT community.
+% While general higher inductive types have been specified~\cite{Ambrus-Andras}, the current state of the art is that only \emph{specific} higher inductive types (such as the circle) have been constructed in \emph{specific} models (such as the model in cubical sets)~\cite{Thierry}. Our framework will allow us to
+%
+% Discussion of the relationship of our plan with the Pitts papers
+% (1) QUOTIENTS, INDUCTIVE TYPES, & QUOTIENT INDUCTIVE TYPES
+% (2) Constructing Initial Algebras Using Inflationary Iteration
+% 2 has a category C, which can be seen as the inner level of a 2LTT. Difference to our work: They need to assume cocontinuity of the functor because they don't assume that C is an actual type theory; the hard bit for us is to drop the cocontinuity assumption, which requires honest reasoning about C (which, as we said, is hard).
+% 1 does some approximation of what we want to do but necessarily works in ext TT with WISC, as one level is missing.
+
+To ensure correctness, proof assistants based on type theory, such as Agda, require that all functions terminate. In practice this is enforced by a termination checker which works by validating syntactic criteria. This approach is rather limited however, and many
+functions that \emph{do} terminate do not meet these strict syntactic criteria. This means that there are bona fide functions that a user would want to write which are not accepted by the proof assistant, requiring the user to find cumbersome workarounds.
+%
+This is a longstanding problem that developers of proof assistants have attempted to solve through so-called \emph{sized types}, spanning a line of work from~\cite{HughesParetoSabry1996} to~\cite{ChanLiBowman2023}. So far, the only major proof assistant that has incorporated them is Agda. Unfortunately, this %specific
+implementation introduces inconsistencies in Agda~\cite{Agda-sized-types-unsound}, undermining the very raison d'\^etre of proof assistants.
+In \textbf{WP4} we build on the theoretical work of the preceding work packages and enhance Agda's usability by implementing a principled and logically sound replacement of Agda's %current
+sized types.
+%
+% In \textbf{WP4} we supplement the theoretical work of the preceding work packages by using it to implement a principled and logically sound replacement of Agda's current sized types, thus enhancing Agda's user experience.
+
+
+
+\subsection{Work packages}\label{work-packages}
+
+Our four work packages address the project outcomes of~\cref{project-outcomes} as follows: in {WP1} we develop mathematical foundations that we then apply to type theory in {WP2} and {WP3}, while {WP4} realises the goal of improving Agda.
+%
+%The description of each work package is followed by a discussion of collaborators, risk mitigation and deliverables.
+%
+Each work package has a deliverable acting as a clear success criterion, associated world leading collaborators, and a discussion of risk mitigation.
+%and an appropriate methodology to deliver success.
+
+
+% 19 July: Nicolai and Tom decided that this sentence did not add much.
+%Overall, risk is minimised since we and our world-leading collaborators are experts in the topics proposed, and we also discuss specific risks and their mitigation in each work package.
+
+\subsubsection*{WP1: A theory of constructive ordinals}
+\vspace*{-0.25em}
+This WP develops a constructive theory of ordinal numbers in HoTT. Since there are many notions of ordinals in constructive mathematics, we opt for a %take a 
+pluriform approach. %seriously.
+% This entails a comprehensive and comparative study of ordinal number representations including the unique properties of each such representation.
+%
+We will not study the different concepts in isolation, but also identify how they compare and connect to each other.
+%
+This will allow the transferal of results from one representation to another, or yield proofs of when this is not possible.
+
+In preliminary work~\cite{ordTCS}, we have introduced the study of Cantor normal forms and Brouwer trees, comparing them to wellorders, which form the notion of ordinal in~\cite{hott-book}. To gain a more comprehensive understanding, we will investigate several other important classes of ordinals: Taylor's plump ordinals~\cite{Taylor1996}, ordinals based on more powerful notation systems such as Veblen normal form, and von Neumann ordinals. We have shown that the latter are exactly the wellorders in sufficiently rich foundations~\cite{dejong-kra-nf-xu:set-type-ordinals}, but we are interested in their properties also in minimal settings.
+In more detail, we will study the
+(i) arithmetical,
+(ii) order-theoretical, and
+(iii) decidability
+properties of each notion of ordinal.
+%
+For (i), these properties clarify how the notion of ordinal generalises the algebra of the natural numbers. In particular, we will determine whether exponentiability is constructively definable.
+%
+On the other hand, item (ii) stresses how ordinals extend the order of the natural numbers. Here we are interested in properties such as generalised transitivity which is at the heart of Taylor's plump ordinals, but which fails for many other representations.
+%
+Finally, our focus on decidability (iii) is a consequence of working in a constructive setting. For example, it is desirable to be able to decide whether an ordinal is finite; while this is indeed possible for Brouwer trees, it is not for all wellorders~\cite{ordTCS}.
+To deal with subtleties arising from these different presentations of ordinals, we will formalise our work in Agda.
+
+%%% removed because it also features in WP2 anyway.
+%Of course, the properties of each representation are sensitive to our underlying foundational assumptions. For example, the theory of simulations yields a natural structure on the type of wellorders which is antisymmetric only if one gives up on UIP. Therefore, we will carry out our investigations in a minimal setting and carefully keep track of the logical axioms employed.
+
+
+% \paragraph{Collaborators}
+% We will collaborate with Mart\'in Escard\'o and Chuangjie~Xu.
+% Escard\'o is an excellent collaborator because of previously successful collaborations and his extensive, formalised research on the theory of wellorders~\cite{TypeTopologyOrdinals}. %and he has previously successfully collaborated with two of the investigators.
+% Previous preliminary work with Xu on this topic was highly successful, resulting in several top quality publications~\cite{NordvallForsbergXu2020ord,KrausNordvallForsbergXu2021ordHoTT,ordTCS,dejong-kra-nf-xu:set-type-ordinals}.
+
+% \paragraph{Risk}
+% While the scope makes this work package ambitious, our recent publications and track record evidence that the work carries a low risk, as is appropriate for a first work package.
+
+\paragraph{Collaborators}
+We will collaborate with Mart\'in Escard\'o, with whom we have previously worked successfully, benefiting from his extensive, formalised research on the theory of wellorders~\cite{TypeTopologyOrdinals}. %make him the perfect choice. %and he has previously successfully collaborated with two of the investigators.
+
+\paragraph{Risk}
+While the scope makes WP1 ambitious, our recent publications~\cite{NordvallForsbergXu2020ord,KrausNordvallForsbergXu2021ordHoTT,ordTCS,dejong-kra-nf-xu:set-type-ordinals} and track record evidence that the work carries a low risk, as is appropriate for a first WP.% work package.
+
+% Moreover, previous work with our visiting researcher Chuangjie Xu on this topic was highly successful, resulting in several top quality publications~\cite{NordvallForsbergXu2020ord,KrausNordvallForsbergXu2021ordHoTT,ordTCS,dejong-kra-nf-xu:set-type-ordinals}.
+
+
+
+\paragraph{Deliverable} 
+A comprehensive 
+theory of constructive ordinals in HoTT, formalised in Agda.
+
+% An Agda verified library for reasoning and programming with constructive ordinals.
+%, consisting of several different notions of ordinals and the relations between them
+
+
+% \begin{enumerate}
+% 	\item keep track of assumptions
+% 	\item take \underline{pluriform approach} seriously and make use of it:
+% 	\begin{itemize}
+% 		\item Ord (needs, to some extend, univalence)
+% 		\item Brw
+% 		\item Cnf
+% 		\item set-theoretic (not necessarily the same as Ord in a minimal setting)
+% 		\item Plump
+% 	\end{itemize}
+% 	This builds directly on our previous work (feasibility/risk)
+% 	\item universes vs cardinals (contributes directly to the understanding of type theory)
+% \end{enumerate}
+
+% Goal tracker:
+% \begin{itemize}
+% 	\item addresses goal 1
+% 	\item prerequisite of goal 2
+% 	\item deliverable'' Agda-verified library of constructive ordinal theory + the same on paper
+% \end{itemize}
+
+% Success criteria (?):
+% \begin{itemize}
+% 	\item ordinal of plump ordinals
+% 	\item identify minimal setting (counter-examples, e.g.\ antisymmetry of Ord implies $\neg$UIP)
+% \end{itemize}
+
+
+\subsubsection*{WP2: A powerful setting for meta-theoretic reasoning}
+\vspace*{-0.25em}
+Our goal is to use the theorems developed in WP1 in two roles: first, as a theory of ordinals in HoTT and second, as results that let us study the meta-theory of HoTT.
+% for the study of HoTT, namely in the object and in the meta-theory.
+%A framework that combines object and meta-theory is \emph{two-level type theory (2LTT)}, which comes with one type theory for the
+%
+In this WP, we will repurpose two-level type theory (2LTT) to make such a dual role development possible.
+% by finding a suitable configuration of the framework.
+% Besides allowing us to formalise our results, this setting
+% % (with UIP on the outer level)
+% justifies additional judgmental equalities.
+
+Our first step will be to identify how the theory of WP1 can be generalised to a setting that is compatible with both levels of 2LTT---concretely, we want a theory of ordinals that works in HoTT as well as in a type theory with UIP.
+%
+For example, for wellorders, the assumption of univalence can in some cases be replaced by the weaker assumption of pre-univalence~\cite{TypeTopologyOrdinals}, which follows from each of the incompatible principles UIP and univalence independently.
+%
+Similarly, our theory of Brouwer trees only requires univalence for propositions, which is frequently assumed together with UIP.
+%
+To make sure that we have identified the weakest possible assumptions, we will show that they are necessary by proving them equivalent to the statements they entail, in the style of reverse mathematics.
+
+Informed by these results, we will construct a version of 2LTT that satisfies the identified assumptions at the outer level, i.e., the level representing the meta-theory.
+%
+This is not just a handle-turning exercise, as we also need to ensure that the theory we end up with is strong enough to carry out the arguments we perform in WP3.
+%
+For example, to justify induction for HoTT, we can use a principle stating that a sequence of inner types, indexed over an outer ordinal, has a colimit (again on the inner level); and in order to capture \emph{exactly} the inductive types, we can restrict this principle to certain well-behaved sequences, such as specific sequences of cofibrations (in the sense of 2LTT).
+%
+For even stronger versions of induction, we expect that the smallest outer universe should contain all inner
+%(aka ``fibrant'')
+universes to avoid limitations related to G\"odel's incompleteness results.
+%
+We will prove that our version of 2LTT is consistent by constructing a presheaf model, and extend Hofmann's conservativity theorem~\cite{hofmann_conservativity} to justify treating strict equalities as judgmental equalities in the object theory.
+%, which we can implement in Agda using rewrite rules.
+%
+Agda has experimental 2LTT support, which we will build on to create a version of Agda implementing our variant of 2LTT. To do so, we will use a combination of postulates, rewrite rules and modifications to Agda's source code.
+
+
+% OLD
+% Rewrite rules can also be added for additional judgemental equalities in the object theory, since, by Hofmann's conservativity result~\cite{hofmann_conservativity}, any strict equality can play that role.
+
+\paragraph{Collaborators}
+We will work with Christian Sattler, an expert on categorical models of type theory and, in particular, on 2LTT.
+For modifying Agda, we will work with Jesper Cockx, who is one of the main Agda developers and the author of the existing experimental Agda 2LTT support.
+
+
+\paragraph{Risk}
+The main difficulty of WP2 is to construct a suitable setting for WP3, and the risk is that the full set of needs will only become clear when attempting WP3.
+% The main difficulty of WP2 is to construct a setting that is suitable for the work carried out in WP3, and the risk is that the full set of needs will only become clear when attempting WP3.
+Therefore, we plan to interleave work on WP2 and WP3, %constantly
+re-evaluating requirements and feasibility as needed (cf.\ our timeline).
+%
+While it could technically be possible that no form of 2LTT is suitable,
+% because the set of requirements is inconsistent,
+our pluriform approach to ordinals mitigates this risk since it gives us alternatives if one version fails.
+% In the extreme case, it could be that actually no form of 2LTT is suitable because the full set of requirements is inconsistent. This is mitigated by our pluriform approach to ordinals, giving us
+% alternatives if one version fails.
+%if one version of ordinals fails, another one will work.
+%we expect that, in each case, at least one version of ordinals will work.
+%in each case, at least one version of ordinals should work.
+%
+%%% Replaced by the sentence below as this is not an actual example.
+%For example, the type of wellorders is not extensional in the presence of UIP; however, extensionality up to setoid equality can still be shown.
+For example, while the type of wellorders is not extensional in the presence of UIP, the type of Brouwer trees is.
+
+%RISK: for some types of ordinals, it could be that no form of 2LTT is suitable, e.g.\ Ord is not antisymmetric with K. Mitigated by:
+%\begin{itemize}
+%	\item Pluriform approach; may not need Ord
+%	\item work with Ord as setoids; the important bit is wellfoundedness.
+%\end{itemize}
+
+
+%%% not needed:
+% risk: dependence on Agda developers; mitigation: collaborators such as Jesper Cockx, Andreas Abel, and failure is not a showstopper.
+
+
+\paragraph{Deliverable}
+A powerful variant of 2LTT that enables formal reasoning about the meta-theory of HoTT.
+%
+%A powerful setting that allows formal reasoning about the meta-theory of HoTT, in the form of a variant of two-level type theory. %, implemented as a modified version of the Agda proof assistant.
+%
+%A variant of two-level type theory that can be used as a powerful setting to reason about HoTT, implemented as a modified version of the Agda proof assistant.
+
+%\underline{setting} for goal 2. (Formalisable as an added benefit!)
+
+%Deliverable: extended theory of 2LTT as a powerful tool to reason about HoTT.
+
+%\paragraph{a. identify principles needed for the different kinds of ordinals}
+%
+%e.g.:
+%\begin{itemize}
+%	\item  for Brw: propositional extensionality + QIIT + funext; this is compatible with K \underline{and} univalence
+%	\item for Ord: pre-univalence (follows from K and follows from univalence)
+%\end{itemize}
+%reverse mathematics: show that the principles are necessary
+
+%\paragraph{b. 2LTT}
+%
+%\begin{itemize}
+%	\item (previous work: use 2lTT to study and formalise type theory)
+%	\item use point a to work out what works (and is consistent) on the outer and inner levels, e.g.\ with K, Ord would be a setoid.
+%	\item which form of 2LTT is suitable (and consistent), e.g.\ we expect that the smallest outer universe should contain all inner universes, so that one can have powerful inductive constructions on the inner level.
+%	\item (old point from a previous version:) Need to justify why 2LTT is the correct setting. An %alternative might be to combine outer and inner level, but that would mean that we'd be restricted because of G\"odel. See the point above.
+%\end{itemize}
+
+
+\subsubsection*{WP3: Applications of ordinals to type theory}
+\vspace*{-0.25em}
+We will now apply the formal framework developed in WP2 to show how standard inductive types, as well as novel and experimental features introduced by HoTT, can be constructed from the assumption that ordinals and certain colimits of ordinal-indexed sequences exist.
+
+In more detail, our plan has the following outline:
+We start by considering an inductive type as presented by a functor. At first, we will assume it to be \(\lambda\)-cocontinuous for some ordinal \(\lambda\).
+Iteratively applying the functor yields an \(\lambda\)-indexed sequence for which we take the colimit which we know to exist by virtue of WP1 and WP2. This colimit yields the initial algebra of the functor in the usual way.
+%
+%The difficulty here is to identify the appropriate constructive notion of ordinal for this argument to work in the 2LTT setting.
+%
+Second, we wish to calculate an ordinal \(\lambda\) such that the given functor is indeed \(\lambda\)-cocontinuous. This step is challenging because we are working in a constructive framework. However, recent results by Pitts and Steenkamp~\cite{PittsSteenkamp2022}, do indicate that such calculations are feasible.
+%
+Whereas Pitts and Steenkamp make use a version of plump ordinals, our exploration of the pluriform notions of ordinals, for example making use of generalised Brouwer trees, will enable us to go even further.
+% It is noteworthy that Pitts and Steenkamp make use a version of plump ordinals and we expect that our exploration of the pluriform notions of ordinals will be instructive and guide us.
+%For example, generalised Brouwer trees could help us avoid a certain (weak) choice axiom (WISC) that is assumed by Pitts and Steenkamp. (???)
+
+Having constructed inductive types using ordinal-indexed iterations, and building on a classical result by Trnkov\'a~\cite{AdamekMiliusMoss2018}, we will identify which ordinal-indexed iterations give rise to inductive types. %We will do so building .
+This identification will yield a correspondence between ordinals and inductive types that is as tight as possible, proving that we construct exactly the inductive types of HoTT and not more.
+%
+It is then natural to extend this correspondence to a family of correspondences where we find semantic, ordinal-theoretic analogues of syntactic, more powerful inductive schemes, such as quotient-inductive types and inductive-recursive types, by ``internalising'' our previous work~\cite{Altenkirch2018,fibredData}.
+
+% (1) Assume we have a functor, assume it is \-continuous for some \.
+%     Assume that all 'well-behaved' sequences have colimits. 'Well-behaved' could mean functorial or a sequence of cofibrations
+%     => justifies that the initial algebra of the functor exists in the usual way.
+% (2) Find the \.
+% (3) Show that this gives exactly the inductive types of HoTT (and not more).
+% (4) Establish the relation between 'well-behaved' and the notion of inductive types (qiits etc) we get.
+%     Investigate 'semantic' versions of 'well-behaved', e.g. containers ~ functor preserved by pullbacks
+
+\paragraph{Collaborators}
+We will collaborate with Andy Pitts who is an excellent and very natural choice given his previously cited work. To complement Pitts' expertise on semantics, we will also work with Ambrus Kaposi, who is a world-leading expert on the syntax of higher inductive types.
+
+\paragraph{Risk}
+A potential risk of WP3 is that we are unable to use our ordinal-theoretic techniques to justify higher inductive-inductive(-recursive) types. This risk is mitigated by the fact that Nordvall Forsberg and our collaborator Kaposi are experts on inductive-recursive and higher inductive-inductive types.
+
+\paragraph{Deliverable} %A computer-verified justification of (higher) inductive constructions in type theory.
+A justification of inductive types through a reduction to ordinals, formalised using 2LTT.
+
+
+\subsubsection*{WP4: Improving termination checking in the proof assistant Agda}
+\vspace*{-0.25em}
+% (old todo, which is now adressed a bit better in WP2: in WP2, we argue that we can justify new judgmental equalities; here, we could say that Agda has heuristics (and the REWRITE pragma), so we could enable them in justified places (-> user experience).)
+This work package, designed to maximise impact, will enhance the usability of Agda by developing a principled and fundamentally sound alternative to Agda's sized types using our constructive theory of ordinals.
+%Researchers and programmers in type theory will benefit from improved termination checking and will no longer have to resort to ad-hoc workarounds.
+%
+Indeed, the semantics of our implementation will be guaranteed by the model constructed in WP2. Moreover, the general theory of WP1 and WP3 will guide our replacement of sized types and provide it with the required theoretical underpinnings.
+%
+Chan~\cite{Chan2022} has shown that finite ordinals can be used as sizes in this way, but we will need to go beyond finite ordinals in order to support infinitary inductive types.
+%
+This will require a careful balance between power and decidability: infinite ordinals do not usually have desirable properties such as decidability of the order relation, which are needed for decidable type-checking in an implementation.
+%
+Once again, our pluriform approach comes to the rescue in the form of specialised ordinal notation systems with better decidability properties, e.g.\ Brouwer trees are more decidable than arbitrary wellorders~\cite{ordTCS}.
+%
+A benefit from having formalised the results of the previous work packages is that it will facilitate a smooth transition to practical implementation in Agda. This transition is made possible since developments formalised in type theory enjoy good computational properties and are necessarily fully rigorous and precise.
+
+
+\paragraph{Collaborators}
+For the practical implementation we will collaborate with core Agda developers Andreas Abel and Jesper Cockx.
+%
+We have previously worked successfully with both Abel and Cockx at Agda Implementors' Meetings. In addition, Abel is an expert on Agda's sized types.
+%and both have contributed to an experimental implementation of 2LTT in Agda.
+
+\paragraph{Risk}
+Like all software development, implementation in Agda may prove challenging and time-consuming, but we mitigate this risk by working with two core Agda developers, hosting two Agda Implementors' Meetings, and employing an RA with particular focus on implementation.
+%
+%In particular, our setting justifies judgmental equalities (but does not show how they can be implemented).
+
+
+\paragraph{Deliverable} A principled and sound replacement of sized types, improving trust in Agda.
+
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Workplan}
+\makeatletter
+\begin{center}
+%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+%  \centerline{\rule{185mm}{.5mm}}
+{\Large {\bf \centerline{\@title: Workplan}}}
+\centerline{\rule{165mm}{.5mm}}
+\end{center}
+\makeatother
+
+\begin{center}
+\begin{ganttchart}[
+hgrid,
+%vgrid,
+%canvas/.style={draw=none},
+expand chart=16cm,
+bar height=1,%0.8,
+bar top shift=0,
+title height=1,
+y unit title=0.75cm,
+y unit chart=0.75cm,
+bar label font=\small,
+bar/.style={draw=black},
+title label font=\small,
+%title/.style={fill=none},
+]{1}{8}
+\gantttitle{Year 1}{2}
+\gantttitle{Year 2}{2}
+\gantttitle{Year 3}{2}
+\gantttitle{Year 4}{2}\\
+\ganttbar[inline, bar/.append style={fill=strathColour}]{S}{1}{2}
+\ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+\\
+\ganttbar[inline, bar/.append style={fill=nottColour}]{N}{1}{5}
+\ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
+\\
+%
+\ganttbar[inline, bar/.append style={fill=nottColour}]{N}{3}{8}
+\ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+\\
+\ganttbar[inline, bar/.append style={fill=strathColour}]{S}{5}{8}
+\ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+\\
+% \ganttnewline \\
+\ganttbar[bar/.append style={draw=none}]{Team meetings}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
+\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
+\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{5}{4}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{6}{5}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
+\\
+%\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{5}{8}
+\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{3}{8}
+\ganttvrule{AIM Nottingham}{4}
+\ganttvrule{AIM Strathclyde}{7}
+\end{ganttchart}
+\end{center}
+\vspace*{-0.2in}
+{\small
+\hspace*{2cm}{(N = Nottingham lead, S = Strathclyde lead, \deliv\, = Deliverable, $\solidbowtie$ = In-person team meeting)}
+}
+
+\vspace*{0.1in}
+\paragraph{Work package relationships and duration}
+%
+The above Gantt chart is designed taking the following relationships
+between the work packages into account.
+%
+WP1 starts immediately, as it has no prerequisites, and we already
+have ideas to pursue from our recent
+work~\cite{ordTCS,dejong-kra-nf-xu:set-type-ordinals}.
+%
+WP2 is a key work package, and so we also start it immediately.
+%
+We stagger the start of WP3, so that WP2 has time to produce results.
+%
+However we make sure to leave a significant overlap between WP2 and WP3,
+so that the requirements from WP3 can feed back to WP2 as needed.
+%
+The more practical WP4 starts in the second half of the project, where
+it can build on the results from the earlier work packages.
+
+
+In terms of duration, we expect to spend most time in WP3 since it involves formalising the meta-theory of type theory, a direction that is generally very challenging and time-consuming.
+%
+Similarly we have allocated plenty of time for WP2 and WP4, as they
+both involve significant software implementation work.
+%
+WP1 is our shortest work package, as it is building on our recent work.
+%
+The Strathclyde RA will focus on the implementation work arising in the second half of WP2 and in WP4, and so we maximise cost efficiency
+by starting them in Year 2 (see \emph{Justification of Resources}).
+
+
+\paragraph{Leadership and team meetings}
+%
+WP1 will be led by Strathclyde, giving Nottingham the time to lead on WP2, which will start simultaneously.
+%
+Kraus's expertise on 2LTT makes it natural for Nottingham to lead on WP2.
+%
+Since WP3 is intimately connected with WP2, Nottingham will lead also on WP3, while Strathclyde, thanks to the available local expertise, is the perfect place to focus on the more implementation heavy WP4.
+%
+Nevertheless, all investigators will work closely on all work packages:
+(i) we have a track record of working very well together;
+(ii) we will continue to have frequent Zoom meetings, complemented by two face to face group meetings per year; and
+(iii) our skillset is sufficiently broad so that we can all contribute to each work package.
+%
+The team meetings will each last for four days and will alternate between Nottingham
+and Strathclyde, as indicated in the Gantt chart.
+%
+Our visiting researcher Chuangjie Xu will join the team meetings in Nottingham.
+% meet us in Nottingham and because his
+% expertise is especially relevant at the start of the project, our first team
+% meeting will take place in Nottingham.
+
+\paragraph{Timing of Agda Implementors' Meetings (AIMs)}
+%
+We will host two Agda Implementors' Meetings during the duration of the grant: one at Nottingham at the end of Year 2, and one at Strathclyde after 3.5 years.
+%
+Not only will this be beneficial for our community, it will give us an additional opportunity to disseminate our results, have discussions with other experts in the field, and give us unique access to the entire Agda development team.
+%
+We will also use these meetings to introduce the Strathclyde RA to the research community, and give them the responsibility of organising the second meeting.
+%
+This will provide the RA with valuable organisational skills and community recognition
+%%% Nicolai: I've shortened this sentence, but if you don't like it, feel free to change it back!
+% which will help them in
+for
+their future career.
+
+% \pagebreak
+
+% {\color{red}The references section will \textbf{not} be part of this document when submitting to EPSRC. Instead, references now have to be submitted in their own section (1000 words).}
+
+% \printbibliography
+
+\end{document}

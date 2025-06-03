@@ -1,0 +1,49 @@
+The mathematical formalisation of software can prevent costly bugs by equipping programs with computer-checked proofs of correctness. Homotopy type theory (HoTT), a constructive foundation for mathematics and verified programming, offers one approach to large-scale formalisation. Unfortunately, many required extensions to HoTT are added in an ad-hoc fashion, leading to poorly understood semantics. For example, the addition of sized types to HoTT, as implemented in the language Agda, has made the system inconsistent. Our proposed solution to such foundational problems is to justify extensions of HoTT using the theory of transfinite ordinals, which forms the theoretical foundation for analogous concepts in set theory. We will first develop a completely constructive and computational account of ordinals that we can then apply to HoTT, which will in turn support practical improvements for Agda.
+
+---BEGINNING OF NEW SUMMARY
+
+The formalisation of software can prevent costly bugs by equipping programs with computer-checked proofs of correctness. Similarly, in mathematics, one can achieve the highest level of possible rigour by formalising arguments in computer proof assistants. Homotopy type theory (HoTT), a constructive foundation for mathematics and verified programming, offers one approach to large-scale formalisation.
+
+Inductive constructions of new datatypes are the most powerful feature that type theories offer, allowing the user to specify and work with the complex structures that naturally arise in programming and mathematics. HoTT goes beyond this significantly and extends the toolset with higher/quotient inductive types and variations thereof, such as quotient inductive-recursive types, and additional extensions are frequently proposed. Unfortunately, many of these extensions are added in an ad-hoc fashion, leading to poorly understood semantics. In particular, it is unclear which extensions are compatible with each other, and how they can be combined.
+
+Traditionally, inductive constructions are justified by the mathematical theory of ordinal numbers that generalise ordinary counting beyond finite numbers into the transfinite. The theory of ordinal numbers has been studied since the inception of set theory at the end of the 19th century, with far-reaching applications in mathematical logic and proof theory. However, this development relies fundamentally on noncomputational principles and it is not computer-checked. This means that the existing theory of ordinals cannot be used to computer-check the soundness of extensions of HoTT. Therefore, we propose to rigorously develop a computational (more precisely, constructive) theory of ordinals that can do exactly this.
+
+A key challenge of our work is that ordinals appear in two different roles: First, as an object of study inside a certain type theory, and second, as a device outside the type theory we want to study. To overcome this difficulty, we will repurpose two-level type theory (2LTT), a recent framework that was originally developed for studying extensions of HoTT. Our approach is based on the new observation that 2LTT can also be used for researching the meta-theory of a given type theory. Hence, 2LTT provides an interface for rigorous reasoning on both the inside and outside levels, allowing us to combine both roles in a single development.
+
+Our three overarching outcomes are:
+
+1. **Mathematical foundations for constructive ordinals.** The constructive nature of our work gives rise to a spectrum of notions of ordinals that we will study comprehensively in HoTT. To achieve the highest levels of rigour, we will computer-check our theory using the proof assistant Agda.
+
+2. **Applications to type theory.** We will provide a justification for type theory itself by reducing fundamental features to ordinal-theoretic observations. This reduction will be fully computer-checked, thanks to our use of 2LTT, and the modular nature of our approach will ensure that our results can be extended to additional features that future type theories may include.
+
+3. **Improvements to implementations of type theory.** As an application of our results, we will increase the trust in the major proof assistant Agda. To justify certain inductive constructions, sized types were previously introduced. While well-understood in simpler settings, their extension to HoTT is not. In fact, their current implementation in Agda is inconsistent, undermining the very promise of a proof assistant when combined with this feature. Our ordinal-theoretic work will result in a sound and principled alternative to Agda's current implementation of sized types.
+---END OF NEW SUMMARY
+
+
+
+Our results will find application in the increased trust of the major proof assistant Agda, as our ordinal-theoretic work will result in a sound and principles alternative to Agda's current implementation of sized types.
+
+As an application of our results, we will increase the trust in the major proof assistant Agda. Our ordinal-theoretic work will result in a sound and principled alternative to Agda's current implementation of sized types.
+
+Our results will find application in the enhancement of the proof assistant Agda by addressing a well-known and significant problem with Agda’s sized types.
+While certainly useful, this advanced, transfinite feature of Agda was found to be unsound, undermining the correctness guarantee that a system such as Agda promises.
+The theory of ordinals that we will develop provides a sound and principled alternative to this desirable feature.
+
+The theory of ordinals that we will develop provides a sound and principled implementation of this desirable feature, replacing Agda's unsound sized types.
+
+
+--- OLD
+
+Dependent type theories are used to computer-check mathematical statements and their proofs, and to equip a program with a rigorous specification, resulting in software that is guaranteed to be free from bugs. A key feature of such theories is the ability to specify new constructions as inductive datatypes. Traditionally, this is justified via the mathematical theory of ordinal numbers, which generalise ordinary counting beyond finite numbers into the transfinite.
+
+The theory of ordinal numbers has been studied since the inception of set theory at the end of the 19th century, with far-reaching applications in mathematical logic and proof theory. However, this development relies fundamentally on noncomputational principles and it is not computer-checked. This means that the existing theory of ordinals cannot be used to computer-check the correctness of dependent type theories. Therefore, we propose to rigorously develop a computational (more precisely, constructive) theory of ordinals which can do exactly this. We will work in homotopy type theory (HoTT), a recent and very successful version of dependent type theory.
+
+Interestingly, we can also use our development to reason about type theory itself. The complication here is that ordinals appear in two very different roles: First, as an object of study inside a given type theory, and second, as a device outside the type theory we want to study. We will exploit two-level type theory (2LTT), a very recent type theory providing an interface for rigorous reasoning on both the inside and outside levels, allowing us to combine both roles in a single development.
+
+We have three objectives:
+
+1. **To develop mathematical foundations for constructive ordinals.** The constructive nature of our work gives rise to a spectrum of notions of ordinals that we will study comprehensively in HoTT. Moreover, to achieve the highest levels of rigour, we will computer-check our theory using the proof assistant Agda.
+
+2. **To apply our development to type theory.** We will provide a justification for type theory itself by reducing fundamental features to ordinal-theoretic observations. This reduction will be fully computer-checked, thanks to our use of 2LTT, and the modular nature of our approach will ensure that our results can be extended to additional features that future type theories may include.
+
+3. **To improve implementations of type theory.** Our results will find application in the enhancement of the proof assistant Agda by addressing a well-known and significant problem with Agda’s sized types. While certainly useful, this advanced, transfinite feature of Agda was found to be unsound, undermining the correctness guarantee that a system such as Agda promises. The theory of ordinals that we will develop provides a sound and principled alternative to these sized types.

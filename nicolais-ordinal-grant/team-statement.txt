@@ -1,0 +1,40 @@
+# BEGIN TEXT
+
+The core team consists of Nicolai Kraus (Royal Society University Research Fellow and Associate Professor), Fredrik Nordvall Forsberg (Chancellor's Fellow and Lecturer), Tom de Jong (PDRA), and visiting researcher Chuangjie Xu (industry scientist, SonarSource).
+
+(1) Research track record: generation of new knowledge
+
+Kraus is known for answering difficult questions, and developing new theories. An example of the former is his solution to an open problem of the special year on Univalent Foundations (Princeton 2012/13), for which he received the Ackermann Award 2016 [CD16]. An example of the latter is two-level type theory [Ann+23], originally suggested for the study of extensions to HoTT, but repurposed and of central importance for the proposed project. Kraus holds a University Research Fellowship, the Royal Society's flagship fellowship for future leaders (up to £1.8M funding over up to 8 years). Kraus has been invited to major research meetings at centres including IAS Princeton, IHP Paris, Hausdorff Institute Bonn, Schloss Dagstuhl, CIRM Luminy, and CAS Oslo, given numerous invited talks, and published at the most prestigious venues in the area, including six papers at the flagship conference LICS in the last seven years.
+
+Nordvall Forsberg is an expert on the semantics of inductive definitions, such as inductive-inductive and inductive-recursive types. His work on sound and complete semantics for parametricity was awarded the 2016 ETAPS Best Theory Paper Award out of 473 submissions. He has also contributed to the implementation of several software projects, including the warning machinery of Agda, and leading the TypOS and LabMate projects, funded by a £600k Measurement Fellowship by the National Physical Laboratory (NPL). He was also recently awarded £650k as a co-I on the EPSRC project EP/Y000455/1 "A correct-by-construction approach to approximate computation" to develop approximate type theories.
+
+Despite only receiving his PhD this year, de Jong is already known in the type theory community with seven publications at competitive venues, one of which won the best paper award by a junior researcher. In 2021, he received the HoTT Dissertation Fellowship [Awo21], worth $18k and selected by a committee of leading experts. In 2023, he won the Postdoctoral Research Award by Nottingham's Faculty of Science for work on our joint paper on ordinals in HoTT [JKNX23].
+
+Although working in industry since the completion of his Humboldt postdoctoral fellowship 2017-2020, Xu is very active academically. He is regularly invited to speak at prestigious research meetings, e.g. at CIRM Luminy 2023, is part of the organisation of the annual Proof and Computation autumn school, and has several recent top-tier publications.
+
+We, the project core team, have worked together on constructive ordinals since 2018. This has resulted in high-quality publications [NXG20, KNX21, KNX23, JKNX23], and six invited talks on the topic alone. Many of our papers are completely formalised, demonstrating that we are capable of the extensive formalisation work required by the project. Each core team member holds or has held a competitive fellowship related to type theory, clearly evidencing our ability and status in the community.
+
+(2) Leadership: development of individuals and working relationships
+
+Kraus leads a group consisting of 1 PDRA (researcher co-lead de Jong) and 2 PhD students, funded by the Royal Society. As part of his fellowship, he receives extensive professional leadership and management training. Implementing the principles and strategies learned has already helped the team. For example, appointing de Jong as assistant supervisor of a PhD student is beneficial for everyone: Kraus gets immediate feedback on supervision, de Jong gains valuable experience and develops leadership skills, and the student gets a second perspective and another point of contact. Nordvall Forsberg is research lead of the Mathematically Structured Programming group, which consists of ten academics, three RAs, and 16 PhD students. He currently supervises two PhD students, and has mentored an undergraduate intern funded by the Carnegie Trust. Kraus has supervised two internships from ENS Paris and Lyon. This shows that young researchers are eager to work with us. Kraus and de Jong have individually received cash prizes under the Nottingham Reward Scheme for contributions to the School of Computer Science.
+
+As explained above, we already work together closely, with regular face-to-face visits and since 2020 weekly online meetings, with de Jong joining our team in 2022.
+
+(3) Contributions to the wider academic community
+
+Nordvall Forsberg organised SYCO2, SPLV'19, ACT'22, and has been elected to organise TYPES'25. Similarly, Kraus organised the spring school MGS'22 and its associated Christmas seminar. De Jong is invited to organise HoTT/UF'24 & '25 and is co-founder and ongoing organiser of ASSUME, a monthly peripatetic HoTT seminar. As part of our project, we will organise two Agda Implementors meetings (AIMs). We have experience doing so: Nordvall Forsberg organised AIM XXIII, and Kraus AIM XXVIII. We have served as PC members for various conferences in the wider area (e.g. CSL and MFPS) as well as for specialised events in our research field (e.g. HoTT/UF five times and TYPES four times). We have reviewed for top-tier conferences such as LICS and POPL, leading journals including JACM and LMCS, as well as EPSRC and the Dutch and Estonian Research Councils. Nordvall Forsberg was invited to guest edit the TYPES'17 proceedings. We have all been invited lecturers at summer schools on topics related to this proposal: de Jong at MGS'23 (the highest participant rated course), Kraus at MGS three times and the EUTypes Ohrid summer school, and Nordvall Forsberg also in Ohrid, and at Proof and Computation. De Jong was an invited TA at the HoTTEST summer school 2022, with 2000+ participants.
+
+(4) Contributions to broader research audiences
+
+Nordvall Forsberg has been awarded £600k to bring type-theoretic technology to the metrology research field. He has done this through regular monthly discussions with NPL metrologists, by publishing papers in metrology conferences and journals, and through an invited BCS talk aimed at software developers. His videos on dependently typed programming on YouTube have 12,000+ views.
+
+
+
+# REFERENCES (part of the references section)
+
+[CD16] Thierry Coquand and Anuj Dawar, for the European Association for Computer Science Logic (EACSL). The Ackermann Award 2016. Annual outstanding dissertation award in the broad area of logic in computer science. Jury: Thierry Coquand, Anuj Dawar, Orna Kupferman, Daniel Leivant, Dale Miller, Luke Ong, Jean-Eric Pin, and Simona Ronchi Della Rocca. The report is available at https://drops.dagstuhl.de/opus/frontdoor.php?source_opus=6541. 2016.
+
+[Awo21] Steve Awodey, for the jury. HoTT Dissertation Fellowship. Prize for a final year PhD student in the broad area of homotopy type theory, worldwide selection, USD 18,000, funded by Cambridge Quantum Computing and Ilyas Khan. Jury:  Steve Awodey, Thierry Coquand, Emily Riehl, and Michael Shulman. Details available at https://tinyurl.com/hott-dissertation. 2021.
+
+
+

@@ -1,0 +1,15 @@
+Because of the fundamental and theoretical nature of the proposed research, we do not envisage any ethical issues.
+
+Within RRI, we elaborate on four domains: governance, open access, public engagement and science education.
+
+To promote good practice in research, we act in accordance with the guidelines of the Universities of Nottingham and Strathclyde, e.g. by observing the research concordat to support the development of PDRAs, and by ensuring a positive working environment where we will pay attention to wellbeing and training opportunities.
+
+We are strongly convinced of the importance of open access research, which is why we will continue to make all our publications and accompanying formal proofs (software code) publicly available. Our institutions have agreements with major publishers (e.g. Cambridge University Press) waiving open access fees. In addition, we make preprints of all our papers publicly available on arXiv. Our software, meanwhile, is publicly accessible on Git repositories (on github.com or bitbucket.org) and, when accompanying a publication, is made available as an open source deposit on the archival website zenodo.org.
+
+For the scientifically interested general public, we will provide a lay explanation of our research on the Computerphile YouTube channel. For this purpose, we will work together with its creator Sean Riley in Nottingham. This will be a very effective outreach activity as our video will reach Computerphile's 2.3 million subscribers, while we will not be charged any fees.
+
+We are very active at various graduate schools, where we disseminate the insights of our research to graduate students. Major such events include:
+(1) The Midlands Graduate School in the Foundations of Computing Science, with over 100 participants annually from academia and industry. Kraus was organiser in 2022, is on the planning committee, and is regular lecturer, while de Jong lectured in 2023.
+(2) The Proof and Computation autumn school with around 40 student participants annually, organised by our collaborator Chuangjie Xu, with Nordvall Forsberg as lecturer in 2022.
+(3) The Scottish Programming Languages and Verification summer school, whose organisation cycles through the major Scottish universities. Nordvall Forsberg was organiser in 2019 (with 60 students and industrial participants), and will be organiser again in 2024.
+
