@@ -107,13 +107,95 @@
 	\end{center}
 	\makeatother
 
+\vspace*{-0.75cm}
+\section{Vision}
 
-	\vspace*{-0.75cm}
-	\section{Vision}
+Homotopy Type Theory (HoTT) has transformed type theory and formal
+reasoning, providing a powerful language for the mechanised
+foundations of mathematics and computer science. A cornerstone of HoTT
+is the univalence axiom, which equates isomorphic structures—capturing
+the abstract nature of types. However, HoTT fundamentally relies on
+*symmetry*; it treats equivalences, not general morphisms, as
+primitive.
+
+We propose a new foundation: \textbf{Directed Type Theory (DTT)}. By taking
+morphisms—rather than isomorphisms—as the basic notion, DTT offers a
+directed perspective on types that aligns more closely with concepts
+from category theory and higher-dimensional algebra. This promises a
+unifying framework that bridges HoTT and higher categories,
+potentially reshaping the theoretical underpinnings of both
+mathematics and computer science.
 
 \subsection{Introduction}
 
+Type Theory was originally conceived by Per Martin-L\"of as a
+foundation of Intuitionistic Mathematics and it has evolved
+substantially over the years. It is at the same time a programming
+language with a very expressive type system , a logical system
+(exploiting the propositions as types explanation) and an alternative
+foundation of Mathematics (an alternative to Zermeol-Fraenkel Set
+Theory). Most importantly it is a common base for interactive proof
+systems like Rocq (formerly known as Coq) or Lean (implemented at
+Microsoft Research) - especially Lean is increasingly used by
+Mathematicians and is not restricted to constructive Mathematics.
+Constructiveness is more essential for systems emphasising the
+programming language aspect like Agda or Idris, even though also these
+systems can be used as proof assistants but they offer less support
+for doing so.  
+
+Around 2010 Vladmir Voevodsky, Fields Medallist and Professor at the
+Institute for Advanced Study in Princeton, conceived of a novel
+approach to do Mathematics based on the observation that mathematical
+structures can be viewed from the perspective of algebraic topology or
+more specifically Homotopy Theory. Voevodsky was starting to use Coq
+to formalize his results and realized that Type Theory is a perfect
+vehicle for his vision leading to the creation of Homotopy Type Thoery
+which was the subject of a special year as the IAS which also lead to
+the publication of the HoTT book.
+
+One of the central tenants of HoTT is the univalence axiom which
+basically states that equality of structures is isomorphisms. This
+exploits the fact that In Type Theory unlike set theory only
+structural properties are expressible, i,e, we cannot query the
+implementation of a structure. If I am given a semiring, ie. a module
+implementing addition
+and multiplication with the appropriate laws, I cannot express a
+property unary or binary definition if natural numbers. The univalence
+axiom hence reflects Leibniz's principle that indistinguishable objects
+are equal.
+
+The notion of equality in HoTT changes its nature: while in logic we
+perceive of equality as a proposition in HoTT equality of structures
+is isomorphism and hence a structure, i.e. proof relevant. From a
+semantic perspective the equality type changes from the propositional
+concept of an equivalence relation to a groupoid, basically a
+proof relevant equivalence relation (eg we add the equation that
+transitivity as an operation on proofs is associative). Indeed since
+we can repeat the formation of equality types ad infinitum (eg we can
+ask what is the equality of equality proofs and so on) we obtain an
+$\omega$-groupoid. In the language of category theory a groupoid is a
+category where every morphisms is an isomorphism (invertible) which
+also extends to higher categories. 
+
+The payoff of this approach is huge, in the first place providing a
+principled approach to structural Mathematics, ideally suited for
+formalisation. Another spinoff is the notion of a highe inductive
+type which is based on the insight that inductive definition may not
+just introduce elements but also elements of the equality type nad in
+general any higher equality of the type. This gave rise to a
+straightforward definition of geometric objects like the circle or the
+torus upto homotopy equivalence. This enabled the use of Type Theory to
+develop synthetic homotopy theory not only conceptually simplifying
+the proofs but also making them machine checkable.
+
+There is a gap between the HoTT approach and higher category theory in
+that we only consider invertible morphisms to retain symmetry. What
+could we gain by identifying types with categories instead of
+groupoids?  
+
+
 \subsection{Project outcomes}\label{project-outcomes}
+
 
 
 \subsection{Quality, impact, and timeliness}
@@ -128,6 +210,8 @@
 
 
 \subsection{State of the art}\label{state-of-the-art}
+% Paige's DTT
+
 
 \subsection{Work packages}\label{work-packages}
 
@@ -138,8 +222,12 @@
 \paragraph{WP 3: Metatheory}
 
 \paragraph{WP 4: Relate DTT to other Type Theories }
+% HOTT
+% HoTT
+% STT
+% Paige's DTT 
 
-\paragraph{WP 5: Protypical implementations}
+\paragraph{WP 5: Protypical implementation}
 
 \paragraph{WP 6: Parametricity}
 
