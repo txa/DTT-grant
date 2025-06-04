@@ -2,11 +2,22 @@ Foundations of Directed Type Theory: Bridging Category Theory and Homotopy Type 
 
 *Summary*
 
-The topic of this grant is to lay the theoretical and practical foundations for a new generation of Type Theory. Type Theory is the foundation of proof systeems supporting formal reasoning and it is at the same time a very high level programming language. Type Theory is used in Mathematics to support domain specific reasoing using the synthetic apporach.
+Homotopy Type Theory  (HoTT) revolutionised Type Theory and formal reasoning providing a language for a mechanised foundation of Mathematics and computer science. One of its basic tenants of is the univalence axiom which states that isomorphism of structures is equality. It is time for a new revolution which takes the notion of morphism as primitive, leading to a directed type theory (DTT) that bridges the gap between HoTT and (infinity-)categories.
 
-The main innovation is to amend the symmetric equality type by a directed counterpart which is called the hom type. This is natural from the point of Homotopy Type Theory where equality of structures corresponds to isomorphisms, but what is lacking is the the same kind of support for morphisms. The resulting system is called directed type theory as opposed to the traditional undirected theory.
+Moving to a directed settings promises to provide answers to fundamental questions in Type Theory:
 
-The need for directed type theory shows up in many ways: one example are so called free theorems whcih reflect the fact that type theory is representation independent. We suggest that this can be tackled using a 
+- Univalence reflects the fact that types are abstract, indeed one of the fundamental principles of type theory especially in computer science. However, as Reynolds already noticed there are other implications of this principle which are consequences of parametricity. We conjecture that directed type theory provides the key to addressing this question.
+- HoTT provides a plethora of datatypes which are central both to computer science and Mathematics, eg multisets, real numbers or type theory itself. However, so far we are unable to provide one basic type former like the W-type of well-founded trees for ordinary datatypes to capture these which is essential for reducing type theory to a small core theory. We conjecture that directed type theory provides the key to addressing this issue.
+- Physicists working in the foundation of quantum physics including quantum gravity are using HoTT to capture complex formalisms in quantum field theory using HoTT as a tool for mechanised synthetic Mathematics, where the components of type theory are reinterpreted in a domain specific way provide a key to deal with the complexities of these theories. We conjecture that directed type theory is key to address key issues in this approach (examples?).
 
-*unfinished*
+Directed Type theory has been the subject of a number of recent papers including work by the proposers. However, some key questions remain open which we want to address in our project:
+
+- formulating directed type theory in a way that allows us to move between a directed and a non-directed setting easily,
+- providing model theoretic foundations of directed type theory which lays the foundation of further work,
+- thus as establishing important metatheoretic properties, such as decidability of type checking,
+- which is essential for a prototypic implementation showing the feasibility of our approach in principle,
+- using directed type theory to address the issues summarised above and exploiting other emerging applications of DTT,
+- investigating the relation of DTT to other approaches such as Higher Observational Type Theory (HOTT) which has been recently proposed.
+
+Methodologically we plan to exploit existing systems such as Agda to develop the metatheory and provide the basis of an implementation also leveraging recent experiments such as Shulmann's Narya a system which is related to HOTT.
 
