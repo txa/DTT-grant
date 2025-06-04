@@ -1,23 +1,34 @@
-Foundations of Directed Type Theory: Bridging Category Theory and Homotopy Type Theory
+**Foundations of Directed Type Theory: Bridging Category Theory and Homotopy Type Theory**
 
 *Summary*
 
-Homotopy Type Theory  (HoTT) revolutionised Type Theory and formal reasoning providing a language for a mechanised foundation of Mathematics and computer science. One of its basic tenants of is the univalence axiom which states that isomorphism of structures is equality. It is time for a new revolution which takes the notion of morphism as primitive, leading to a directed type theory (DTT) that bridges the gap between HoTT and (infinity-)categories.
+Homotopy Type Theory (HoTT) has transformed type theory and formal reasoning, providing a powerful language for the mechanised foundations of mathematics and computer science. A cornerstone of HoTT is the univalence axiom, which equates isomorphic structures—capturing the abstract nature of types. However, HoTT fundamentally relies on *symmetry*; it treats equivalences, not general morphisms, as primitive.
 
-Moving to a directed settings promises to provide answers to fundamental questions in Type Theory:
+We propose a new foundation: **Directed Type Theory (DTT)**. By taking morphisms—rather than isomorphisms—as the basic notion, DTT offers a directional perspective on types that aligns more closely with concepts from category theory and higher-dimensional algebra. This promises a unifying framework that bridges HoTT and (∞,1)-categories, potentially reshaping the theoretical underpinnings of both mathematics and computer science.
 
-- Univalence reflects the fact that types are abstract, indeed one of the fundamental principles of type theory especially in computer science. However, as Reynolds already noticed there are other implications of this principle which are consequences of parametricity. We conjecture that directed type theory provides the key to addressing this question.
-- HoTT provides a plethora of datatypes which are central both to computer science and Mathematics, eg multisets, real numbers or type theory itself. However, so far we are unable to provide one basic type former like the W-type of well-founded trees for ordinary datatypes to capture these which is essential for reducing type theory to a small core theory. We conjecture that directed type theory provides the key to addressing this issue.
-- Physicists working in the foundation of quantum physics including quantum gravity are using HoTT to capture complex formalisms in quantum field theory using HoTT as a tool for mechanised synthetic Mathematics, where the components of type theory are reinterpreted in a domain specific way provide a key to deal with the complexities of these theories. We conjecture that directed type theory is key to address key issues in this approach (examples?).
+DTT opens the door to addressing several foundational questions:
 
-Directed Type theory has been the subject of a number of recent papers including work by the proposers. However, some key questions remain open which we want to address in our project:
+- Parametricity and abstraction.
+The univalence axiom reflects the abstractness of types, a key principle in both logic and computer science. However, as Reynolds observed, true abstraction also involves *parametricity*. We conjecture that a directed setting offers the right tools to reconcile univalence with parametricity, thereby deepening our understanding of abstraction in type theory.
 
-- formulating directed type theory in a way that allows us to move between a directed and a non-directed setting easily,
-- providing model theoretic foundations of directed type theory which lays the foundation of further work,
-- thus as establishing important metatheoretic properties, such as decidability of type checking,
-- which is essential for a prototypic implementation showing the feasibility of our approach in principle,
-- using directed type theory to address the issues summarised above and exploiting other emerging applications of DTT,
-- investigating the relation of DTT to other approaches such as Higher Observational Type Theory (HOTT) which has been recently proposed.
+- Core data type formers.
+While HoTT provides many complex and expressive data types—such as multisets, real numbers, and type theory itself—it lacks a single type-former (analogous to the W-type for well-founded trees) that can uniformly express them. We believe DTT enables the formulation of such a unifying type-former, paving the way for a smaller and more principled core theory.
 
-Methodologically we plan to exploit existing systems such as Agda to develop the metatheory and provide the basis of an implementation also leveraging recent experiments such as Shulmann's Narya a system which is related to HOTT.
+-Applications in quantum foundations.
+Physicists exploring the mathematical foundations of quantum field theory and quantum gravity are increasingly turning to HoTT for formalisation. In this context, type theory components are reinterpreted in domain-specific ways, forming a framework for mechanised synthetic mathematics. We conjecture that DTT offers essential conceptual tools to handle directionality and non-reversibility inherent in these physical theories.
 
+Our recent work has contributed to the emerging literature on DTT, but key questions remain open. This project will:
+
+* Formulate DTT in a way that allows coherent interaction with traditional (symmetric) type theories,
+* Develop the model-theoretic semantics of DTT, grounding it in category-theoretic and homotopical frameworks,
+* Establish core metatheoretic properties, such as decidability of type checking and normalisation,
+* Prototype an implementation demonstrating the practical feasibility of DTT as a foundation for computation and reasoning,
+* Explore concrete applications, including those outlined above, and investigate connections with other frameworks, such as Higher Observational Type Theory (HOTT) and recent systems like Narya.
+
+Methodologically, we will leverage existing proof assistants such as Agda, Lean or Rocq to formalise the metatheory, and we will build upon recent experimental platforms, notably Shulman's Narya, to guide and validate the implementation of DTT.
+
+This research aims to lay the foundational groundwork for a new generation of type theories, offering both deep theoretical insights and a platform for practical formal reasoning in mathematics, computer science, and physics.
+
+---
+
+Would you like a version tailored further for non-specialist reviewers, or with more emphasis on impact and interdisciplinarity?
