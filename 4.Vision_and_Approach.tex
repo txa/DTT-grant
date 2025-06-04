@@ -1,0 +1,227 @@
+\documentclass[a4paper,11pt]{article}
+% \documentclass[a4paper,11pt, twocolumn]{article}
+
+%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[compact,medium]{titlesec} % option 'small' is optional
+\usepackage{amsfonts,amstext,amssymb}
+\usepackage[dvips,pdftex]{graphicx}
+\usepackage[british]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true  % Remove the boxes
+, linktocpage=true % Make page numbers (not section titles) links in ToC
+, linkcolor=NavyBlue    % Colour for internal links
+, citecolor=Green  % Colour for bibliographical citations
+, urlcolor=BrickRed % Colour for (external) urls
+]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{csquotes}
+
+\usepackage[backend=biber,style=alphabetic,maxnames=99]{biblatex}
+\addbibresource{master.bib}
+%%% Font:
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[most]{tcolorbox}
+%%% Saves space within lists, but needs to be revisited later:
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, nolistsep}
+\setlist[enumerate]{noitemsep, nolistsep}
+
+%%% for the gantt chart
+\usepackage{pgfgantt}
+\usepackage{stackengine}
+
+\usepackage{bbding} % For the solid diamond symbol in the gantt chart
+\colorlet{nottColour}{MidnightBlue!60}
+\colorlet{strathColour}{JungleGreen!60}
+\colorlet{deliverable}{Goldenrod}
+\newcommand{\solidbowtie}{\blacktriangleright\!\!\blacktriangleleft}
+\newcommand{\deliv}{\textcolor{deliverable}{\raisebox{-.25em}{\DiamondSolid}}}
+\newcommand{\teamm}[2]{\raisebox{-.25em}{\ensuremath{\overset{\textup{#1}}{\text{\textcolor{#2}{$\solidbowtie$}}}}}}
+\newcommand{\tmN}{\teamm{N}{nottColour}}
+\newcommand{\tmS}{\teamm{S}{strathColour}}
+
+\usepackage[noabbrev,capitalise]{cleveref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% possibly useful
+%\usepackage{todonotes}
+
+
+%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Taken from TCS paper: boxed goal, lots of options to play with
+\newtcolorbox{boxedgoal}{%
+	%enhanced jigsaw,
+	%    sharp corners,
+	colback=white,
+	borderline={1pt}{-2pt}{black},
+	left=4pt,
+	right=4pt,
+	top=4pt,
+	bottom=4pt,
+	%    fontupper={\setlength{\parindent}{20pt}},
+	title={\textit{\textbf{Project Goal}}},
+	boxrule=.8pt,
+	%    colbacktitle=white,
+	%    coltitle=black
+	%    fonttitle=\bfseries
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Disable hyperref for citations
+\let\oldcite\cite
+\renewcommand*\cite[1]{{\protect\NoHyper\oldcite{#1}\protect\endNoHyper}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\summarySpace}{\vspace*{.0cm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Tweaking %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0 pt}
+\setlength{\parskip}{1ex}
+
+\renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{0pt}
+
+\renewcommand{\paragraph}[1]{\textbf{#1.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Meta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Foundations of Directed Type Theory}
+%\subtitle{Bridging Category Theory and Homotopy Type Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+	\makeatletter
+	\begin{center}
+		%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+		%  \centerline{\rule{185mm}{.5mm}}
+		{\Large {\bf \centerline{\@title}}}
+		\centerline{\rule{165mm}{.5mm}}
+	\end{center}
+	\makeatother
+
+
+	\vspace*{-0.75cm}
+	\section{Vision}
+
+\subsection{Introduction}
+
+\subsection{Project outcomes}\label{project-outcomes}
+
+
+\subsection{Quality, impact, and timeliness}
+
+\paragraph{Importance and quality} %within the field}
+
+\paragraph{Beneficiaries and impact}
+
+\paragraph{Timeliness of the project}
+
+\section{Approach} %(Programme and Methodology)}
+
+
+\subsection{State of the art}\label{state-of-the-art}
+
+\subsection{Work packages}\label{work-packages}
+
+\paragraph{WP 1: Defining DTT}
+
+\paragraph{WP 2: Semantics of DTT}
+
+\paragraph{WP 3: Metatheory}
+
+\paragraph{WP 4: Relate DTT to other Type Theories }
+
+\paragraph{WP 5: Protypical implementations}
+
+\paragraph{WP 6: Parametricity}
+
+\paragraph{WP 7: Universal higher inductive types}
+
+\paragraph{WP 8: Applications to Mathematics and Physics}
+
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Workplan}
+\makeatletter
+\begin{center}
+%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+%  \centerline{\rule{185mm}{.5mm}}
+{\Large {\bf \centerline{\@title: Workplan}}}
+\centerline{\rule{165mm}{.5mm}}
+\end{center}
+\makeatother
+
+\begin{center}
+\begin{ganttchart}[
+hgrid,
+%vgrid,
+%canvas/.style={draw=none},
+expand chart=16cm,
+bar height=1,%0.8,
+bar top shift=0,
+title height=1,
+y unit title=0.75cm,
+y unit chart=0.75cm,
+bar label font=\small,
+bar/.style={draw=black},
+title label font=\small,
+%title/.style={fill=none},
+]{1}{8}
+\gantttitle{Year 1}{2}
+\gantttitle{Year 2}{2}
+\gantttitle{Year 3}{2}
+\gantttitle{Year 4}{2}\\
+\ganttbar[inline, bar/.append style={fill=strathColour}]{S}{1}{2}
+\ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+\\
+\ganttbar[inline, bar/.append style={fill=nottColour}]{N}{1}{5}
+\ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
+\\
+%
+\ganttbar[inline, bar/.append style={fill=nottColour}]{N}{3}{8}
+\ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+\\
+\ganttbar[inline, bar/.append style={fill=strathColour}]{S}{5}{8}
+\ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+\\
+% \ganttnewline \\
+\ganttbar[bar/.append style={draw=none}]{Team meetings}{0}{-1}
+\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
+\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
+\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{5}{4}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{6}{5}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
+\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
+\\
+%\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{5}{8}
+\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{3}{8}
+\ganttvrule{AIM Nottingham}{4}
+\ganttvrule{AIM Strathclyde}{7}
+\end{ganttchart}
+\end{center}
+\vspace*{-0.2in}
+{\small
+\hspace*{2cm}{(N = Nottingham lead, S = Strathclyde lead, \deliv\, = Deliverable, $\solidbowtie$ = In-person team meeting)}
+}
+
+\vspace*{0.1in}
+\paragraph{Work package relationships and duration}
+
+
+\paragraph{Leadership and team meetings}
+
+
+\end{document}

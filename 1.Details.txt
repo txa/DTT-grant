@@ -4,7 +4,7 @@
 
 Homotopy Type Theory (HoTT) has transformed type theory and formal reasoning, providing a powerful language for the mechanised foundations of mathematics and computer science. A cornerstone of HoTT is the univalence axiom, which equates isomorphic structures—capturing the abstract nature of types. However, HoTT fundamentally relies on *symmetry*; it treats equivalences, not general morphisms, as primitive.
 
-We propose a new foundation: **Directed Type Theory (DTT)**. By taking morphisms—rather than isomorphisms—as the basic notion, DTT offers a directional perspective on types that aligns more closely with concepts from category theory and higher-dimensional algebra. This promises a unifying framework that bridges HoTT and (∞,1)-categories, potentially reshaping the theoretical underpinnings of both mathematics and computer science.
+We propose a new foundation: **Directed Type Theory (DTT)**. By taking morphisms—rather than isomorphisms—as the basic notion, DTT offers a directed perspective on types that aligns more closely with concepts from category theory and higher-dimensional algebra. This promises a unifying framework that bridges HoTT and higher categories, potentially reshaping the theoretical underpinnings of both mathematics and computer science.
 
 DTT opens the door to addressing several foundational questions:
 
@@ -25,7 +25,7 @@ Our recent work has contributed to the emerging literature on DTT, but key quest
 * Prototype an implementation demonstrating the practical feasibility of DTT as a foundation for computation and reasoning,
 * Explore concrete applications, including those outlined above, and investigate connections with other frameworks, such as Higher Observational Type Theory (HOTT) and recent systems like Narya.
 
-Methodologically, we will leverage existing proof assistants such as Agda, Lean or Rocq to formalise the metatheory, and we will build upon recent experimental platforms, notably Shulman's Narya, to guide and validate the implementation of DTT.
+Methodologically, we will leverage existing proof assistants such as Agda, Idris, Lean or Rocq to formalise the metatheory, and we will build upon recent experimental platforms, notably Shulman's Narya, to guide and validate the implementation of DTT.
 
 This research aims to lay the foundational groundwork for a new generation of type theories, offering both deep theoretical insights and a platform for practical formal reasoning in mathematics, computer science, and physics.
 
