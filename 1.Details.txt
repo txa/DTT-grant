@@ -29,6 +29,3 @@ Methodologically, we will leverage existing proof assistants such as Agda, Lean 
 
 This research aims to lay the foundational groundwork for a new generation of type theories, offering both deep theoretical insights and a platform for practical formal reasoning in mathematics, computer science, and physics.
 
----
-
-Would you like a version tailored further for non-specialist reviewers, or with more emphasis on impact and interdisciplinarity?
