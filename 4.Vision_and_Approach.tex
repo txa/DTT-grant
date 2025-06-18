@@ -417,22 +417,55 @@ grounded and practically implementable.
 
 \paragraph{WP 1: Defining DTT}
 
-The starting point is synthetic 1-category theory along the lines 
-\cite{altenkirch-neumann,paige]. There
-are still issues which need to
-be adressing in this approach: we need to define ends and coends and
-reason about natural transofrmations, we need to better understand
-the interaction of directed and non-directed types.
+We define Type Theory using an intrinsically typed
+representation \cite{txa-ambrus-defining}: here we only model typed
+objects which simplifies the presentation and in particuar the
+relation to its semantics.
 
-Our goal is to overcome the restriction to 1-category theory and allow
-working with $(\infinity,1)$-categories. This means dealing with
-coherences, here envisage that we can exploit the relation to Higher
-Observational Type theory which uses a higher coiductive definition to
-identify fibrant types which can be reduced to directed fibrancy. 
+We plan to develop an intrinsically typed representation of DTT
+building on and extending the work described in
+\cite{neumann-phd,altenkirch-neumann}.  Here we plan to address the
+following points:
+\begin{enumerate}
+\item Extend the caclulus to deal with lax ends and coends, which
+  would also allow us to reason about natural transformations. This is
+  related to proposals by \cite{Paige} and others.
+\item To make the presentation feasible, avoiding boilerplate about
+  functoriality and naturality we plan devlop a directed alternative
+  to Second Order Algebraic Theories (SOGATS).
+\item We want to give up the restriction to 1-categories and get rid
+  of the truncation conditions. We wil use input from WP2 to guid the design.
+\end{enumerate}
+
+Modelling directed type theory as a modification of a category with
+families (CwF) has alreadt been explored in
+\cite{neumann-phd,altenkirch-neumann}.  However, this development
+becomes technically quite complex relaying on a lot of boilerplate. In
+the non-directed setting this can be simplified by using a Second
+Order Generaized Algebraic Theory (SOGAT) - this is related to Higher
+Order Abstract Syntax. Our goal is to develop a directed alternative
+to SOGATs to simplify the presentation and make working with it more
+feasible.
 
 \paragraph{WP 2: Semantics of DTT}
 
-
+The categroy interpretation is basically the generalisation of the
+groupoid model of Type Theory to categories. Moving to a higher
+categorical setting iis quite challenging and we plan to explore the
+following approaches:
+\begin{enumerate}
+\item We will investigate Simplicial Type Theory \cite{Buchholz} as a
+  semantic framework for DTT.
+\item Another option is to use Parametricity Type Theory as a
+  framework, adding a directed version of fibrancy as a higher
+  coinductive type - this is relattd to ongoing work on Higher
+  Observational Type Theory.
+\item An approahc to directed HoTT has been proposed in the context of
+  higher topos theoy, we will explore this in particular from the
+  perspective of a constructive metatheory.
+\item The output of this WP wil be a synthesis of several approaches
+  which are currentlly investigated.
+\end{enumerate}
 
 \paragraph{WP 3: Metatheory}
 
