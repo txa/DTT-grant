@@ -415,70 +415,83 @@ grounded and practically implementable.
 
 \subsection{Work packages}\label{work-packages}
 
-\paragraph{WP 1: Defining DTT}
+\paragraph{WP 1: Syntax and semantics of 1-DTT}
 
 We define Type Theory using an intrinsically typed
 representation \cite{txa-ambrus-defining}: here we only model typed
 objects which simplifies the presentation and in particuar the
 relation to its semantics.
 
-We plan to develop an intrinsically typed representation of DTT
-building on and extending the work described in
-\cite{neumann-phd,altenkirch-neumann}.  Here we plan to address the
-following points:
-\begin{enumerate}
+Starting with the theory of Directed Categories with Families (DCwF)
+as developed in \cite{Altenkirch,Neumann} we plan to address the
+followig insues:
+begin{enumerate}
 \item Extend the caclulus to deal with lax ends and coends, which
   would also allow us to reason about natural transformations. This is
   related to proposals by \cite{Paige} and others.
 \item To make the presentation feasible, avoiding boilerplate about
   functoriality and naturality we plan devlop a directed alternative
   to Second Order Algebraic Theories (SOGATS).
-\item We want to give up the restriction to 1-categories and get rid
-  of the truncation conditions. We wil use input from WP2 to guid the design.
-\end{enumerate}
+\item It may be helpfu to rephrase DCwFs as a multimodal Type Theory,
+  where symmetry becomes a modaity.
+\end{enumerate}  
 
-Modelling directed type theory as a modification of a category with
-families (CwF) has alreadt been explored in
-\cite{neumann-phd,altenkirch-neumann}.  However, this development
-becomes technically quite complex relaying on a lot of boilerplate. In
-the non-directed setting this can be simplified by using a Second
-Order Generaized Algebraic Theory (SOGAT) - this is related to Higher
-Order Abstract Syntax. Our goal is to develop a directed alternative
-to SOGATs to simplify the presentation and make working with it more
-feasible.
+\paragraph{WP 2: Syntax and semantics of $\omega$-DTT}
 
-\paragraph{WP 2: Semantics of DTT}
+The theory of DCwFs is truncated, that is we assume uniqueness of
+equalities for elements of homtypes, which is similar to the groupoid
+model. To model higher categories we want to give up this restriction
+and we need to address the coherence issues which arise.
 
-The categroy interpretation is basically the generalisation of the
-groupoid model of Type Theory to categories. Moving to a higher
-categorical setting iis quite challenging and we plan to explore the
-following approaches:
+We are going to pursue the following directions:
 \begin{enumerate}
-\item We will investigate Simplicial Type Theory \cite{Buchholz} as a
-  semantic framework for DTT.
-\item Another option is to use Parametricity Type Theory as a
-  framework, adding a directed version of fibrancy as a higher
-  coinductive type - this is relattd to ongoing work on Higher
-  Observational Type Theory.
-\item An approahc to directed HoTT has been proposed in the context of
-  higher topos theoy, we will explore this in particular from the
-  perspective of a constructive metatheory.
-\item The output of this WP wil be a synthesis of several approaches
-  which are currentlly investigated.
+\item Use Simplicial Type Theory (STT) as a semantic framework to
+  interpret untruncated DCwFs.
+\item  Work with Higher Observational Type Theory which is based on a
+  semantics in cubical sets. In HOTT a notion of fibrant types and
+  this can be weakened to directed fibrancy, providing a framework to
+  interpet DTT.
+\item Investigate the relation between cubical (non-directed) and
+  simplicial (directed) models of Type Theory.
 \end{enumerate}
 
 \paragraph{WP 3: Metatheory}
 
+In the intrinsic apporach we identify the syntax with the initial mode
+which always exist, but this is not enough if we want to implement the
+theory and compute within it. 
 
+Our goals are to show canonicity (every term reduces to a value) and
+normalsiation (every term reduces to a normal form. The fomer
+establishes that the calculus is computationally well behaved and 
+the latter shows that the euqational theory is decidable.
 
+We are going to extend normalisation by evaluation based on glueing
+for DTT first for 1-DTT. extending this to higher types is a challenge
+but we hope that we can reused ideas from the parametricity calculus. 
 
 \paragraph{WP 4: Relate DTT to other Type Theories }
-% HOTT
-% HoTT
-% STT
-% Paige's DTT 
+
+There are a number of evolving approaches to DTT and we are planning
+to establish a contuininn interaction with other groups to discuss
+different ideas.
+
+\begin{enumerate}
+\item Higher Observational Type Theory (HOTT)
+ 
+\item Simplicial Type Theory (STT)
+
+\item Paige North's DTT  
+\end{enumerate}
 
 \paragraph{WP 5: Protypical implementation}
+
+To show the feasibility of our approach we pan to implement a
+prototyocal type checker which uses the results form WP3 to implement
+a bidirectional typechecker. We pllan to implmenet this in agda using
+the agda to Haskell compiler to extract a type checker which can be
+used as a deminstartion prototype. To make this actually applicable
+for bigger example, we may construct a variant of Agda (or Narya). 
 
 \paragraph{WP 6: Parametricity}
 
