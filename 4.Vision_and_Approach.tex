@@ -415,161 +415,480 @@ grounded and practically implementable.
 
 \subsection{Work packages}\label{work-packages}
 
-\paragraph{WP 1: Syntax and semantics of 1-DTT}
+% \paragraph{WP 1: Syntax and semantics of 1-DTT}
 
-We define Type Theory using an intrinsically typed
-representation \cite{txa-ambrus-defining}: here we only model typed
-objects which simplifies the presentation and in particuar the
-relation to its semantics.
+% We define Type Theory using an intrinsically typed
+% representation \cite{txa-ambrus-defining}: here we only model typed
+% objects which simplifies the presentation and in particular the
+% relation to its semantics.
 
-Starting with the theory of Directed Categories with Families (DCwF)
-as developed in \cite{Altenkirch,Neumann} we plan to address the
-followig insues:
-begin{enumerate}
-\item Extend the caclulus to deal with lax ends and coends, which
-  would also allow us to reason about natural transformations. This is
-  related to proposals by \cite{Paige} and others.
-\item To make the presentation feasible, avoiding boilerplate about
-  functoriality and naturality we plan devlop a directed alternative
-  to Second Order Algebraic Theories (SOGATS).
-\item It may be helpfu to rephrase DCwFs as a multimodal Type Theory,
-  where symmetry becomes a modaity.
-\end{enumerate}  
+% Starting with the theory of Directed Categories with Families (DCwF)
+% as developed in \cite{Altenkirch,Neumann} we plan to address the
+% followig insues:
+% \begin{enumerate}
+% \item Extend the caclulus to deal with lax ends and coends, which
+%   would also allow us to reason about natural transformations. This is
+%   related to proposals by \cite{Paige} and others.
+% \item To make the presentation feasible, avoiding boilerplate about
+%   functoriality and naturality we plan devlop a directed alternative
+%   to Second Order Algebraic Theories (SOGATS).
+% \item We will investigate expressing DCwFs as a multimodal Type Theory,
+%   where symmetry becomes a modaity.
+% \end{enumerate}
 
-\paragraph{WP 2: Syntax and semantics of $\omega$-DTT}
+\paragraph{WP 1: Syntax and Semantics of 1-DTT}
 
-The theory of DCwFs is truncated, that is we assume uniqueness of
-equalities for elements of homtypes, which is similar to the groupoid
-model. To model higher categories we want to give up this restriction
-and we need to address the coherence issues which arise.
+We will formalise the syntax of 1-dimensional Directed Type Theory
+(1-DTT) using an intrinsically typed
+representation~\cite{txa-ambrus-defining}, which ensures that only
+well-typed objects are constructible. This simplifies both the
+formulation of the theory and its relationship to the semantics. 
 
-We are going to pursue the following directions:
+Our work builds on the theory of Directed Categories with Families
+(DCwFs) as developed in~\cite{Altenkirch,Neumann}. We will address the
+following challenges: 
+
 \begin{enumerate}
-\item Use Simplicial Type Theory (STT) as a semantic framework to
-  interpret untruncated DCwFs.
-\item  Work with Higher Observational Type Theory which is based on a
-  semantics in cubical sets. In HOTT a notion of fibrant types and
-  this can be weakened to directed fibrancy, providing a framework to
-  interpet DTT.
-\item Investigate the relation between cubical (non-directed) and
-  simplicial (directed) models of Type Theory.
+\item \textbf{Extension to lax ends and coends:} We will extend the
+  calculus of DCwFs to support lax ends and coends. This will enable
+  reasoning about structures such as natural transformations and is
+  inspired by recent work including~\cite{Paige}.  
+
+\item \textbf{Directed second-order structure:} To reduce the
+  syntactic overhead associated with expressing functoriality and
+  naturality conditions, we aim to develop a directed analogue of
+  Second-Order Generalized Algebraic Theories (SOGATS). This will support a modular
+  and scalable syntax for 1-DTT. 
+
+\item \textbf{Multimodal formulation:} We will explore a reformulation
+  of DCwFs as a multimodal type theory, where symmetry (or its
+  absence) is tracked explicitly via modalities. This aligns with
+  recent work on modal and directed type systems and may offer a
+  unified framework for both symmetric and asymmetric reasoning.
 \end{enumerate}
+
+% \paragraph{WP 2: Syntax and semantics of $\omega$-DTT}
+
+% The theory of DCwFs is truncated, that is we assume uniqueness of
+% equalities for elements of homtypes, which is similar to the groupoid
+% model. To model higher categories we want to give up this restriction
+% and we need to address the coherence issues which arise.
+
+% We are going to pursue the following directions:
+% \begin{enumerate}
+% \item Use Simplicial Type Theory (STT) as a semantic framework to
+%   interpret untruncated DCwFs.
+% \item  Work with Higher Observational Type Theory which is based on a
+%   semantics in cubical sets. In HOTT a notion of fibrant types and
+%   this can be weakened to directed fibrancy, providing a framework to
+%   interpet DTT.
+% \item Investigate the relation between cubical (non-directed) and
+%   simplicial (directed) models of Type Theory.
+% \end{enumerate}
+
+\paragraph{WP 2: Syntax and Semantics of $\omega$-DTT}
+
+The theory of Directed Categories with Families (DCwFs) as currently
+developed is \emph{truncated}, meaning that identity proofs for
+morphisms are assumed to be unique. This corresponds to a
+groupoid-level semantics and prevents the modelling of
+higher-dimensional categorical structures. To move toward an
+$\omega$-categorical setting, we must drop this uniqueness assumption
+and address the resulting coherence issues. 
+
+We will pursue the following directions:
+
+\begin{enumerate}
+\item \textbf{Semantic interpretation via Simplicial Type Theory
+    (STT):} We will use STT as a framework for interpreting
+  untruncated DCwFs. This approach enables modelling
+  higher-dimensional morphisms with directed structure and naturally
+  accommodates coherence data. 
+
+\item \textbf{Directed fibrancy in Higher Observational Type Theory
+    (HOTT):} We will investigate a variant of HOTT based on a
+  semantics in cubical sets. While standard HOTT uses fibrant types to
+  model homotopy-invariant behavior, we propose a weakening to
+  \emph{directed fibrancy}, which may yield a constructive semantic
+  foundation for $\omega$-DTT. 
+
+\item \textbf{Bridging cubical and simplicial semantics:} We will
+  explore the relationship between cubical (typically undirected) and
+  simplicial (directed) models of type theory. Understanding this
+  correspondence will clarify the conceptual and technical connections
+  between different geometries of type-theoretic semantics. 
+\end{enumerate}
+
+
+% \paragraph{WP 3: Metatheory}
+
+% In the intrinsic apporach we identify the syntax with the initial mode
+% which always exist, but this is not enough if we want to implement the
+% theory and compute within it. 
+
+% Our goals are to show canonicity (every term reduces to a value) and
+% normalsiation (every term reduces to a normal form. The fomer
+% establishes that the calculus is computationally well behaved and 
+% the latter shows that the euqational theory is decidable.
+
+% We are going to extend normalisation by evaluation based on glueing
+% for DTT first for 1-DTT. extending this to higher types is a challenge
+% but we hope that we can reused ideas from the parametricity calculus. 
 
 \paragraph{WP 3: Metatheory}
 
-In the intrinsic apporach we identify the syntax with the initial mode
-which always exist, but this is not enough if we want to implement the
-theory and compute within it. 
+In the intrinsic approach, we identify the syntax of Directed Type
+Theory with the initial model (or initial mode), which always
+exists. However, this is not sufficient if we aim to implement the
+theory and compute within it: we must also establish its metatheoretic
+properties.
 
-Our goals are to show canonicity (every term reduces to a value) and
-normalsiation (every term reduces to a normal form. The fomer
-establishes that the calculus is computationally well behaved and 
-the latter shows that the euqational theory is decidable.
+Our main goals are to prove:
+\begin{itemize}
+\item \textbf{Canonicity:} Every closed term reduces to a value. This
+  ensures that the theory has a well-behaved computational
+  interpretation.
+\item \textbf{Normalization:} Every term reduces to a normal
+  form. This implies that the equational theory is decidable and
+  supports effective proof checking.
+\end{itemize}
 
-We are going to extend normalisation by evaluation based on glueing
-for DTT first for 1-DTT. extending this to higher types is a challenge
-but we hope that we can reused ideas from the parametricity calculus. 
+To achieve this, we will extend the technique of \emph{normalisation
+  by evaluation} (NbE), using a gluing construction adapted to
+Directed Type Theory. Our first focus will be 1-DTT, where we expect
+this to be tractable. Extending this approach to higher-dimensional
+types presents significant challenges, but we aim to build on ideas
+from the parametricity calculus, which shares key structural
+similarities.
 
-\paragraph{WP 4: Relate DTT to other Type Theories }
+% \paragraph{WP 4: Relate DTT to other Type Theories }
 
-There are a number of evolving approaches to DTT and we are planning
-to establish a contuininn interaction with other groups to discuss
-different ideas.
+% There are a number of evolving approaches to DTT and we are planning
+% to establish a contuininn interaction with other groups to discuss
+% different ideas.
+
+% \begin{enumerate}
+
+% \item Altenrative approaches to synthetic category theory
+
+%   Recently a number of approaches to synthetic category theory have
+%   been suggested, for example \cite{paige} or \cite{uustalu}. We plan
+%   to collaborate with thise researchers and learn from each
+%   other. This will be supported by organizing joint workshops. 
+  
+% \item Higher Observational Type Theory (HOTT)
+
+% This is an approach to HoTT using logical relation (bridges) as the
+% foundation. Within this framework one can identify the \emph{fibrant
+%   types} such that bridges between fibrant types come with transports
+% giving rise to equivalences. One direction we want to explore is to
+% use semi-fibrant types (ie with transports only in one direction) as a
+% basis to model DTT within this framework.
+
+% \item Simplicial Type Theory (STT)
+
+% Simplicial Type Theory is modelling higher categories by providing a
+% framework for the simplicial set model using multi-modal type thoery.
+% In STT higher categories are modelled using midal types within a type
+% theory. This is certianly complentary to our approach but we hope that
+% we can provide a semantic explanation for higher DTT going via STT or
+% at least exploiting constrictions from STT to do this.
+  
+
+%\end{enumerate}
+
+\paragraph{WP 4: Comparative Semantics and Collaboration}
+
+A number of emerging approaches aim to provide a synthetic foundation
+for directed and higher-dimensional structures in type theory. While
+our core work packages focus on the development of Directed Type
+Theory (DTT) from a specific categorical and computational
+perspective, we also aim to engage actively with alternative
+frameworks. This comparative and collaborative effort will help guide
+our design choices and promote convergence in the broader community.
 
 \begin{enumerate}
-\item Higher Observational Type Theory (HOTT)
- 
-\item Simplicial Type Theory (STT)
+\item \textbf{Synthetic category theory:} Recent
+  proposals~\cite{paige,uustalu} offer alternative approaches to
+  synthetic category theory, often emphasising different logical or
+  structural primitives. We will engage with these efforts through
+  collaboration and joint workshops to facilitate mutual understanding
+  and alignment.
 
-\item Paige North's DTT  
+\item \textbf{Higher Observational Type Theory (HOTT):} This variant
+  of HoTT uses logical relations (bridges) as its foundation. We aim
+  to explore whether \emph{semi-fibrant} types—types with directed
+  transport—can serve as a model of DTT within this framework.
+
+\item \textbf{Simplicial Type Theory (STT):} STT provides a semantic
+  foundation for higher categories via multi-modal type theory and
+  simplicial sets. We will investigate how STT constructions might
+  inform a semantics for higher DTT, particularly in handling
+  coherence.
 \end{enumerate}
 
-\paragraph{WP 5: Protypical implementation}
 
-To show the feasibility of our approach we pan to implement a
-prototyocal type checker which uses the results form WP3 to implement
-a bidirectional typechecker. We pllan to implmenet this in agda using
-the agda to Haskell compiler to extract a type checker which can be
-used as a deminstartion prototype. To make this actually applicable
+% \paragraph{WP 5: Protypical implementation}
+
+% To show the feasibility of our approach we pan to implement a
+% prototyocal type checker which uses the results form WP3 to implement
+% a bidirectional typechecker. We pllan to implmenet this in agda using
+% the agda to Haskell compiler to extract a type checker which can be
+% used as a demonstration prototype. To make this actually applicable
 for bigger example, we may construct a variant of Agda (or Narya). 
+
+\paragraph{WP 5: Prototypical Implementation}
+
+To demonstrate the feasibility and applicability of Directed Type
+Theory, we will develop a prototypical implementation of a type
+checker. This implementation will serve both as a testbed for our
+theoretical developments and as a concrete vehicle for experimentation
+with example formal systems and constructions.
+
+We will build a bidirectional type checker based on the metatheoretic
+results established in WP~3, such as normalization and
+canonicity. Bidirectional type checking is well-suited for
+intrinsically typed languages, enabling both efficient implementation
+and readable diagnostics.
+
+The prototype will be developed in Agda, leveraging Agda’s support for
+dependent types and its verified compilation pipeline to
+Haskell. Using Agda's compilation mechanism, we will generate a
+standalone Haskell program that serves as a lightweight demonstrator
+for Directed Type Theory.
+
+To support larger examples and more user-friendly interaction, we may
+also investigate adapting or extending an existing proof assistant
+such as Agda or Narya, either by embedding DTT constructs or building
+a custom front-end. This will allow us to evaluate how Directed Type
+Theory scales in practice and how it integrates with existing
+ecosystems.
+
+% \paragraph{WP 6: Parametricity}
+
+% One application of directed Type Theory we want to explore is the
+% relation between univalence and parametricity. Parametricity is based
+% on the observation that functions cannot access the representation of
+% a type. On the other hand using univalence we can prove that
+% equivalences cannot depend on a choice of rerpresentation. It seems
+% natural to suggest that in DTT at least some
+% instances of parametricity should be provable.
+
+% Our goal in this WP is to formally establish a result along these
+% lines, investigating in detail wether relational parametricity can be
+% justified in general or only in some instances. We will also look at
+% this question wrt higher categories drawing on WP2.
 
 \paragraph{WP 6: Parametricity}
 
-\paragraph{WP 7: Universal higher inductive types}
+One promising application of Directed Type Theory is to clarify the
+relationship between \emph{univalence} and
+\emph{parametricity}. Parametricity expresses the idea that
+polymorphic functions behave uniformly — they cannot inspect or branch
+on the internal representation of their type arguments. In contrast,
+the univalence axiom implies that equivalences between types can be
+treated as equalities, and that constructions should be invariant
+under equivalence.
+
+These two principles seem aligned in spirit: both enforce a form of
+representation independence. However, in standard Homotopy Type Theory
+(HoTT), univalence and parametricity have proven difficult to
+reconcile. We propose that DTT may provide a better setting for
+integrating the two, particularly by modelling directed identity types
+and directional transport. Intuitively, directed paths may capture the
+“free variation” implicit in relational reasoning.
+
+The goal of this work package is to investigate whether relational
+parametricity can be formally derived within DTT — either in general
+or in specific fragments. We will explore how directed type structure
+can encode uniform behavior over morphisms and equivalences, and
+whether certain kinds of logical relations (e.g., bridge/path
+structures) can be internalized. We will also extend this
+investigation to higher-dimensional settings, building on the semantic
+foundations laid in WP~2.
+
+% \paragraph{WP 7: Universal higher inductive types}
+
+% In Type Theory inductive definitions can be reduced to W-types, the
+% type of well-founded trees. Indeed the reduction extends to
+% coinductive types (in the presence of function types) and
+% inductive-inductive types (mutual inductive types dependening on each
+% other).  In cubical type theory we can define quotient types (without
+% destroying computations) but we cannot reduce Quotient Inductive types
+% (set truncated HITs) just using quotient types and W-types
+% \cite{shulmann-lumsdene}. Hence the question is what is a QW type
+% which is universal for QITs (or in general QIITs).
+
+% There are at least two answers to this question which are not
+% completely satisfactory: \cite{steenkamp-pitts} propose a ery concrete
+% definition of a QW type which can encode QITs, \cite{ambrus-andras-me}
+% show that the theory of signatures is a universal QIIT. The QW type
+% introduced by both approaches are quite complex and it isn't clear how
+% to extend them to higher homotopy types.
+
+% In the directed setting we can introduce $\Sigma$-types corresponding
+% to coends and directed W-type which implement the initial algebra of
+% categorified container \cite{gylterud}. We are going to investigate
+% wether this very simple setting is enough to encode QIITs. The
+% generalisation to HIITs should come for free in untruncated DTT
+% where types correspond to inifnity categories.
+
+\paragraph{WP 7: Universal Higher Inductive Types}
+
+In type theory, many inductive constructions can be reduced to W-types
+— the type of well-founded trees. This reduction extends to
+coinductive types (given function types) and even to
+inductive-inductive types, where families of mutually defined types
+depend on each other.
+
+In cubical type theory, quotient types can be defined constructively,
+preserving computation. However, this is insufficient to define
+general \emph{Quotient Inductive Types} (QITs) — particularly
+set-truncated Higher Inductive Types (HITs) — solely from W-types and
+quotients~\cite{shulmann-lumsdene}. This raises the question: what
+kind of generalised W-types (QW-types) serves as a universal encoding
+for QITs or, more broadly, QIITs?
+
+There are at least two known answers, both with limitations. Steenkamp
+and Pitts~\cite{steenkamp-pitts} propose a concrete definition of a
+QW-type capable of encoding QITs. Separately, Kaposi et
+al.~\cite{ambrus-andras-me} show that the type of signatures is
+universal for QIITs. However, both constructions are technically
+complex and difficult to extend to higher homotopy levels.
+
+In the directed setting, we gain new expressive tools. In particular,
+we can define $\Sigma$-types corresponding to coends and introduce a
+notion of directed W-types as initial algebras for categorified
+containers~\cite{gylterud}. In this work package, we will investigate
+whether this simpler setting suffices to encode QIITs, potentially
+offering a more elegant universal construction.
+
+Moreover, in untruncated Directed Type Theory — where types model
+$\infty$-categories — the generalisation to higher inductive-inductive
+types (HIITs) may arise naturally. We aim to explore whether this
+directed perspective allows us to unify and simplify the treatment of
+higher inductive constructions.
+
+% \paragraph{WP 8: Applications to Mathematics and Physics}
+
+% Higher categories show up in recent work in theoretical physics,
+% trying to find better matehmatial models of quantum field theory with
+% the hope to attack quatum gravity. On the other hand this work also
+% has applications in quantum computing.
+
+% One issue working with higher categroies is that the combinatoric
+% complexities of coherence conditions becomes very quickly
+% unfeasible. We hope that this can be overcome by providing a synthetic
+% framework to work with higher categories. We plan to work closely with
+% our collaborators in theoretical physics.
+
+% One particular application is the notion of "non-invertible
+% symmetries". which has seen enourmous popularity in the high energy
+% community.. Mostly people are quite vague about what it would mean,
+% but the basic intuition is, in paraphrase, to generalize (gauge
+% symmetry-)groupoids to categories.
 
 \paragraph{WP 8: Applications to Mathematics and Physics}
 
+Higher categories have recently emerged as central tools in
+theoretical physics, particularly in efforts to model quantum field
+theories and explore candidates for a theory of quantum
+gravity. Related ideas are also finding applications in quantum
+computing, where categorical structures are used to model
+entanglement, quantum processes, and compositional reasoning.
+
+A major barrier to practical use of higher categories is the
+overwhelming combinatorial complexity of coherence conditions, which
+quickly become unmanageable even in relatively simple settings. Our
+hypothesis is that Directed Type Theory can provide a synthetic
+framework for working with higher categorical structures that
+abstracts away low-level coherence data, enabling more scalable and
+conceptual reasoning.
+
+We plan to collaborate closely with researchers in theoretical physics
+to identify suitable use cases and develop formal models that bridge
+the language of DTT with the needs of physics. One particular area of
+interest is the emerging notion of \emph{non-invertible symmetries},
+which has gained substantial attention in high-energy physics. These
+generalise traditional symmetry groups or groupoids to higher
+categories in which morphisms are not necessarily invertible. While
+the physical literature often lacks precise mathematical formulations,
+we believe that DTT offers the right abstractions to give rigorous
+meaning to these ideas, and we aim to formalise and validate this
+connection.
+
+
 \newpage
-\phantomsection\addcontentsline{toc}{section}{Workplan}
-\makeatletter
-\begin{center}
-%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
-%  \centerline{\rule{185mm}{.5mm}}
-{\Large {\bf \centerline{\@title: Workplan}}}
-\centerline{\rule{165mm}{.5mm}}
-\end{center}
-\makeatother
+% \phantomsection\addcontentsline{toc}{section}{Workplan}
+% \makeatletter
+% \begin{center}
+% %  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+% %  \centerline{\rule{185mm}{.5mm}}
+% {\Large {\bf \centerline{\@title: Workplan}}}
+% \centerline{\rule{165mm}{.5mm}}
+% \end{center}
+% \makeatother
 
-\begin{center}
-\begin{ganttchart}[
-hgrid,
-%vgrid,
-%canvas/.style={draw=none},
-expand chart=16cm,
-bar height=1,%0.8,
-bar top shift=0,
-title height=1,
-y unit title=0.75cm,
-y unit chart=0.75cm,
-bar label font=\small,
-bar/.style={draw=black},
-title label font=\small,
-%title/.style={fill=none},
-]{1}{8}
-\gantttitle{Year 1}{2}
-\gantttitle{Year 2}{2}
-\gantttitle{Year 3}{2}
-\gantttitle{Year 4}{2}\\
-\ganttbar[inline, bar/.append style={fill=strathColour}]{S}{1}{2}
-\ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
-\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
-\\
-\ganttbar[inline, bar/.append style={fill=nottColour}]{N}{1}{5}
-\ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
-\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
-\\
-%
-\ganttbar[inline, bar/.append style={fill=nottColour}]{N}{3}{8}
-\ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
-\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
-\\
-\ganttbar[inline, bar/.append style={fill=strathColour}]{S}{5}{8}
-\ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
-\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
-\\
-% \ganttnewline \\
-\ganttbar[bar/.append style={draw=none}]{Team meetings}{0}{-1}
-\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
-\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
-\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
-\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{5}{4}
-\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{6}{5}
-\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
-\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
-\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
-\\
-%\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{5}{8}
-\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{3}{8}
-\ganttvrule{AIM Nottingham}{4}
-\ganttvrule{AIM Strathclyde}{7}
-\end{ganttchart}
-\end{center}
-\vspace*{-0.2in}
-{\small
-\hspace*{2cm}{(N = Nottingham lead, S = Strathclyde lead, \deliv\, = Deliverable, $\solidbowtie$ = In-person team meeting)}
-}
+% \begin{center}
+% \begin{ganttchart}[
+% hgrid,
+% %vgrid,
+% %canvas/.style={draw=none},
+% expand chart=16cm,
+% bar height=1,%0.8,
+% bar top shift=0,
+% title height=1,
+% y unit title=0.75cm,
+% y unit chart=0.75cm,
+% bar label font=\small,
+% bar/.style={draw=black},
+% title label font=\small,
+% %title/.style={fill=none},
+% ]{1}{8}
+% \gantttitle{Year 1}{2}
+% \gantttitle{Year 2}{2}
+% \gantttitle{Year 3}{2}
+% \gantttitle{Year 4}{2}\\
+% \ganttbar[inline, bar/.append style={fill=strathColour}]{S}{1}{2}
+% \ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
+% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+% \\
+% \ganttbar[inline, bar/.append style={fill=nottColour}]{N}{1}{5}
+% \ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
+% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
+% \\
+% %
+% \ganttbar[inline, bar/.append style={fill=nottColour}]{N}{3}{8}
+% \ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
+% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+% \\
+% \ganttbar[inline, bar/.append style={fill=strathColour}]{S}{5}{8}
+% \ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
+% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+% \\
+% % \ganttnewline \\
+% \ganttbar[bar/.append style={draw=none}]{Team meetings}{0}{-1}
+% \ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
+% \ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
+% \ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
+% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{5}{4}
+% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{6}{5}
+% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
+% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
+% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
+% \\
+% %\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{5}{8}
+% \ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{3}{8}
+% \ganttvrule{AIM Nottingham}{4}
+% \ganttvrule{AIM Strathclyde}{7}
+% \end{ganttchart}
+% \end{center}
+% \vspace*{-0.2in}
+% {\small
+% \hspace*{2cm}{(N = Nottingham lead, S = Strathclyde lead, \deliv\, = Deliverable, $\solidbowtie$ = In-person team meeting)}
+% }
 
-\vspace*{0.1in}
+% \vspace*{0.1in}
 \paragraph{Work package relationships and duration}
 
 
