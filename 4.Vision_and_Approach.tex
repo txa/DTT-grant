@@ -131,7 +131,7 @@ science.
 
 Type theory was originally developed by Per Martin-Löf as a foundation
 for intuitionistic mathematics. Over time, it has grown into a
-foundational language for programming languages, logic, and the
+foundational language for programming, logic, and the
 mechanisation of mathematics. Today, type theory serves as the
 theoretical core of widely used interactive proof assistants such as
 Coq, Lean, Agda, and Idris. Notably, Lean has gained traction among
@@ -148,7 +148,7 @@ special year at the Institute for Advanced Study and the collaborative
 publication of the \emph{HoTT Book} \Cite{hottbook}.
 
 A central principle of HoTT is the \emph{univalence axiom}, which asserts
-that equivalent (i.e., isomorphic) types can be treated as equal. This
+that equivalent (i.e. isomorphic) types can be treated as equal. This
 reflects the inherently structural nature of type theory—only
 structural, not set-theoretic, properties can be expressed. Univalence
 simplifies reasoning by allowing implicit substitution of isomorphic
@@ -212,7 +212,7 @@ The implementation will serve as a testbed for:
 Directed Type Theory opens new avenues for formalisation and verification. We will explore applications in three key areas:
 \begin{itemize}
   \item \textbf{Parametricity and coherence}: DTT gives a native account of naturality in type-indexed functions, offering a principled framework for formalising relational reasoning;
-  \item \textbf{Generalised inductive types}: We will investigate whether DTT supports novel higher inductive constructions, such as directed versions of W-types \cite{txa-hottuf24};
+  \item \textbf{Generalised inductive types}: We will investigate whether DTT supports novel higher inductive constructions, such as directed versions of W-types \cite{altenkirch2024qits};
   \item \textbf{Synthetic higher category theory}: By encoding complex coherence conditions synthetically, DTT promises significant simplification in formalising higher categorical structures, with potential applications in \emph{algebraic topology}, \emph{geometry}, and even \emph{theoretical physics} (e.g., quantum field theory and quantum gravity).
 \end{itemize}
 
@@ -365,8 +365,8 @@ from interpreting types in an \((\infty,1)\)-category rather than an
 \(\infty\)-groupoid. This framework captures non-invertible morphisms
 semantically, but its syntax remains complex and indirect.
 
-Building on this, Buchholtz and Gratzer have explored \emph{modal type
-  theories} \cite{buchholtzgratzer2022}, in which a directional
+Building on this, Gratzer, Weinberger and Buchholtz have explored \emph{modal type
+  theories} \cite{gratzer2024directed,gratzer2025yoneda}, in which a directional
 structure is expressed using modalities (e.g., \(\flat\), \(\sharp\))
 that encode variance or staged computation. These modalities allow
 partial control over variance and naturality, and support a stratified
@@ -376,15 +376,13 @@ indirection that complicates practical implementation.
 \paragraph{Synthetic 1-Category Theory.}
 Another stream of work focuses on synthetically presenting categories
 and functors as types and terms within a type theory. Early work by
-Harper, Licata, and others (e.g., \cite{harperlicata2011}) introduced
+Harper, Licata, and others (e.g., \cite{licata20112}) introduced
 ideas for encoding directed structure synthetically. More recent
 approaches include Paige North’s directed type theory
 \cite{north_2019}, which models 1-categories by internalising
 morphisms as terms rather than paths.
 
-Further refinements have been proposed by Uustalu and collaborators
-\cite{uustalu2020}, who explore directed identity types and their
-elimination rules. Altenkirch and Neumann’s recent work
+Altenkirch and Neumann’s recent work
 \cite{altenkirch_neumann_2024} presents a minimal core type theory for
 1-categories using directed eliminators and structural rules,
 supporting categorical reasoning without full univalence. These
@@ -440,19 +438,19 @@ grounded and practically implementable.
 
 We will formalise the syntax of 1-dimensional Directed Type Theory
 (1-DTT) using an intrinsically typed
-representation~\cite{txa-ambrus-defining}, which ensures that only
+representation~\cite{altenkirch2016type}, which ensures that only
 well-typed objects are constructible. This simplifies both the
 formulation of the theory and its relationship to the semantics. 
 
 Our work builds on the theory of Directed Categories with Families
-(DCwFs) as developed in~\cite{Altenkirch,Neumann}. We will address the
+(DCwFs) as developed in~\cite{altenkirch_neumann_2024}. We will address the
 following challenges: 
 
 \begin{enumerate}
 \item \textbf{Extension to lax ends and coends:} We will extend the
   calculus of DCwFs to support lax ends and coends. This will enable
   reasoning about structures such as natural transformations and is
-  inspired by recent work including~\cite{Paige}.  
+  inspired by recent work including~\cite{north_2019}.  
 
 \item \textbf{Directed second-order structure:} To reduce the
   syntactic overhead associated with expressing functoriality and
@@ -598,6 +596,7 @@ similarities.
 %\end{enumerate}
 
 \paragraph{WP 4: Comparative Semantics and Collaboration}
+% omit?
 
 A number of emerging approaches aim to provide a synthetic foundation
 for directed and higher-dimensional structures in type theory. While
@@ -635,7 +634,7 @@ our design choices and promote convergence in the broader community.
 % a bidirectional typechecker. We pllan to implmenet this in agda using
 % the agda to Haskell compiler to extract a type checker which can be
 % used as a demonstration prototype. To make this actually applicable
-for bigger example, we may construct a variant of Agda (or Narya). 
+%for bigger example, we may construct a variant of Agda (or Narya). 
 
 \paragraph{WP 5: Prototypical Implementation}
 
@@ -745,23 +744,28 @@ In cubical type theory, quotient types can be defined constructively,
 preserving computation. However, this is insufficient to define
 general \emph{Quotient Inductive Types} (QITs) — particularly
 set-truncated Higher Inductive Types (HITs) — solely from W-types and
-quotients~\cite{shulmann-lumsdene}. This raises the question: what
+quotients~\cite{lumsdaine2020semantics}. This raises the question: what
 kind of generalised W-types (QW-types) serves as a universal encoding
-for QITs or, more broadly, QIITs?
+for QITs or, more broadly, QIITs? There are proposals for
+universal QW-types,
+e.g. \cite{fiore2022quotients,kaposi2019constructing} but they are
+quite complex. We envisage a solution based on Gylterud's notion of
+categorified containers \cite{gylterud2011symmetric,altenkirch2024qits}. 
 
-There are at least two known answers, both with limitations. Steenkamp
-and Pitts~\cite{steenkamp-pitts} propose a concrete definition of a
-QW-type capable of encoding QITs. Separately, Kaposi et
-al.~\cite{ambrus-andras-me} show that the type of signatures is
-universal for QIITs. However, both constructions are technically
-complex and difficult to extend to higher homotopy levels.
+% Too detailed
+% There are at least two known answers, both with limitations. Steenkamp
+% and Pitts~\cite{steenkamp-pitts} propose a concrete definition of a
+% QW-type capable of encoding QITs. Separately, Kaposi et
+% al.~\cite{ambrus-andras-me} show that the type of signatures is
+% universal for QIITs. However, both constructions are technically
+% complex and difficult to extend to higher homotopy levels.
 
-In the directed setting, we gain new expressive tools. In particular,
-we can define $\Sigma$-types corresponding to coends and introduce a
-notion of directed W-types as initial algebras for categorified
-containers~\cite{gylterud}. In this work package, we will investigate
-whether this simpler setting suffices to encode QIITs, potentially
-offering a more elegant universal construction.
+% In the directed setting, we gain new expressive tools. In particular,
+% we can define $\Sigma$-types corresponding to coends and introduce a
+% notion of directed W-types as initial algebras for categorified
+% containers~\cite{gylterud}. In this work package, we will investigate
+% whether this simpler setting suffices to encode QIITs, potentially
+% offering a more elegant universal construction.
 
 Moreover, in untruncated Directed Type Theory — where types model
 $\infty$-categories — the generalisation to higher inductive-inductive
