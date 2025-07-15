@@ -8,12 +8,6 @@
 \usepackage[dvips,pdftex]{graphicx}
 \usepackage[british]{babel}
 \usepackage[dvipsnames]{xcolor}
-\usepackage[colorlinks=true  % Remove the boxes
-, linktocpage=true % Make page numbers (not section titles) links in ToC
-, linkcolor=NavyBlue    % Colour for internal links
-, citecolor=Green  % Colour for bibliographical citations
-, urlcolor=BrickRed % Colour for (external) urls
-]{hyperref}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{csquotes}
@@ -24,6 +18,8 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[most]{tcolorbox}
+\usepackage[helvet]{sfmath}
+\everymath={\sf}
 %%% Saves space within lists, but needs to be revisited later:
 \usepackage{enumitem}
 \setlist[itemize]{noitemsep, nolistsep}
@@ -42,6 +38,13 @@
 \newcommand{\teamm}[2]{\raisebox{-.25em}{\ensuremath{\overset{\textup{#1}}{\text{\textcolor{#2}{$\solidbowtie$}}}}}}
 \newcommand{\tmN}{\teamm{N}{nottColour}}
 \newcommand{\tmS}{\teamm{S}{strathColour}}
+
+\usepackage[colorlinks=true  % Remove the boxes
+, linktocpage=true % Make page numbers (not section titles) links in ToC
+, linkcolor=NavyBlue    % Colour for internal links
+, citecolor=black  % Colour for bibliographical citations
+, urlcolor=BrickRed % Colour for (external) urls
+]{hyperref}
 
 \usepackage[noabbrev,capitalise]{cleveref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,8 +75,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Disable hyperref for citations
-\let\oldcite\cite
-\renewcommand*\cite[1]{{\protect\NoHyper\oldcite{#1}\protect\endNoHyper}}
+%\let\oldcite\cite
+%\renewcommand*\cite[1]{{\protect\NoHyper\oldcite{#1}\protect\endNoHyper}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\summarySpace}{\vspace*{.0cm}}
@@ -155,8 +158,8 @@ the collective mathematical consciousness \cite{Manin2004}.
 A central principle of HoTT is the \emph{univalence axiom}, which asserts
 that equivalent (i.e. isomorphic) types can be treated as equal. This
 reflects the inherently structural nature of type theory—only
-structural,
-% not set-theoretic,
+structural
+%, not set-theoretic,
 properties can be expressed. Univalence
 simplifies reasoning by allowing implicit substitution of isomorphic
 types, much as abstract data types are treated extensionally in
@@ -166,7 +169,7 @@ Univalence has profound consequences. In particular, identity types in
 HoTT are no longer just truth values (mere propositions) but
 themselves carry higher structure. Equalities between elements of a
 type form structured types in their own right, encoding paths, paths
-between paths, and so on. Types form groupoids—or more precisely,
+between paths, and so on. Types form groupoids—or rather,
 $\infty$-groupoids. Equality becomes a rich structure, not just a
 binary relation.
 
@@ -184,7 +187,7 @@ shift from symmetry to directionality is conceptually simple but
 technically demanding. Multiple competing approaches to directed type
 theory exist, including those based on opetopic and cubical frameworks
 \cite{riehlshulman2017}, \cite{licata2016}, or synthetic
-1-category as a type theory \cite{licata:2011,north_2019,altenkirch_neumann_2024}.
+$1$-category as a type theory \cite{licata:2011,north_2019,altenkirch_neumann_2024}.
 and sorting through them is a necessary step towards a coherent and practical theory.
 
 The potential payoff is significant: a new foundation better suited
@@ -197,13 +200,14 @@ algebraic topology to systems verification and quantum physics.
 Our goal is to develop a \emph{workable and expressive system of Directed Type Theory (DTT)}, grounded in rigorous semantics and capable of supporting formal reasoning in higher categories and related domains. The outcomes we aim to deliver fall into three interrelated strands:
 
 \paragraph{1. Theory and Semantics}
-We will design a core DTT informed by recent developments in simplicial and synthetic type theories. By building on models such as Simplicial Type Theory (STT), Higher Observational Type Theory (HOTT), and synthetic 1-category frameworks \cite{riehlshulman2017, licata2016, north_2019, altenkirch_neumann_2024}, we aim to unify disparate strands into a coherent and practical formal system.
+We will design a core DTT informed by recent developments in simplicial and synthetic type theories. By building on models such as Simplicial Type Theory (STT), Higher Observational Type Theory (HOTT), and synthetic $1$-category frameworks \cite{riehlshulman2017, licata2016, north_2019, altenkirch_neumann_2024}, we aim to unify disparate strands into a coherent and practical formal system.
 
 Semantically, we will analyse key metatheoretic properties of the system, including:
 \begin{itemize}
   \item \textbf{Canonicity and normalisation}, using normalisation-by-evaluation (NbE) techniques adapted to the directed setting via gluing constructions;
   \item \textbf{Soundness and completeness} with respect to higher
-    categorical models (e.g. 2-toposes \cite{street-and-abelan});
+    categorical models
+    (e.g. $2$- and $(\infty,2)$-toposes \cite{street2topos,abellan-martini});
   \item \textbf{Internal parametricity}, where naturality becomes intrinsic rather than externally imposed.
 \end{itemize}
 These properties are essential to ensure the usability and robustness of the type theory.
@@ -336,10 +340,9 @@ applications we explore will provide concise and robust foundations
 for formal developments in areas such as algebraic topology, quantum
 field theory, and category theory.
 
-Beyond academia, foundational advances in type theory have growing relevance as formal methods become central to software and hardware engineering, finance, and public services. Industrial successes such as the seL4 microkernel \cite{Klein2009} and the CompCert C compiler \cite{Leroy2009} demonstrate the scalability of verification. In cryptography, tools like MIT’s Fiat Cryptography—used to generate components of BoringSSL, which secures everyday web traffic in Google Chrome—highlight the practical impact of type-theoretic verification \cite{Chlipala2019}. In finance, languages such as Marlowe \cite{PeytonJones2000} rely on type-theoretic principles, and public institutions like NASA and GCHQ have long recognised the strategic value of formal verification \cite{Rushby1993}. As systems like Coq, Agda, and Lean are built on type theory, advances in its foundations directly enhance the power and reach of these tools.
+Beyond academia, foundational advances in type theory have growing relevance as formal methods become central to software and hardware engineering, finance, and public services. Industrial successes such as the seL4 microkernel \cite{klein2014} and the CompCert C compiler \cite{Leroy2009} demonstrate the scalability of verification. In cryptography, tools like MIT’s Fiat Cryptography—used to generate components of BoringSSL, which secures everyday web traffic in Google Chrome—highlight the practical impact of type-theoretic verification \cite{Chlipala2019}. In finance, type theory can be used to reason about contracts \cite{PeytonJones2000}, and public institutions like NASA and GCHQ have long recognised the strategic value of formal verification \cite{Rushby1993}. As systems like Coq, Agda, and Lean are built on type theory, advances in its foundations directly enhance the power and reach of these tools.
 
-
-IIn the longer term, this research has the potential to influence the
+In the longer term, this research has the potential to influence the
 design of next-generation formal verification systems, and more
 generally, to impact systems engineering as a whole. As formal methods
 become more central to software and hardware engineering, finance, and
@@ -417,11 +420,11 @@ and functors as types and terms within a type theory. Early
 contributions by Harper, Licata, and others (e.g., \cite{licata20112})
 explored the encoding of directed structure within type theory. More
 recently, North has developed a directed type theory \cite{north_2019}
-aimed specifically at synthetic 1-category theory.
+aimed specifically at synthetic $1$-category theory.
 
 Altenkirch and Neumann’s recent work
 \cite{altenkirch_neumann_2024} presents a minimal core type theory for
-1-categories using directed eliminators and structural rules,
+$1$-categories using directed eliminators and structural rules,
 supporting categorical reasoning without full univalence. These
 approaches vary in their treatment of substitution, coherence, and
 computational interpretation, reflecting the field's conceptual
@@ -1037,7 +1040,7 @@ real-world mathematical and physical reasoning.
 \paragraph{Leadership and team meetings}
 
 
-\nocite{*} % remove before submitting
+%\nocite{*} % remove before submitting
 \printbibliography
 \end{document}
 
