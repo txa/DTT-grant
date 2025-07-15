@@ -390,24 +390,24 @@ non-invertible morphisms can be integrated into type theory. Here we
 summarise the main families of approaches, highlighting both their
 conceptual contributions and ongoing technical challenges.
 
-\paragraph{Simplicial Type Theory and Modal Approaches.}
-One of the most mature semantic frameworks for DTT comes from the work
+\paragraph{Simplicial Type Theory and Modal Approaches}
+One of the most mature frameworks for DTT comes from the work
 of Riehl and Shulman on \emph{simplicial type theory}
 \cite{riehlshulman2017}. Their approach interprets types as objects in
 a simplicial model of type theory, where directed structure arises
-from interpreting types in an \((\infty,1)\)-category rather than an
-\(\infty\)-groupoid. This framework captures non-invertible morphisms
-semantically, but its syntax remains complex and indirect.
+from the simplicial shapes inherent in each type (directed lines, triangles, etc.).
+This framework captures non-invertible morphisms
+semantically, but not all types represent $(\infty,1)$-categories.
 
-Building on this, Gratzer, Weinberger and Buchholtz have explored \emph{modal type
-  theories} \cite{gratzer2024directed,gratzer2025yoneda}, in which a directional
-structure is expressed using modalities (e.g., \(\flat\), \(\sharp\))
-that encode variance or staged computation. These modalities allow
-partial control over variance and naturality, and support a stratified
-view of types and morphisms, though again with a level of syntactic
+Gratzer, Weinberger and Buchholtz~\cite{gratzer2024directed,gratzer2025yoneda} have combined STT with \emph{multimodal type theory}~\cite{gratzer:2020}, which allows
+the directionality to be reversed $(-)^{\textup{op}}$ or suppressed (\(\flat\), \(\sharp\)).
+This facilitates the definition of the $(\infty,1)$-category of $\infty$-groupoids,
+and the development of a large swath of higher category theory, but it relies on axioms
+such as Blechschmidt's \emph{duality axiom}~\cite{blechschmidt:2023}
+and a layer of
 indirection that complicates practical implementation.
 
-\paragraph{Synthetic 1-Category Theory.}
+\paragraph{Synthetic 1-Category Theory}
 % Another stream of work focuses on synthetically presenting categories
 % and functors as types and terms within a type theory. Early work by
 % Harper, Licata, and others (e.g., \cite{licata20112}) introduced
@@ -430,7 +430,7 @@ approaches vary in their treatment of substitution, coherence, and
 computational interpretation, reflecting the field's conceptual
 richness and ongoing foundational debate.
 
-\paragraph{Higher Observational Type Theory.}
+\paragraph{Higher Observational Type Theory}
 Higher Observational Type Theory (HOTT), as recently presented by
 Shulman \cite{shulman2022}, offers a perspective that aims to bridge
 the gap between syntax and semantics in higher-dimensional type
@@ -441,7 +441,7 @@ higher-categorical semantics. Though not fully directed in its current
 form, it provides tools and techniques relevant to DTT, especially
 regarding coherence and internal parametricity.
 
-\paragraph{Summary.}
+\paragraph{Summary}
 The diversity of approaches to Directed Type Theory—semantic, modal,
 synthetic, and observational—illustrates both the richness of the
 conceptual landscape and the challenge of identifying a canonical
@@ -497,7 +497,7 @@ following challenges:
 \item \textbf{Directed second-order structure:} To reduce the
   syntactic overhead associated with expressing functoriality and
   naturality conditions, we aim to develop a directed analogue of
-  Second-Order Generalized Algebraic Theories (SOGATs). This will support a modular
+  Second-Order Generalised Algebraic Theories (SOGATs). This will support a modular
   and scalable syntax for 1-DTT. 
 
 \item \textbf{Multimodal formulation:} We will explore a reformulation
@@ -592,9 +592,10 @@ We will pursue the following directions:
   between different geometries of type-theoretic semantics.
 
 \item \textbf{More general semantics:} We will explore wether
-  $\infty$-DTT can be modelled in general $(\infty,2)$-toposes. This
+  $\infty$-DTT can be modelled in general $(\infty,2)$-toposes, not only
+  the sheaves of $(\infty,1)$-categories over an $(\infty,1)$-topos as
+  described by STT. This
   would further generalise the previous points.
-  
 \end{enumerate}
 
 \textbf{Risks:} While some goals are ambitious—particularly the full
@@ -644,7 +645,7 @@ To achieve this, we will extend the technique of \emph{normalisation
 Directed Type Theory. Our first focus will be 1-DTT, where we expect
 this to be tractable. Extending this approach to higher-dimensional
 types presents significant challenges, but we aim to build on
-work by Uemura \cite{uemura} and ideas 
+work by Nguyen and Uemura~\cite{uemura:2025} and ideas
 from the parametricity calculus \cite{popl-paper}, which shares key structural
 similarities.
 
@@ -653,7 +654,7 @@ techniques, but extending to higher dimensions is more
 challenging. Nonetheless, success would yield significant insights
 into the computational foundations of $\infty$-DTT.
 
-\textbf{Collaborators:} Kaposi, Gratzer , Neumann and Uustalu
+\textbf{Collaborators:} Kaposi, Gratzer, Neumann and Uustalu
 % \paragraph{WP 4: Relate DTT to other Type Theories }
 
 % There are a number of evolving approaches to DTT and we are planning
@@ -905,7 +906,7 @@ encodings for specific classes of types—would constitute meaningful
 progress and clarify the role of directionality in higher inductive
 constructions.
 
-\textbf{Collaborators:} Kaposi , Shulman
+\textbf{Collaborators:} Kaposi, Shulman
 
 % \paragraph{WP 8: Applications to Mathematics and Physics}
 
