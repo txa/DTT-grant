@@ -1,11 +1,15 @@
 Suggestions
 
-Ambrus Kaposi
+Ambrus Kaposi x
 Daniel Graetzer
 Jonathan Weinberger
-Paige North
-Tarmo Uustalu & Jacob Neumann
-Urs Schreiber
+Paige North x
+Tarmo Uustalu,  and Jacob Neumann x
+Urs Schreiber x
+Emily Riehl x
+Mike Shulmann x
+Alex Schenkel x
+
 Nicola Gambino
 
 Visitors
@@ -16,4 +20,5 @@ CoI ?
 
 Alex Schenkel (CoI)
 
-+ Emily Riehl
++ Emily Riehl?
++ Shulman
