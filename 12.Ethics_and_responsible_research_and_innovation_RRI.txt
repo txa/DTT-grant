@@ -1,0 +1,6 @@
+The proposed research is foundational and theoretical in nature. Because of this, we do not envisage direct ethical issues. In particular, the research will not require human participation, personal data, animals, or any form of biological samples. Nevertheless, we agree that responsibility in research is crucial.
+
+To promote good practice in research, we act in accordance with the guidelines of the University of Nottingham, e.g. by observing the research concordat to support the development of PDRAs, and by ensuring a positive working environment where we will pay attention to wellbeing and training opportunities.
+
+We are strongly convinced of the importance of open access research, which is why we will continue to make all our publications and accompanying formal proofs (software code) publicly available. All our publications are open access (gold or green route). Our institutions have agreements with major publishers (e.g. Cambridge University Press) waiving open access fees. In addition, we make preprints of all our papers publicly available on arXiv. Our software, meanwhile, is publicly accessible on Git repositories (on github.com or bitbucket.org) and, when accompanying a publication, is made available as an open source deposit on the archival website zenodo.org.
+
