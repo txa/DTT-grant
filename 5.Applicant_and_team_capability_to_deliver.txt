@@ -1,50 +1,15 @@
-group at nottingham is the main type theory groups in the worked and leading in the UK
+HEADLINES:
 
-leadership
-previous grants : homotopy type theory, observational equality, grant by USAF on type theory
-
-Thorsten : long standing experience in Type Theory
-Nicolai : higher structures
-Ulrik : synthetic mathematics in HoTT
-
-recent work : Ulrik development STT
-
-Altenkirch & Neumann DTT
-
-HoTT, HoTT book 
-work on HOTT
-
-representing TT within 2-level TT (Nicolai & Tom)
-
-experiences working together?
-joint publications: symmeries of spheres
-2-level TT ?
-
-organised MGS, gave courses related to TT, catgeory theory, synthetic Homotopy theory
-reach new members of the community
-opportunity to recruit postdoc
-* contributions to research community
-recent talks
-Ulrik : HoTT summer school
-computerphile
-
-international collaborations
-visiting in Budapest, working with Ambrus Kaposi
-Abu Dhabi Running HoTT
-PhD supervisions
-
-* contributions to broader...
-contributing to Agda & Lean
-computerphile
-invited talk at philosophy workshops
-teaching use typetheoretic methods (using lean teaching logic and theoretical CS)
-MGS attended and sponsored by industry
-HoTTest summer school
-AIM attended by inducstry, interested public ???
-Meta, Huwei, IOG use type theoretic methods for crypto
+Module 1 – Contributions to the generation of new ideas, tools, methodologies or knowledge
+Module 2 – The development of others and maintenance of effective working relationships 
+Module 3 – Contributions to the wider research and innovation community 
+Module 4 – Contributions to broader research/innovation-users and audiences and towards wider societal benefit
 
 
-1. research track record : everybody adds some track record on zulip
-2. development of individuals and working relationshios
-3. contributions research community
-4. wider public
+
+
+
+
+
+
+
