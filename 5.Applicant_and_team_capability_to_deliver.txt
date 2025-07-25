@@ -1,8 +1,58 @@
-HEADLINES:
+
+
+
+
+The project leadership team consists of Thorsten Altenkirch (Professor of Computer Science), Ulrik Buchholtz (Assistant Professor of Computer Science), and Nicolai Kraus (Royal Society University Research Fellow and Professor of Theoretical Computer Science). In addition, the team comprises one full-time PDRA and ten (TODO: CHECK BEFORE SUBMITTING) project partners. We, the leadership team, bring a diverse blend of complementary skills and expertise to the project. In the following, we discuss each of the four R4RI modules in detail.
+
 
 Module 1 – Contributions to the generation of new ideas, tools, methodologies or knowledge
+
+Altenkirch, an expert on ... (needed for WP ...)
+well known for his contributions to programming ...
+
+OLD TEXT:
+Thorsten Altenkirch is a Professor at
+the University of Nottingham and co-chair of the Functional
+Programming Laboratory. His main research interests are type theory,
+functional programming, categorical methods and quantum computing and
+he has published over 80 papers in these areas which are frequently
+cited (h-index $\geq$ 39). He has been Principal Investigator on four
+EPSRC projects and was PI on \emph{Homotopy Type Theory: Programming
+and Verification} (EP/M016994/1) and on the US Airforce grant
+\emph{Certified Programming with Dependent Types} (FA9550-16-1-0029).
+He is actively involved in the TYPES community and was a member of the
+management committee COST action EUTYPES (CA15123) and is involved in
+EuroProofNet (CA20111). He is an editor of \emph{Fundamenta
+Informaticae} since 2007 and a member of many program committees
+including POPL in 2017 and FSCD and LICS in 2025. In Spring 2013 he
+was a visiting researcher at the Institute for Advanced Study In
+Princeton for the whole term to work on homotopy type theory (HoTT)
+and he has contributed to the book on HoTT~\cite{hott-book}. He is a
+regular contributor to the computerphile channel on youtube where some
+of his videos accumulated of 1M views.
+
+
+
+
+Buchholtz is an expert for synthetic approaches to mathematics (needed for WP ...)
+
+Kraus ...
+
+OLD TEXT:
+is known for his contributions to higher type-theoretic structures the solving questions, and developing new theories. An example of the former is his solution to an open problem of the special year on Univalent Foundations (Princeton 2012/13), for which he received the Ackermann Award 2016 [CD16]. An example of the latter is two-level type theory [Ann+23], originally suggested for the study of extensions to HoTT, but repurposed and of central importance for the proposed project. Kraus holds a University Research Fellowship, the Royal Society's flagship fellowship for future leaders (up to £1.8M funding over up to 8 years). Kraus has been invited to major research meetings at centres including IAS Princeton, IHP Paris, Hausdorff Institute Bonn, Schloss Dagstuhl, CIRM Luminy, and CAS Oslo, given numerous invited talks, and published at the most prestigious venues in the area, including ... papers at the flagship conference LICS ...
+
+
+
+Joint work ...
+Why do we work together well ...
+
+
 Module 2 – The development of others and maintenance of effective working relationships 
+
+
 Module 3 – Contributions to the wider research and innovation community 
+
+
 Module 4 – Contributions to broader research/innovation-users and audiences and towards wider societal benefit
 
 
