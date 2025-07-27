@@ -30,14 +30,16 @@
 \usepackage{stackengine}
 
 \usepackage{bbding} % For the solid diamond symbol in the gantt chart
-\colorlet{nottColour}{MidnightBlue!60}
-\colorlet{strathColour}{JungleGreen!60}
+\colorlet{WPcolour}{JungleGreen!60}
+\colorlet{strathColour}{MidnightBlue!60}
 \colorlet{deliverable}{Goldenrod}
 \newcommand{\solidbowtie}{\blacktriangleright\!\!\blacktriangleleft}
 \newcommand{\deliv}{\textcolor{deliverable}{\raisebox{-.25em}{\DiamondSolid}}}
 \newcommand{\teamm}[2]{\raisebox{-.25em}{\ensuremath{\overset{\textup{#1}}{\text{\textcolor{#2}{$\solidbowtie$}}}}}}
-\newcommand{\tmN}{\teamm{N}{nottColour}}
+\newcommand{\tmN}{\teamm{N}{WPcolour}}
 \newcommand{\tmS}{\teamm{S}{strathColour}}
+\newcommand{\wsOne}{\teamm{WS1}{WPcolour}}
+\newcommand{\wsTwo}{\teamm{WS2}{WPcolour}}
 
 \usepackage[colorlinks=true  % Remove the boxes
 , linktocpage=true % Make page numbers (not section titles) links in ToC
@@ -385,7 +387,7 @@ deliver timely and impactful results.
 
 The development of Directed Type Theory (DTT) spans multiple lines of
 research, each offering different insights into how directionality and
-non-invertible morphisms can be integrated into type theory. Here we
+non-invertible morphisms can be integrated into type theory. Here, we
 summarise the main families of approaches, highlighting both their
 conceptual contributions and ongoing technical challenges.
 
@@ -450,7 +452,7 @@ computation in a unified framework. Our work aims to synthesise ideas
 from these strands to develop a system that is both semantically
 grounded and practically implementable.
 
-\subsection{Work packages}\label{work-packages}
+\subsection{Work packages}\label{work-packages}\todo{Should WPs have deliverables?}
 
 % \paragraph{WP 1: Syntax and semantics of 1-DTT}
 
@@ -963,87 +965,118 @@ real-world mathematical and physical reasoning.
 \textbf{Collaborators:} Schreiber, Schenkel
 
 
+
 \newpage
-% \phantomsection\addcontentsline{toc}{section}{Workplan}
-% \makeatletter
-% \begin{center}
-% %  {\Large {\bf \centerline{Vision and Approach: \@title}}}
-% %  \centerline{\rule{185mm}{.5mm}}
-% {\Large {\bf \centerline{\@title: Workplan}}}
-% \centerline{\rule{165mm}{.5mm}}
-% \end{center}
-% \makeatother
+\phantomsection\addcontentsline{toc}{section}{Workplan}
+\makeatletter
+\begin{center}
+	%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+	%  \centerline{\rule{185mm}{.5mm}}
+	{\Large {\bf \centerline{\@title: Workplan}}}
+	\centerline{\rule{165mm}{.5mm}}
+\end{center}
+\makeatother
 
-% \begin{center}
-% \begin{ganttchart}[
-% hgrid,
-% %vgrid,
-% %canvas/.style={draw=none},
-% expand chart=16cm,
-% bar height=1,%0.8,
-% bar top shift=0,
-% title height=1,
-% y unit title=0.75cm,
-% y unit chart=0.75cm,
-% bar label font=\small,
-% bar/.style={draw=black},
-% title label font=\small,
-% %title/.style={fill=none},
-% ]{1}{8}
-% \gantttitle{Year 1}{2}
-% \gantttitle{Year 2}{2}
-% \gantttitle{Year 3}{2}
-% \gantttitle{Year 4}{2}\\
-% \ganttbar[inline, bar/.append style={fill=strathColour}]{S}{1}{2}
-% \ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
-% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
-% \\
-% \ganttbar[inline, bar/.append style={fill=nottColour}]{N}{1}{5}
-% \ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
-% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
-% \\
-% %
-% \ganttbar[inline, bar/.append style={fill=nottColour}]{N}{3}{8}
-% \ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
-% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
-% \\
-% \ganttbar[inline, bar/.append style={fill=strathColour}]{S}{5}{8}
-% \ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
-% \ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
-% \\
-% % \ganttnewline \\
-% \ganttbar[bar/.append style={draw=none}]{Team meetings}{0}{-1}
-% \ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
-% \ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
-% \ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
-% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{5}{4}
-% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{6}{5}
-% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
-% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
-% \ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
-% \\
-% %\ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{5}{8}
-% \ganttbar[inline, bar/.append style={fill=strathColour, dashed}]{Strathclyde RA}{3}{8}
-% \ganttvrule{AIM Nottingham}{4}
-% \ganttvrule{AIM Strathclyde}{7}
-% \end{ganttchart}
-% \end{center}
-% \vspace*{-0.2in}
-% {\small
-% \hspace*{2cm}{(N = Nottingham lead, S = Strathclyde lead, \deliv\, = Deliverable, $\solidbowtie$ = In-person team meeting)}
-% }
+\begin{center}
+	\begin{ganttchart}[
+		hgrid,
+		%vgrid,
+		%canvas/.style={draw=none},
+		expand chart=16cm,
+		bar height=1,%0.8,
+		bar top shift=0,
+		title height=1,
+		y unit title=0.75cm,
+		y unit chart=0.75cm,
+		bar label font=\small,
+		bar/.style={draw=black},
+		title label font=\small,
+		%title/.style={fill=none},
+		]{1}{8}
+		\gantttitle{Year 1}{2}
+		\gantttitle{Year 2}{2}
+		\gantttitle{Year 3}{2}
+		\gantttitle{Year 4}{2}\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{1-DTT}{1}{2}
+		\ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{$\infty$-DTT}{2}{5}
+		\ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Metatheory}{2}{7}
+		\ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Prototypical Implementation}{3}{7}
+		\ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
+		\\
+		%
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Parametricity}{2}{5}
+		\ganttbar[bar/.append style={draw=none}]{WP5}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Universal HITs}{6}{8}
+		\ganttbar[bar/.append style={draw=none}]{WP6}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Applications}{6}{8}
+		\ganttbar[bar/.append style={draw=none}]{WP7}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+		\\
+		\ganttbar[bar/.append style={draw=none}]{Workshops}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
+		\ganttbar[inline, bar/.append style={draw=none,left=8mm}]{\wsOne}{2}{1}
+		\ganttbar[inline, bar/.append style={draw=none,left=1mm}]{\wsTwo}{6}{5}
+%		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
+%		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
+%		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
+%		\\
+		%\ganttbar[inline, bar/.append style={fill=WPcolour, dashed}]{Strathclyde RA}{5}{8}
+%		\ganttbar[inline, bar/.append style={fill=WPcolour, dashed}]{Strathclyde RA}{3}{8}
+%		\ganttvrule{AIM Nottingham}{4}
+%		\ganttvrule{AIM Strathclyde}{7}
+	\end{ganttchart}
+\end{center}
+%\vspace*{-0.2in}
+%{\small
+%	\hspace*{5cm}{($\solidbowtie$ = In-person workshops, \deliv\, = Deliverable)}
+%}
 
-% \vspace*{0.1in}
-\paragraph{Work package relationships and duration}
+\vspace*{0.1in}
+\paragraph{Work package relationships and durations}
 
-% 2 workshops: 1 in the beginning, one in the middle
-% invite relevant collaborators
+Many of our WPs are interconnected and cannot be approached in a strict linear order. Instead, we will have to go back and forth to make adjustments and improvements. %We explain the relationships in detail 
+%The bars in the chart above outline the time periods during which we expect to focus on the relevant WP
+
+\emph{1-dimensional Directed Type Theory (1-DTT)} is of independent interest but, in the context of our project, it serves as an important stepping stone towards \emph{$\infty$-dimensional Directed Type Theory ($\infty$-DTT)}.
+Therefore, we start with WP1 right at the beginning of the project. Given our current ongoing work and previous experience, we anticipate that we will have a working theory within the first six project months, although it is likely that we will have to make further tweaks during months 7--12.
+
+After creating a workable version of 1-DTT, we will focus on $\infty$-DTT (WP2). It will be helpful to develop $\infty$-DTT in parallel with its meta-theoretic properties (WP3) and, a bit later, a prototypical implementation (WP4).
+Similarly, the study of parametricity (WP5) may influence the concrete design of 1-DTT.
+Although we expect that we will have a first version of $\infty$-DTT early on,
+the precise syntax and semantics of $\infty$-DTT is so central to the project that we anticipate the need to revisit and tweak it frequently during a 2-year period.
+Naturally, WP3 and WP4 can only be finalised after a definite result of WP2 (and WP5) is available.
+
+As soon as our $\infty$-DTT is complete, we will study a core expected application within type theory itself, namely a universal family of higher inductive types (WP6).
+In parallel, we will explore applications of the language to mathematics and theoretical physics (WP7).
 
 \paragraph{Leadership and team meetings}
 
-% regular team meetings 
-% remote meetings with relevant collaborators 
+We will have frequent local team meetings (weekly during term time, flexible out of term time) to discuss our progress and supervise the PDRA.
+Most meetings with our external project partners and collaborators will take place online and scheduled based on requirements.
 
+
+\todo[inline]{2 workshops: 1 in the beginning, one in the middle; invite relevant collaborators. Regular team meetings, remote meetings with relevant collaborators; local team meetings, PDRA supervision.}
+
+
+\newpage
+
+\todo[inline]{Remove before submitting.}
 
 %\nocite{*} % remove before submitting
 \printbibliography
