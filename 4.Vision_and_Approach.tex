@@ -50,7 +50,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% possibly useful
-%\usepackage{todonotes}
+\usepackage{todonotes}
 
 
 %%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,7 +187,7 @@ shift from symmetry to directionality is conceptually simple but
 technically demanding. Multiple competing approaches to directed type
 theory exist, including those based on opetopic and cubical frameworks
 \cite{riehlshulman2017}, \cite{licata2016}, or synthetic
-$1$-category as a type theory \cite{licata:2011,north_2019,altenkirch_neumann_2024}.
+$1$-category as a type theory \cite{licata:2011,north_2019,altenkirch_neumann_2024},
 and sorting through them is a necessary step towards a coherent and practical theory.
 
 The potential payoff is significant: a new foundation better suited
@@ -200,7 +200,8 @@ algebraic topology to systems verification and quantum physics.
 Our goal is to develop a \emph{workable and expressive system of Directed Type Theory (DTT)}, grounded in rigorous semantics and capable of supporting formal reasoning in higher categories and related domains. The outcomes we aim to deliver fall into three interrelated strands:
 
 \paragraph{1. Theory and Semantics}
-We will design a core DTT informed by recent developments in simplicial and synthetic type theories. By building on models such as Simplicial Type Theory (STT), Higher Observational Type Theory (HOTT), and synthetic $1$-category frameworks \cite{riehlshulman2017, licata2016, north_2019, altenkirch_neumann_2024}, we aim to unify disparate strands into a coherent and practical formal system.
+We will design a core DTT informed by recent developments in simplicial and synthetic type theories.\todo{Not a thing?}
+By building on models such as Simplicial Type Theory (STT), Higher Observational Type Theory (HOTT), and synthetic $1$-category frameworks \cite{riehlshulman2017, licata2016, north_2019, altenkirch_neumann_2024}, we aim to unify disparate strands into a coherent and practical formal system.
 
 Semantically, we will analyse key metatheoretic properties of the system, including:
 \begin{itemize}
@@ -313,7 +314,6 @@ By developing foundational theory, semantics, tooling, and case studies in paral
 \subsection{Quality, impact, and timeliness}
 
 \paragraph{Importance and quality}
-
 This project represents a fundamental innovation in type theory that
 could mark a second major advance after the development of Homotopy
 Type Theory (HoTT). If successful, Directed Type Theory (DTT) would
@@ -331,7 +331,6 @@ conceptual and practical challenges in developing a usable directed
 type theory.
 
 \paragraph{Beneficiaries and impact}
-
 In the short term, this project will benefit academic researchers in
 type theory, category theory, programming languages, and formalised
 mathematics. We will collaborate with researchers in these communities
@@ -353,13 +352,13 @@ foundational framework that can scale with complexity and support
 compositional reasoning.
 
 \paragraph{Timeliness of the project}
-
+%
 % Formalised developments in mathematics and computer science are
 % rapidly becoming more widespread, accelerated by progress in proof
 % assistants and advances in AI. This momentum demands improvements in
 % the foundational tools that underpin these systems to ensure future
 % developments remain feasible, explainable, and trustworthy.
-
+%
 Formalised developments in mathematics and computer science are
 rapidly becoming more widespread, accelerated by progress in proof
 assistants and advances in AI. For example, the Lean mathematical
@@ -414,7 +413,7 @@ indirection that complicates practical implementation.
 % ideas for encoding directed structure synthetically. More recent
 % approaches include North’s directed type theory
 % \cite{north_2019}, which focuese on synthetic 1-category theory. 
-
+%
 Another stream of work focuses on synthetically presenting categories
 and functors as types and terms within a type theory. Early
 contributions by Harper, Licata, and others (e.g., \cite{licata:2011})
