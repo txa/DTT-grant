@@ -202,7 +202,9 @@ algebraic topology to systems verification and quantum physics.
 Our goal is to develop a \emph{workable and expressive system of Directed Type Theory (DTT)}, grounded in rigorous semantics and capable of supporting formal reasoning in higher categories and related domains. The outcomes we aim to deliver fall into three interrelated strands:
 
 \paragraph{1. Theory and Semantics}
-We will design a core DTT informed by recent developments in simplicial and synthetic type theories.\todo{Not a thing?}
+We will design a core DTT informed by recent developments in
+simplicial type theory and synthetic category theory.
+%\todo{Not a thing?}
 By building on models such as Simplicial Type Theory (STT), Higher Observational Type Theory (HOTT), and synthetic $1$-category frameworks \cite{riehlshulman2017, licata2016, north_2019, altenkirch_neumann_2024}, we aim to unify disparate strands into a coherent and practical formal system.
 
 Semantically, we will analyse key metatheoretic properties of the system, including:
@@ -452,7 +454,7 @@ computation in a unified framework. Our work aims to synthesise ideas
 from these strands to develop a system that is both semantically
 grounded and practically implementable.
 
-\subsection{Work packages}\label{work-packages}\todo{Should WPs have deliverables?}
+\subsection{Work packages}\label{work-packages}%\todo{Should WPs have deliverables?}
 
 % \paragraph{WP 1: Syntax and semantics of 1-DTT}
 
@@ -476,7 +478,6 @@ grounded and practically implementable.
 % \end{enumerate}
 
 \paragraph{WP 1: Syntax and Semantics of 1-DTT}
-
 We will formalise the syntax of 1-dimensional Directed Type Theory
 (1-DTT) using an intrinsically typed
 representation~\cite{altenkirch2016type}, which ensures that only
@@ -512,11 +513,12 @@ We will test the validity and expressiveness of our
 framework through the case studies and formal developments in
 WPs~5--7 restricted to the 1 DTT case.
 
+\textbf{Deliverables:} Production of a peer-reviewed publication on synthetic 1-category
+theory as a directed type theory. \\
 \textbf{Risks:}
 The initial design may not align with the intended semantics,
 requiring reeingenieering. However, this is managable since based on
-ongoing work.
-
+ongoing work.\\
 \textbf{Collaborators:}
 North, Uustalu and Neumann.
 
@@ -599,13 +601,14 @@ We will pursue the following directions:
   would further generalise the previous points.
 \end{enumerate}
 
+\textbf{Deliverables:} A peer-reviewed conference paper on 
+NbE for 1st order directed Type Theory.\\
 \textbf{Risks:} While some goals are ambitious—particularly the full
 semantic account of $\infty$-DTT—we are confident that substantial
 progress can be made. Even if the general case remains out of reach,
 we expect to develop robust semantic frameworks for key fragments,
 which will be sufficient for our intended applications and provide a
-solid foundation for future work.
-
+solid foundation for future work.\\
 \textbf{Collaborators:} Gratzer, Weinberger, Riehl
 
 % \paragraph{WP 3: Metatheory}
@@ -650,11 +653,12 @@ work by Nguyen and Uemura~\cite{uemura:2025} and ideas
 from the parametricity calculus \cite{popl-paper}, which shares key structural
 similarities.
 
+\textbf{Deliverables:} An Agda implementation of a directed type
+theory.\\
 \textbf{Risks:} The 1-DTT case is expected to be tractable using known
 techniques, but extending to higher dimensions is more
 challenging. Nonetheless, success would yield significant insights
-into the computational foundations of $\infty$-DTT.
-
+into the computational foundations of $\infty$-DTT.\\
 \textbf{Collaborators:} Kaposi, Gratzer, Neumann and Uustalu
 % \paragraph{WP 4: Relate DTT to other Type Theories }
 
@@ -764,12 +768,13 @@ a custom front-end. This will allow us to evaluate how Directed Type
 Theory scales in practice and how it integrates with existing
 ecosystems.
 
+\textbf{Deliverables:} An Agda or Narya implementation of a directed type theory.
+\\
 \textbf{Risks:} A proof of concept is feasible, but the extent of the
 implementation depends on prior progress and the experience of the
 research staff.
-
-\textbf{Collaborators:} North, Kaposi
-
+\\
+\textbf{Collaborators:} Kaposi
 
 % \paragraph{WP 6: Parametricity}
 
@@ -826,13 +831,15 @@ whether logical relations (e.g., bridges and paths) can be
 internalised. This investigation will extend to higher-dimensional
 settings, building on the semantic foundations developed in WP~2.
 
+\textbf{Deliverables:} A computer science conference paper on
+parametricity in directed type theory.
+\\
 \textbf{Risks:} This work is exploratory, and the extent to which the
 goal can be achieved will depend on insights developed during the
 project. However, even partial results will advance our understanding
 of parametricity in a directed setting.
-
+\\
 \textbf{Collaborators:} Kaposi, Shulman
-
 % \paragraph{WP 7: Universal higher inductive types}
 
 % In Type Theory inductive definitions can be reduced to W-types, the
@@ -900,13 +907,14 @@ types (HIITs) may arise naturally. We aim to explore whether this
 directed perspective allows us to unify and simplify the treatment of
 higher inductive constructions.
 
+\textbf{Deliverables:} A peer-reviewed conference paper on datatypes
+definable in DTT.\\
 \textbf{Risks:} This work is exploratory, and the feasibility of a
 universal construction for QIITs in the directed setting remains to be
 established. However, even partial results—such as simplified
 encodings for specific classes of types—would constitute meaningful
 progress and clarify the role of directionality in higher inductive
-constructions.
-
+constructions.\\
 \textbf{Collaborators:} Kaposi, Shulman
 
 % \paragraph{WP 8: Applications to Mathematics and Physics}
@@ -965,6 +973,12 @@ area with high potential impact. Even partial success would mark
 significant progress and strongly validate the relevance of DTT to
 real-world mathematical and physical reasoning.
 
+\textbf{Deliverables:} A peer-reviewed journal publication on
+applications of DTT in Mathematics and Physics.\\
+\textbf{Risks:} While exploratory, this work targets a key application
+area with high potential impact. Even partial success would mark
+significant progress and strongly validate the relevance of DTT to
+real-world mathematical and physical reasoning.\\
 \textbf{Collaborators:} Schreiber, Schenkel
 
 
