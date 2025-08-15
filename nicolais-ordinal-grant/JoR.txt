@@ -1,0 +1,47 @@
+CAVEAT: Due to a TFS bug, costs for an additional unnamed institution might be shown. To confirm, the amounts are £676,310 (Nottingham) plus £517,168 (Strathclyde) plus £0 (visiting researcher), totalling £954,781 at 80% FEC.
+
+PERSONNEL:
+
+Our project stretches from pure theory to academic applications and practical implementations. The required wide range of expertise makes all investigators essential for the project. The leadership team has an excellent joint track record in the development of constructive ordinals (WP1) and, more generally, in homotopy type theory and formalisations. However, the project requires more than this. For example, our central approach to using internal developments for meta-theoretic reasoning (WP2, WP3) necessitates an absolute proficiency in two-level type theory, which Kraus is a key expert on. Similarly, the project depends on Nordvall Forsberg's expertise on induction-induction (WP3) as well as on his experience with the development of Agda (WP4).
+
+Kraus and Nordvall Forsberg will spend 20% of their time on the project. These workloads are standard for such projects, and any less would be totally unrealistic given the volume of work required. Furthermore, the amount of work is clearly too much to be undertaken by the investigators alone, and so full-time post-doctoral researchers are needed on each site. The researcher co-lead de Jong is an expert on constructive ordinals as well as homotopy type theory and will continue to work in Nottingham. To maximise cost efficiency, Strathclyde's postdoctoral researcher will only join the project team in the second year, which is when their support will be required. The staggered start date will also give us time to advertise and recruit the best possible candidate. The breadth and maturity of experience required is unlikely to be possessed by junior postdocs; appointing at Grade 7, spine point 35 gives us the flexibility to employ a more senior RA with the skill set needed. The small extra cost is more than outweighed by the associated benefits.
+
+The project leaders have a history of successful collaboration with Xu who will, in his role as visiting researcher, contribute throughout the project. While we will continue our weekly online meetings, the only financial contribution that we request for Xu is the costs for one physical week-long visit per year to attend the Nottingham team meetings (see below).
+
+TRAVEL:
+
+In our area, peer-reviewed conferences are major publication venues, and are vital for dissemination and making connections within the community, especially for junior researchers such as the two postdocs involved in the project. Travel is therefore of utmost importance. The most prestigious conferences in the area, LICS and POPL, have relatively high registration fees and are regularly held in the US or Asia. Smaller important conferences that are often held in Europe include TYPES, ETAPS, CSL, ITP, and FSCD.
+
+The costs for a conference in Europe are calculated as follows:
+(a) Registration: £200 on average as some meetings (e.g. HoTT/UF) are free.
+(b) Train: In line with UKRI's guidelines on sustainable travel, we strongly believe that our environmental impact should be kept to a minimum whenever reasonable. For example, both Kraus and Nordvall Forsberg travelled by train to Valencia for the recent TYPES conference. Average costs for the Eurostar are £240, plus £120 for trains within the UK and £220 for continental trains. We add £20 for local transport, resulting in a total of £600.
+(c) Accommodation/subsistence: We estimate daily costs of £150. With conferences being around four days, the costs are approximately £600.
+These numbers sum up to £1.4k for a European conference.
+
+Similarly, the costs for an event outside of Europe (especially in the US) are calculated as follows:
+(a) Registration: £600 on average, which is a standard level of costs for the main conferences such as POPL or LICS.
+(b) Travel: We estimate £800 for the flights and £200 for other travel, which includes getting to and from the airport and local travel by bus or tram.
+(c) Accommodation/subsistence: Hotels are regularly more expensive in America, and we estimate £200/day for five days.
+In total, a non-European conference costs around £2.6k.
+
+Typically, each Nottingham/Strathclyde team member visits two conferences yearly, so the 15 person-years on the project amount to 30 conference visits. We estimate that around three quarters (22) will be in Europe and cheaper, while the remaining eight will be in the more expensive category.
+
+TEAM MEETINGS:
+
+While the team will meet frequently online, one face-to-face meeting in Nottingham and one in Strathclyde per year will massively increase productivity. The flexibility reduces the costs to around £650 per visiting team member, using £150 for transport and £125/day for accommodation and subsistence (4 days). Kraus and de Jong will travel annually to Strathclyde (eight trips), Nordvall Forsberg and the Strathclyde PDRA seven times to Nottingham.
+
+COLLABORATORS:
+
+Each collaborator will visit once for a week during the project. A collaborator visiting from continental Europe will incur costs comparable to a European conference without the registration fee (£1.2k). A UK collaborator might prefer several one-day visits (no hotel accommodation) instead, and we estimate £500 for each. We have four EU collaborators and two based in the UK, totalling £5.8k.
+
+VISITING RESEARCHER TRAVEL:
+
+Xu will visit 4*1 weeks from the EU during the duration of the project, with costs similar as to a collaborator visit, i.e., 4*£1.2 = £4.8k.
+
+AGDA IMPLEMENTORS' MEETINGS (AIMs):
+
+As explained in the proposal, we will host two AIMs. We will pay for the relevant collaborators to attend, namely Abel and Cockx (twice each) and Sattler (once). The cost per person is estimated to be the same as an EU conference plus two days (AIMs are usually six days) minus the registration fee, amounting to £1.2k per person per meeting. We add £500/AIM for refreshments, and 4*£900 (a team meeting plus two days) for our own costs, summing up to £12.1k.
+
+OUTREACH AND RESPONSIBLE INNOVATION:
+
+For outreach, we use opportunities that are funded locally. For example, we work with the producers of the Computerphile YouTube channel in Nottingham. We do not require funds for responsible innovation (cf. Section 12).
