@@ -187,10 +187,9 @@ Formally, this amounts to replacing $\infty$-groupoids with
 $(\infty,1)$-categories, where morphisms need not be invertible. This
 shift from symmetry to directionality is conceptually simple but
 technically demanding. Multiple competing approaches to directed type
-theory exist, including those based on opetopic and cubical frameworks
-\cite{riehlshulman2017}, \cite{licata2016}, or synthetic
-$1$-category as a type theory \cite{licata:2011,north_2019,altenkirch_neumann_2024},
-and sorting through them is a necessary step towards a coherent and practical theory.
+theory exist, which are either fully synthetic \cite{licata:2011,north_2019,altenkirch_neumann_2024}, but $1$-categorical
+or not quite synthetic, but accommodating higher categories~
+\cite{riehlshulman2017}. Sorting through them is a necessary step towards a coherent and practical theory.
 
 The potential payoff is significant: a new foundation better suited
 for formalising directed structures in mathematics, synthetic category
@@ -401,14 +400,18 @@ a simplicial model of type theory, where directed structure arises
 from the simplicial shapes inherent in each type (directed lines, triangles, etc.).
 This framework captures non-invertible morphisms
 semantically, but not all types represent $(\infty,1)$-categories.
+This has been implemented in the Rzk type checker, which has been used to mechanize
+a version of the Yoneda lemma~\cite{kudasov2024}.
 
-Gratzer, Weinberger and Buchholtz~\cite{gratzer2024directed,gratzer2025yoneda} have combined STT with \emph{multimodal type theory}~\cite{gratzer:2020}, which allows
+Gratzer, Weinberger and Buchholtz~\cite{gratzer2024directed,gratzer2025yoneda} have combined STT with \emph{multimodal type theory} (MTT)~\cite{gratzer:2020}, which allows
 the directionality to be reversed $(-)^{\textup{op}}$ or suppressed (\(\flat\), \(\sharp\)).
 This facilitates the definition of the $(\infty,1)$-category of $\infty$-groupoids,
 and the development of a large swath of higher category theory, but it relies on axioms
 such as Blechschmidt's \emph{duality axiom}~\cite{blechschmidt:2023}
 and a layer of
 indirection that complicates practical implementation.
+MTT has not yet been fully implemented, but Agda supports the fragment with an
+idempotent comonadic modality $\flat$, and experiments are ongoign to extend this to a fragment sufficient for all the above modalities.
 
 \paragraph{Synthetic 1-Category Theory}
 % Another stream of work focuses on synthetically presenting categories
@@ -950,7 +953,7 @@ computing, where categorical structures, in particular dagger categories,
 are used to model
 entanglement, quantum processes, and compositional reasoning~\cite{Abramsky2004}.
 Higher dagger categories~\cite{ferrer2024daggerncategories} should prove useful
-for studying higher quantum computation. This might involve anyon~\cite{sati-schreiber-2023}, which underlie topological quantum gates,
+for studying higher quantum computation. This might involve anyons~\cite{sati-schreiber-2023}, which underlie topological quantum gates,
 and has already made contact with HoTT~\cite{Myers2024}.
 
 A major barrier to practical use of higher categories is the
