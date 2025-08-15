@@ -1,14 +1,14 @@
 Suggestions
 
 Ambrus Kaposi x
-Daniel Graetzer x
-Jonathan Weinberger x
-Paige North x
-Tarmo Uustalu,  and Jacob Neumann x
-Urs Schreiber x
-Emily Riehl x
-Mike Shulmann x
-Alex Schenkel x
+Daniel Graetzer x y
+Jonathan Weinberger x y
+Paige North xy
+Tarmo Uustalu,  and Jacob Neumann xy
+Urs Schreiber xy
+Emily Riehl xy
+Mike Shulmann xy
+Alex Schenkel xy
 
 Nicola Gambino
 

@@ -1,24 +1,29 @@
+
+--> Staff
 4 years
 1 RA
 20 % for thorsten & Ulrik
 Nicolai : 0% for 1st year, 20% after (ask David)
 
---> only collaborators
+--> collaborators
 1 planning meeting (early) hybrid
 1 feedback & progress meeting (middle) hybrid
 travel for each project partner
 
 travel for 5 collaborators
 : £2000 x 5
+= £10.000
 
 --> open participations, offer funding for early career & others
 1 workshop for dissemenation (towards end)
-: 5 people (inivted speakers + grants) : £1500 each
+: 5 people (invited speakers + grants) : £1500 each
 running of workshop : catering 700, conf dinner 800 : 1500  
+= 5x1500 + 1500 = £9.000
 
-conference travel
+--> conference travel
 LICS, POPL, TYPES, FSCD, CT, CSL, HoTT/UF
 each team member:(4)
-- 2 outside Europe  £3000
-- 4 within Europe (1 a year) £2000
+- 1 outside Europe  £3000
+- 3 within Europe (1 a year) £2000
+= 9.000 x 4 = 36.000
 
