@@ -2,10 +2,35 @@
 
 
 
-The project leadership team consists of Thorsten Altenkirch (Professor of Computer Science), Ulrik Buchholtz (Assistant Professor of Computer Science), and Nicolai Kraus (Royal Society University Research Fellow and Professor of Theoretical Computer Science). In addition, the team comprises one full-time PDRA and nine project partners. We, the leadership team, bring a diverse blend of complementary skills and expertise to the project. Our project partners are leading experts in their respective subfields and have a track record of successful collaborations with us. In the following, we discuss each of the four R4RI modules in detail.
+The project leadership team consists of Thorsten Altenkirch (Professor of Computer Science), Ulrik Buchholtz (Assistant Professor of Computer Science), and Nicolai Kraus (Royal Society University Research Fellow and Professor of Theoretical Computer Science). In addition, the team comprises one full-time PDRA and nine project partners. The project requires expertise
 
 
-Module 1 – Contributions to the generation of new ideas, tools, methodologies or knowledge
+We, the leadership team, bring a diverse blend of complementary skills and expertise to the project. 
+
+
+Our project partners are leading experts in their respective subfields and have a track record of successful collaborations with us. In the following, we discuss each of the four R4RI modules in detail.
+
+
+
+
+
+Thorsten : long standing experience in Type Theory
+Nicolai : higher structures
+Ulrik : synthetic mathematics in HoTT
+
+Altenkirch & Neumann DTT
+recent work : Ulrik development STT
+representing TT within 2-level TT (Nicolai & Tom)
+
+experiences working together?
+joint publications: symmeries of spheres
+
+
+
+
+
+
+### Module 1 – Contributions to the generation of new ideas, tools, methodologies or knowledge
 
 Our group, the Functional Programming Lab in Nottingham, is one of the internationally leading groups in the field of type theory.
 
@@ -50,24 +75,51 @@ Joint work ...
 Why do we work together well ...
 
 
-Module 2 – The development of others and maintenance of effective working relationships 
+### Module 2 – The development of others and maintenance of effective working relationships 
 
 
-Module 3 – Contributions to the wider research and innovation community 
 
-Thorsten's Philosophy lectures
+- Research leadership, cf grants
+previous grants : homotopy type theory, observational equality, grant by USAF on type theory
+
+international collaborations
+visiting in Budapest, working with Ambrus Kaposi
+Abu Dhabi Running HoTT
+PhD supervisions
 
 
-Module 4 – Contributions to broader research/innovation-users and audiences and towards wider societal benefit
+
+
+
+### Module 3 – Contributions to the wider research and innovation community 
+
+
+HoTT, HoTT book 
+work on HOTT
+
+organised MGS, gave courses related to TT, catgeory theory, synthetic Homotopy theory
+reach new members of the community
+opportunity to recruit postdoc
+
+recent talks
+
+contributing to Agda & Lean
+
+invited talk at philosophy workshops
+teaching use typetheoretic methods (using lean teaching logic and theoretical CS)
+
+
+
+### Module 4 – Contributions to broader research/innovation-users and audiences and towards wider societal benefit
 
 Computerphile
 
 Ulrik: HoTTeST summer school (laypeople participated)
 
 MGS attended and sponsored by industry (2nd order impact) 
+Meta, Huwei, IOG use type theoretic methods for crypto
 
-
-
+AIM attended by industry, interested public ???
 
 
 
