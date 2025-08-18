@@ -2,10 +2,13 @@
 
 
 
-The project leadership team consists of Thorsten Altenkirch (Professor of Computer Science), Ulrik Buchholtz (Assistant Professor of Computer Science), and Nicolai Kraus (Royal Society University Research Fellow and Professor of Theoretical Computer Science). In addition, the team comprises one full-time PDRA and ten (TODO: CHECK BEFORE SUBMITTING) project partners. We, the leadership team, bring a diverse blend of complementary skills and expertise to the project. In the following, we discuss each of the four R4RI modules in detail.
+The project leadership team consists of Thorsten Altenkirch (Professor of Computer Science), Ulrik Buchholtz (Assistant Professor of Computer Science), and Nicolai Kraus (Royal Society University Research Fellow and Professor of Theoretical Computer Science). In addition, the team comprises one full-time PDRA and nine project partners. We, the leadership team, bring a diverse blend of complementary skills and expertise to the project. Our project partners are leading experts in their respective subfields and have a track record of successful collaborations with us. In the following, we discuss each of the four R4RI modules in detail.
 
 
 Module 1 – Contributions to the generation of new ideas, tools, methodologies or knowledge
+
+Our group, the Functional Programming Lab in Nottingham, is one of the internationally leading groups in the field of type theory.
+
 
 Altenkirch, an expert on ... (needed for WP ...)
 well known for his contributions to programming ...
@@ -57,7 +60,11 @@ Thorsten's Philosophy lectures
 
 Module 4 – Contributions to broader research/innovation-users and audiences and towards wider societal benefit
 
-Computerphile, HoTTeST summer school (laypeople participated), MGS industry (they sponsor us, 2nd order impact), 
+Computerphile
+
+Ulrik: HoTTeST summer school (laypeople participated)
+
+MGS attended and sponsored by industry (2nd order impact) 
 
 
 
