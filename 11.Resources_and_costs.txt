@@ -1,29 +1,124 @@
+Justification of Resources
 
---> Staff
-4 years
-1 RA
-20 % for thorsten & Ulrik
-Nicolai : 0% for 1st year, 20% after (ask David)
+This document provides a justification of the resources requested in
+this proposal. Costs are grouped under staff, travel and subsistence,
+workshops and open participation, and other directly incurred
+costs. Estates and indirect costs are determined by the host
+institutions and require no further justification. 
 
---> collaborators
-1 planning meeting (early) hybrid
-1 feedback & progress meeting (middle) hybrid
-travel for each project partner
+Staff
 
-travel for 5 collaborators
-: £2000 x 5
-= £10.000
+The largest component of the requested resources is staff time. We
+request support for one full-time Research Associate (RA) for four
+years. The RA will carry out the day-to-day research programme,
+integrate the different strands of the project, and ensure continuity
+across its duration. They will contribute both to the development of
+new theoretical results and to their formalisation in proof
+assistants, which is central to the proposal. The RA ensures sustained
+and dedicated research time beyond that available to the investigators
+and provides valuable training for an early-career researcher in a
+strategically important area.
 
---> open participations, offer funding for early career & others
-1 workshop for dissemenation (towards end)
-: 5 people (invited speakers + grants) : £1500 each
-running of workshop : catering 700, conf dinner 800 : 1500  
-= 5x1500 + 1500 = £9.000
+In addition, the budget requests 20% FTE for each of the three
+Investigators (Thorsten, Ulrik, and Nicolai). The investigators will
+undertake the bulk of the intellectual research. The work requires
+expertise in both category theory and type theory, and progress relies
+on sustained collaboration between researchers with complementary
+strengths in these areas. In parallel, the investigators will
+supervise and mentor the RA, ensuring that the RA’s contributions are
+well integrated into the overarching research programme. They will
+also devote time to coordinating with partners and disseminating
+results to the community. The combination of substantial PI/Co-I input
+and a dedicated RA ensures both the depth of investigator-led
+innovation and the continuity and capacity needed for a project of
+this scale.
 
---> conference travel
-LICS, POPL, TYPES, FSCD, CT, CSL, HoTT/UF
-each team member:(4)
-- 1 outside Europe  £3000
-- 3 within Europe (1 a year) £2000
-= 9.000 x 4 = 36.000
+Travel and Subsistence
 
+We request travel and subsistence to enable collaboration,
+dissemination, and community engagement. These activities are
+essential to achieving scientific impact and keeping the project
+internationally connected.
+
+We budget for two structured hybrid meetings with collaborators: an
+early planning meeting and a mid-project feedback meeting. These
+ensure that the project benefits from external expertise and remains
+aligned with both foundational and application-oriented goals. We also
+request travel support for five key collaborators (£10,000), enabling
+their direct contribution to shaping the project.
+
+We further request funding for conference and workshop travel for the
+core team. Each of the four team members will attend one major
+international conference outside Europe (£3,000) and three European
+conferences over the project’s lifetime (£2,000 each), giving a total
+of £36,000. These trips target leading venues — POPL, LICS, TYPES,
+FSCD, CT, CSL, and HoTT/UF — which are the main fora for theoretical
+computer science, type theory, and category theory. Participation
+allows us to present results, obtain feedback from experts, and
+maintain research networks.
+
+We also include participation in the Agda Implementers’ Meetings
+(AIM), which are essential community workshops for advancing
+formalisation tools. AIM provides direct contact with developers and
+expert users of Agda, ensuring that our formalisation work both
+benefits from and contributes to the state of the art.
+
+Workshops and Open Participation
+
+We request resources to organise a dissemination workshop towards the
+end of the project. This event will bring together project members,
+collaborators, and the wider research community to consolidate
+outcomes and explore future directions. We budget £9,000 in total:
+this covers five external participants (speakers and early-career
+researchers, at £1,500 each), plus catering (£700) and a conference
+dinner (£800).
+
+The workshop will provide a forum to present results to a broad
+audience, support sustained discussion across type theory, category
+theory, and formal verification, and encourage inclusivity. The budget
+includes support for early-career researchers who might not otherwise
+be able to attend, helping to strengthen the long-term vitality of the
+community.
+
+Other Directly Incurred Costs
+
+We request only minimal support in this category, namely hybrid
+participation facilities to allow collaborators to join meetings
+remotely. No equipment is requested, as the host institutions provide
+all necessary infrastructure.
+
+Estates and Indirect Costs
+
+These are calculated by the host institutions according to standard
+methodologies and require no further justification.
+
+Alignment with Vision
+
+The requested resources are closely aligned with the project’s aims,
+with each item contributing directly to the research programme.
+
+The investigators’ time is central to the project. They will carry out
+the bulk of the intellectual research, drawing on complementary
+expertise in category theory and type theory. Their direct involvement
+is essential: the project requires sustained collaboration between
+senior researchers to develop definitions, prove results, and connect
+theory with formalisation. The RA provides continuity and additional
+capacity, but the originality of the work depends primarily on the
+investigators’ contributions.
+
+Travel resources support this investigator-led research by enabling
+exchange of ideas with collaborators and peers. Meetings, conference
+presentations, and participation in AIM ensure that the investigators’
+results are tested, refined, and communicated in the international
+research community, and that the formalisation aspects feed back into
+tool development.  The dissemination workshop provides a
+cost-effective way to consolidate outputs and extend their
+influence. By engaging both established leaders and early-career
+researchers, it strengthens the community around the themes of the
+project.
+
+Overall, the resources requested form a focused budget. They secure
+the investigators’ active involvement while providing the support
+needed to sustain progress, collaboration, and dissemination. The
+project is designed to achieve its goals efficiently and inclusively,
+with long-term value to the research community.
