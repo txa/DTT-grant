@@ -46,11 +46,12 @@ ensure that the project benefits from external expertise and remains
 aligned with both foundational and application-oriented goals. We also
 request travel support for five key collaborators (£10,000), enabling
 their direct contribution to shaping the project.
+*** Why both, balance, flex for people further away
 
 We further request funding for conference and workshop travel for the
 core team. Each of the four team members will attend one major
-international conference outside Europe (£3,000) and three European
-conferences over the project’s lifetime (£2,000 each), giving a total
+international conference outside Europe (£3,000 est.) and three European
+conferences over the project’s lifetime (£2,000 est. each), giving a total
 of £36,000. These trips target leading venues — POPL, LICS, TYPES,
 FSCD, CT, CSL, and HoTT/UF — which are the main fora for theoretical
 computer science, type theory, and category theory. Participation
@@ -60,10 +61,13 @@ maintain research networks.
 We also include participation in the Agda Implementers’ Meetings
 (AIM), which are essential community workshops for advancing
 formalisation tools. We plan for four attendances over the lifetime of
-the project, budgeted at £1,500 each (total £6,000). AIM provides
+the project, budgeted at £1,500 (.est) each (total £6,000). AIM provides
 direct contact with developers and expert users of Agda, ensuring that
 our formalisation work both benefits from and contributes to the state
-of the art.  Workshops and Open Participation
+of the art.
+*** include in costs
+
+Workshops and Open Participation
 
 We request resources to organise a dissemination workshop towards the
 end of the project. This event will bring together project members,

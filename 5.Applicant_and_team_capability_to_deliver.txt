@@ -22,7 +22,7 @@ Our group is one of the founding members of the Midlands Graduate School in the 
 
 Module 4 – Contributions to broader research/innovation-users and audiences and towards wider societal benefit
 
-Although we work in a deeply foundational field where direct societal impact may not be expected, we work hard on reaching out to non-experts and interested members of the public. One major medium for this is *Cpmputerphile*, a popular YouTube channel with 2.3M subscribers that aims to explain computer science, programming, and related topics in an accessible way. Altenkirch has contributed XY videos, several of which have breached 1M views and explain a selection of type-theoretic topics.
+Although we work in a deeply foundational field where direct societal impact may not be expected, we work hard on reaching out to non-experts and interested members of the public. One major medium for this is *Computerphile*, a popular YouTube channel with 2.3M subscribers that aims to explain computer science, programming, and related topics in an accessible way. Altenkirch has contributed XY videos, several of which have breached 1M views and explain a selection of type-theoretic topics.
 
 While the spring school MGS focusses on theory it has, as discussed above, regularly a significant number of industry participants (around 10-20 per year) and attracts sponsoring from Meta, Huawei, todo-XYXY. This is unsurprising considering that type-theoretic methods are used in the most security-critical contexts. The perhaps most well-known example is Google's Chrome browser, where the encryption algorithm was extracted from Rocq (todo-add-citation-in-references). Agda is very prominent in the work by Input Output, and XYXY use type theoretic methods in order to TODO.
 
