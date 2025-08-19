@@ -59,11 +59,11 @@ maintain research networks.
 
 We also include participation in the Agda Implementers’ Meetings
 (AIM), which are essential community workshops for advancing
-formalisation tools. AIM provides direct contact with developers and
-expert users of Agda, ensuring that our formalisation work both
-benefits from and contributes to the state of the art.
-
-Workshops and Open Participation
+formalisation tools. We plan for four attendances over the lifetime of
+the project, budgeted at £1,500 each (total £6,000). AIM provides
+direct contact with developers and expert users of Agda, ensuring that
+our formalisation work both benefits from and contributes to the state
+of the art.  Workshops and Open Participation
 
 We request resources to organise a dissemination workshop towards the
 end of the project. This event will bring together project members,
