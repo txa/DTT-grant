@@ -1,0 +1,1126 @@
+\documentclass[a4paper,11pt]{article}
+% \documentclass[a4paper,11pt, twocolumn]{article}
+
+%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[compact,medium]{titlesec} % option 'small' is optional
+\usepackage{amsfonts,amstext,amssymb}
+\usepackage[dvips,pdftex]{graphicx}
+\usepackage[british]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{csquotes}
+
+\usepackage[backend=biber,style=alphabetic,sorting=nyt,natbib=true,maxcitenames=2,maxbibnames=99]{biblatex}
+\addbibresource{refs.bib}
+%%% Font:
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[most]{tcolorbox}
+\usepackage[helvet]{sfmath}
+\everymath={\sf}
+%%% Saves space within lists, but needs to be revisited later:
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, nolistsep}
+\setlist[enumerate]{noitemsep, nolistsep}
+
+%%% for the gantt chart
+\usepackage{pgfgantt}
+\usepackage{stackengine}
+
+\usepackage{bbding} % For the solid diamond symbol in the gantt chart
+\colorlet{WPcolour}{JungleGreen!60}
+\colorlet{strathColour}{MidnightBlue!60}
+\colorlet{deliverable}{Goldenrod}
+\newcommand{\solidbowtie}{\blacktriangleright\!\!\blacktriangleleft}
+\newcommand{\deliv}{\textcolor{deliverable}{\raisebox{-.25em}{\DiamondSolid}}}
+\newcommand{\teamm}[2]{\raisebox{-.25em}{\ensuremath{\overset{\textup{#1}}{\text{\textcolor{#2}{$\solidbowtie$}}}}}}
+\newcommand{\tmN}{\teamm{N}{WPcolour}}
+\newcommand{\tmS}{\teamm{S}{strathColour}}
+\newcommand{\wsOne}{\teamm{WS1}{WPcolour}}
+\newcommand{\wsTwo}{\teamm{WS2}{WPcolour}}
+
+\usepackage[colorlinks=true  % Remove the boxes
+, linktocpage=true % Make page numbers (not section titles) links in ToC
+, linkcolor=NavyBlue    % Colour for internal links
+, citecolor=black  % Colour for bibliographical citations
+, urlcolor=BrickRed % Colour for (external) urls
+]{hyperref}
+
+\usepackage[noabbrev,capitalise]{cleveref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% possibly useful
+\usepackage{todonotes}
+
+
+%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Taken from TCS paper: boxed goal, lots of options to play with
+\newtcolorbox{boxedgoal}{%
+	%enhanced jigsaw,
+	%    sharp corners,
+	colback=white,
+	borderline={1pt}{-2pt}{black},
+	left=4pt,
+	right=4pt,
+	top=4pt,
+	bottom=4pt,
+	%    fontupper={\setlength{\parindent}{20pt}},
+	title={\textit{\textbf{Project Goal}}},
+	boxrule=.8pt,
+	%    colbacktitle=white,
+	%    coltitle=black
+	%    fonttitle=\bfseries
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Disable hyperref for citations
+%\let\oldcite\cite
+%\renewcommand*\cite[1]{{\protect\NoHyper\oldcite{#1}\protect\endNoHyper}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\summarySpace}{\vspace*{.0cm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Tweaking %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0 pt}
+\setlength{\parskip}{1ex}
+
+\renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{0pt}
+
+\renewcommand{\paragraph}[1]{\textbf{#1.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Meta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Foundations of Directed Type Theory}
+%\subtitle{Bridging Category Theory and Homotopy Type Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ==== FINAL SQUEEZE tweaks (no geometry) ====
+\usepackage{microtype}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1em,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=0pt}
+\setlist[enumerate]{leftmargin=1em,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=0pt}
+
+\usepackage[compact]{titlesec}
+\titlespacing*{\section}{0pt}{*1.25}{*0.65}
+\titlespacing*{\subsection}{0pt}{*0.75}{*0.45}
+\titlespacing*{\subsubsection}{0pt}{*0.55}{*0.35}
+\titlespacing*{\paragraph}{0pt}{*0.45}{*0.3}
+
+\linespread{0.955}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0.75em}
+
+\raggedbottom
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{6.5pt}%
+  \setlength\belowdisplayskip{6.5pt}%
+  \setlength\abovedisplayshortskip{5pt}%
+  \setlength\belowdisplayshortskip{5pt}%
+}
+\@ifundefined{bibsep}{}{\setlength{\bibsep}{0pt plus 0.2ex}}
+\makeatother
+
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+  \small
+  \setlength{\parskip}{0pt}%
+  \setlength{\itemsep}{0pt plus 0.2ex}%
+}{\end{oldthebibliography}}
+% ==== END FINAL SQUEEZE tweaks ====
+
+\begin{document}
+
+	\makeatletter
+	\begin{center}
+		%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+		%  \centerline{\rule{185mm}{.5mm}}
+		{\Large {\bf \centerline{\@title}}}
+		\centerline{\rule{165mm}{.5mm}}
+	\end{center}
+	\makeatother
+
+        \vspace*{-0.75cm}
+
+\section{Vision}
+
+Homotopy Type Theory (HoTT) has revolutionised formal reasoning by
+providing a powerful language for the mechanised foundations of
+mathematics and computer science. At the heart of HoTT lies the
+\emph{univalence axiom}, which equates isomorphic structures,
+capturing the abstract nature of mathematical objects. However, HoTT
+fundamentally presumes \emph{symmetry}—it treats invertible functions
+(isomorphisms), rather than general functions (morphisms), as
+primitive.
+
+We propose a new foundation: \textbf{Directed Type Theory (DTT)}. By
+taking morphisms—not just isomorphisms—as basic, DTT provides a
+directed perspective on types that more naturally aligns with category
+theory and higher-dimensional algebra. This shift opens up a unifying
+framework that connects HoTT with higher categories and could reshape
+the theoretical underpinnings of both mathematics and computer
+science.
+
+\subsection{Introduction}
+
+Type theory was originally developed by Per Martin-Löf as a foundation
+for intuitionistic mathematics. Over time, it has grown into a
+foundational language for programming, logic, and the
+mechanisation of mathematics. Today, type theory serves as the
+theoretical core of widely used interactive proof assistants such as
+Rocq/Coq, Lean, Agda, and Idris. Notably, Lean has gained traction among
+a wide range of mathematicians.
+%, including those working in classical
+%(non-constructive) domains.
+
+
+With univalence, identity types carry higher structure: equalities form paths, paths between paths, etc., so types behave like $\infty$-groupoids.
+
+Many constructions require coherence or naturality, often consequences of parametricity. In DTT, coherence becomes intrinsic, linking univalence and parametricity.
+
+Formally, this amounts to replacing $\infty$-groupoids with
+$(\infty,1)$-categories, where morphisms need not be invertible. This
+shift from symmetry to directionality is conceptually simple but
+technically demanding. Multiple competing approaches to directed type
+theory exist, which are either fully synthetic \cite{licata:2011,north_2019,altenkirch_neumann_2024}, but $1$-categorical
+or not quite synthetic, but accommodating higher categories~
+\cite{riehlshulman2017}. Sorting through them is a necessary step towards a coherent and practical theory.
+
+The potential payoff is significant: a new foundation better suited
+for formalising directed structures in mathematics, synthetic category
+theory, and semantics of computation, with applications ranging from
+algebraic topology to systems verification and quantum physics.
+
+\subsection{Project outcomes}\label{project-outcomes}
+
+Our goal is to develop a \emph{workable and expressive system of Directed Type Theory (DTT)}, grounded in rigorous semantics and capable of supporting formal reasoning in higher categories and related domains. The outcomes we aim to deliver fall into three interrelated strands:
+
+\paragraph{1. Theory and Semantics}
+We will design a core DTT informed by recent developments in
+simplicial type theory and synthetic category theory.
+%\todo{Not a thing?}
+By building on models such as Simplicial Type Theory (STT), Higher Observational Type Theory (HOTT), and synthetic $1$-category frameworks \cite{riehlshulman2017, licata2016, north_2019, altenkirch_neumann_2024}, we aim to unify disparate strands into a coherent and practical formal system.
+
+Semantically, we will analyse key metatheoretic properties of the system, including:
+\begin{itemize}
+  \item \textbf{Canonicity and normalisation}, using normalisation-by-evaluation (NbE) techniques adapted to the directed setting via gluing constructions;
+  \item \textbf{Soundness and completeness} with respect to higher
+    categorical models
+    (e.g.\ $2$- and $(\infty,2)$-toposes \cite{street2topos,abellan-martini});
+  \item \textbf{Internal parametricity}, where naturality becomes intrinsic rather than externally imposed.
+\end{itemize}
+These properties are essential to ensure the usability and robustness of the type theory.
+
+\paragraph{2. Implementation}
+Based on the theoretical foundations, we will implement a
+\emph{prototype type checker}
+% with a decidable algorithm.
+We aim to build this either as a standalone implementation or as an
+extension of an existing system such as \textsf{Agda} or the
+experimental \textsf{Narya} \cite{Shulman2025Narya} framework.
+
+The implementation will serve as a testbed for:
+\begin{itemize}
+  \item Type-checking examples from higher category theory and semantics;
+  \item Exploring the design space for syntax and tooling;
+  \item Connecting theory to practice in formal verification.
+\end{itemize}
+
+\paragraph{3. Applications and Case Studies}
+Directed Type Theory opens new avenues for formalisation and verification. We will explore applications in three key areas:
+\begin{itemize}
+  \item \textbf{Parametricity and coherence}: DTT gives a native account of naturality in type-indexed functions, offering a principled framework for formalising relational reasoning;
+  \item \textbf{Generalised inductive types}: We will investigate whether DTT supports novel higher inductive constructions, such as directed versions of W-types \cite{altenkirch2024qits};
+  \item \textbf{Synthetic higher category theory}: By encoding complex coherence conditions synthetically, DTT promises significant simplification in formalising higher categorical structures, with potential applications in \emph{algebraic topology}, \emph{geometry}, and even \emph{theoretical physics} (e.g., quantum field theory and quantum gravity).
+\end{itemize}
+
+By developing foundational theory, semantics, tooling, and case studies in parallel, we aim to position DTT as a viable next-generation foundation for mathematics and computer science.
+
+% \subsection{Project outcomes}\label{project-outcomes}
+
+% Our main goal is to develop a system for directed type theory which we
+% can use to develop constructions in higher categories. Such a system
+% will be informed by developing the semantics which is based on work on
+% Simpliical Type Theory and approaches to synthetic 1-category
+% theory. We plan to explore relations to novel approaches to higher
+% type theory such as Higher Observational Type Theory (HOTT) and 
+% simplicial Type Theory (STT) which are currently under development.
+
+% The semantic approach will help us to verify central semantical
+% properties of our system, in particular canonicity and normalisation
+% exploiting normalisation by evaluation based on gluing. This will alow
+% us to implement a decidable type checking algorthm leading to a
+% prototypical implementation based on an existing system like agda or
+% the experimental Narya system.
+
+% We are going to eplore applications of the theory such as the formal
+% development of parametricity in a directed type theory exploining the
+% fact that by design all type-indexed families of functions are
+% natural. Another potential application is a generalisation of W-types
+% to capture higher inductive types, which may be possible in a directed
+% setting \cite{txa-hottuf24}.
+
+% We also hope to explore the application of a synthetic approach to
+% higher categories with applications in Mathematics (algebraic topology
+% and geometry) which in turn are used in theoretical physics in areas
+% like quatum field theory and quantum gravity. Here the complexity of
+% the structures makes working in a synthetic theory essential. 
+
+% \subsection{Quality, impact, and timeliness}
+
+% \paragraph{Importance and quality} %within the field}
+
+% We are addressing a fundamental innovation in the field of Type Theory
+% which if successful could lead to a 2nd revolution after the
+% development of Homotopy Type Theory. This would have profound
+% implication in the practice of formal verification using Type Thoery
+% and it would also address some fundamental questions such as the
+% relation of parametricity and univalence. 
+
+% The proposed project straddles several aspects of this fundamental
+% idea: from the theoretical underpinnings from higher category theory
+% via prctical questions of implementability to applications of DTT in
+% Mathematics and Physics.
+
+% \paragraph{Beneficiaries and impact}
+
+% The short term impact of our project will be in academia where we will
+% interact with colleagues pursuing similar goals, driving the
+% development forward. The applications we suggest in Mathematics and
+% theoretical Physics will support our colleagues in developing concise
+% and reliable results.
+
+% Given the increasing role of formal verification technology the output
+% of the project may have wide ranging impact in the future by giving
+% rise to a new generation of systems based on Type Theory. This affacts
+% engineering of siftware but also hardware, financial applications and
+% public services.
+
+% \paragraph{Timeliness of the project}
+
+% Certified developments in Mathematics and Computing  are
+% becoming more widespread this is supported by the revolution in AI
+% technology. At this time it is essential that this development is
+% supported by progress in the udnerlying tools tokeep projects fesible
+% and explainable.
+
+% There are now a number of suggestions how to develop a directed type
+% theory, the time is ready to achieve significant progress in this aea,
+% a goal for which we as one oth leading groups in Type Theory in the UK
+% are ideally positioned. 
+
+\subsection{Quality, impact, and timeliness}
+
+\paragraph{Importance and quality}
+This project represents a fundamental innovation in type theory that
+could mark a second major advance after the development of Homotopy
+Type Theory (HoTT). If successful, Directed Type Theory (DTT) would
+provide a new foundation for reasoning about directed structures in
+mathematics and computer science, with wide-ranging implications for
+formal verification and categorical semantics. In particular, it
+promises to clarify deep foundational questions such as the
+relationship between univalence and parametricity.
+
+Our approach bridges theory and practice. It connects cutting-edge
+developments in higher category theory with implementability
+considerations and concrete applications in mathematics and
+physics. By working across this spectrum, the project addresses both
+conceptual and practical challenges in developing a usable directed
+type theory.
+
+\paragraph{Beneficiaries and impact}
+In the short term, this project will benefit academic researchers in
+type theory, category theory, programming languages, and formalised
+mathematics. We will collaborate with researchers in these communities
+to advance both theory and tooling. The mathematical and physical
+applications we explore will provide concise and robust foundations
+for formal developments in areas such as algebraic topology, quantum
+field theory, and category theory.
+
+Beyond academia, foundational advances in type theory have growing relevance as formal methods become central to software and hardware engineering, finance, and public services. Industrial successes such as the seL4 microkernel \cite{klein2014} and the CompCert C compiler \cite{Leroy2009} demonstrate the scalability of verification. In cryptography, tools like MIT’s Fiat Cryptography—used to generate components of BoringSSL, which secures everyday web traffic in Google Chrome—highlight the practical impact of type-theoretic verification \cite{Chlipala2019}. In finance, type theory can be used to reason about contracts \cite{PeytonJones2000}, and public institutions like NASA and GCHQ have long recognised the strategic value of formal verification \cite{Rushby1993}. As systems like Coq, Agda, and Lean are built on type theory, advances in its foundations directly enhance the power and reach of these tools.
+
+In the longer term, this research has the potential to influence the
+design of next-generation formal verification systems, and more
+generally, to impact systems engineering as a whole. As formal methods
+become more central to software and hardware engineering, finance, and
+public services, foundational advances in type theory will play a key
+role in ensuring these systems are expressive, trustworthy, and
+maintainable. Our work contributes to this future by developing a
+foundational framework that can scale with complexity and support
+compositional reasoning.
+
+\paragraph{Timeliness of the project}
+%
+% Formalised developments in mathematics and computer science are
+% rapidly becoming more widespread, accelerated by progress in proof
+% assistants and advances in AI. This momentum demands improvements in
+% the foundational tools that underpin these systems to ensure future
+% developments remain feasible, explainable, and trustworthy.
+%
+Formalised developments in mathematics and computer science are
+rapidly becoming more widespread, accelerated by progress in proof
+assistants and advances in AI. For example, the Lean mathematical
+library (\emph{mathlib}) has grown to over a million lines of
+formalised mathematics, covering a broad range of undergraduate and
+research-level topics. Similarly, 
+Isabelle’s Archive of Formal Proofs, and Coq’s Mathematical Components
+library demonstrate increasing uptake across the community. This
+momentum demands improvements in the foundational tools that underpin
+these systems, to ensure future developments remain feasible,
+explainable, and trustworthy.
+
+Several candidate frameworks for directed type theory have recently
+emerged, including simplicial, cubical, and synthetic approaches. The
+time is now ripe for synthesising these developments into a coherent
+and practical theory. As one of the leading research groups in type
+theory in the UK, we are well-positioned to lead this effort and
+deliver timely and impactful results.
+
+\section{Approach} %(Programme and Methodology)}
+
+
+\subsection{State of the art}\label{state-of-the-art}
+
+The development of Directed Type Theory (DTT) spans multiple lines of
+research, each offering different insights into how directionality and
+non-invertible morphisms can be integrated into type theory. Here, we
+summarise the main families of approaches, highlighting both their
+conceptual contributions and ongoing technical challenges.
+
+\paragraph{Simplicial Type Theory and Modal Approaches}
+One of the most mature frameworks for DTT comes from the work
+of Riehl and Shulman on \emph{simplicial type theory}
+\cite{riehlshulman2017}. Their approach interprets types as objects in
+a simplicial model of type theory, where directed structure arises
+from the simplicial shapes inherent in each type (directed lines, triangles, etc.).
+This framework captures non-invertible morphisms
+semantically, but not all types represent $(\infty,1)$-categories.
+This has been implemented in the Rzk type checker, which has been used to mechanize
+a version of the Yoneda lemma~\cite{kudasov2024}.
+
+Gratzer, Weinberger and Buchholtz~\cite{gratzer2024directed,gratzer2025yoneda} have combined STT with \emph{multimodal type theory} (MTT)~\cite{gratzer:2020}, which allows
+the directionality to be reversed $(-)^{\textup{op}}$ or suppressed (\(\flat\), \(\sharp\)).
+This facilitates the definition of the $(\infty,1)$-category of $\infty$-groupoids,
+and the development of a large swath of higher category theory, but it relies on axioms
+such as Blechschmidt's \emph{duality axiom}~\cite{blechschmidt:2023}
+and a layer of
+indirection that complicates practical implementation.
+MTT has not yet been fully implemented, but Agda supports the fragment with an
+idempotent comonadic modality $\flat$, and experiments are ongoign to extend this to a fragment sufficient for all the above modalities.
+
+\paragraph{Synthetic 1-Category Theory}
+% Another stream of work focuses on synthetically presenting categories
+% and functors as types and terms within a type theory. Early work by
+% Harper, Licata, and others (e.g., \cite{licata20112}) introduced
+% ideas for encoding directed structure synthetically. More recent
+% approaches include North’s directed type theory
+% \cite{north_2019}, which focuese on synthetic 1-category theory. 
+%
+Another stream of work focuses on synthetically presenting categories
+and functors as types and terms within a type theory. Early
+contributions by Harper, Licata, and others (e.g., \cite{licata:2011})
+explored the encoding of directed structure within type theory. More
+recently, North has developed a directed type theory \cite{north_2019}
+aimed specifically at synthetic $1$-category theory.
+
+Altenkirch and Neumann’s recent work
+\cite{altenkirch_neumann_2024} presents a minimal core type theory for
+$1$-categories using directed eliminators and structural rules,
+supporting categorical reasoning without full univalence. These
+approaches vary in their treatment of substitution, coherence, and
+computational interpretation, reflecting the field's conceptual
+richness and ongoing foundational debate.
+
+\paragraph{Higher Observational Type Theory}
+Higher Observational Type Theory (HOTT), as recently presented by
+Shulman \cite{shulman2022}, offers a perspective that aims to bridge
+the gap between syntax and semantics in higher-dimensional type
+theory. It retains the observational equality principles of cubical
+type theory but supports richer higher-dimensional structure,
+including directed paths, via syntactic constructs that better match
+higher-categorical semantics. Though not fully directed in its current
+form, it provides tools and techniques relevant to DTT, especially
+regarding coherence and internal parametricity.
+
+\paragraph{Summary}
+The diversity of approaches to Directed Type Theory—semantic, modal,
+synthetic, and observational—illustrates both the richness of the
+conceptual landscape and the challenge of identifying a canonical
+formulation. This variety is a strength: it offers multiple
+perspectives on how to capture directionality, coherence, and
+computation in a unified framework. Our work aims to synthesise ideas
+from these strands to develop a system that is both semantically
+grounded and practically implementable.
+
+\subsection{Work packages}\label{work-packages}%\todo{Should WPs have deliverables?}
+
+% \paragraph{WP 1: Syntax and semantics of 1-DTT}
+
+% We define Type Theory using an intrinsically typed
+% representation \cite{txa-ambrus-defining}: here we only model typed
+% objects which simplifies the presentation and in particular the
+% relation to its semantics.
+
+% Starting with the theory of Directed Categories with Families (DCwF)
+% as developed in \cite{Altenkirch,Neumann} we plan to address the
+% followig insues:
+% \begin{enumerate}
+% \item Extend the caclulus to deal with lax ends and coends, which
+%   would also allow us to reason about natural transformations. This is
+%   related to proposals by \cite{Paige} and others.
+% \item To make the presentation feasible, avoiding boilerplate about
+%   functoriality and naturality we plan devlop a directed alternative
+%   to Second Order Algebraic Theories (SOGATS).
+% \item We will investigate expressing DCwFs as a multimodal Type Theory,
+%   where symmetry becomes a modaity.
+% \end{enumerate}
+
+\paragraph{WP 1: Syntax and Semantics of 1-DTT}
+We will formalise the syntax of 1-dimensional Directed Type Theory
+(1-DTT) using an intrinsically typed
+representation~\cite{altenkirch2016type}, which ensures that only
+well-typed objects are constructible. This simplifies both the
+formulation of the theory and its relationship to the semantics. 
+
+Our work builds on the theory of Directed Categories with Families
+(DCwFs) as developed in~\cite{altenkirch_neumann_2024}. We will address the
+following challenges: 
+
+\begin{enumerate}
+\item \textbf{Models:} We aim to show that every Street 2-topos carries the structure of a DCwF, providing a rich class of models for 1-DTT and guiding the development of its internal language.
+
+\item \textbf{Extension to lax ends and coends:} We will extend the
+  calculus of DCwFs to support lax ends and coends. This will enable
+  reasoning about structures such as natural transformations and is
+  inspired by recent work including~\cite{north_2019}.  
+
+\item \textbf{Directed second-order structure:} To reduce the
+  syntactic overhead associated with expressing functoriality and
+  naturality conditions, we aim to develop a directed analogue of
+  Second-Order Generalised Algebraic Theories (SOGATs). This will support a modular
+  and scalable syntax for 1-DTT. 
+
+\item \textbf{Multimodal formulation:} We will explore a reformulation
+  of DCwFs as a multimodal type theory, where symmetry (or its
+  absence) is tracked explicitly via modalities. This aligns with
+  recent work on modal and directed type systems and may offer a
+  unified framework for both symmetric and asymmetric reasoning.
+\end{enumerate}
+
+We will test the validity and expressiveness of our 
+framework through the case studies and formal developments in
+WPs~5--7 restricted to the 1 DTT case.
+
+\textbf{Deliverables:} Production of a peer-reviewed publication on synthetic 1-category
+theory as a directed type theory. \\
+\textbf{Risks:}
+The initial design may not align with the intended semantics,
+requiring reeingenieering. However, this is managable since based on
+ongoing work.\\
+\textbf{Collaborators:}
+North, Uustalu and Neumann.
+
+% \begin{enumerate}
+% \item 
+  
+% \item \textbf{Extension to lax ends and coends:} We will extend the
+%   calculus of DCwFs to support lax ends and coends. This will enable
+%   reasoning about structures such as natural transformations and is
+%   inspired by recent work including~\cite{north_2019}.  
+
+% \item \textbf{Directed second-order structure:} To reduce the
+%   syntactic overhead associated with expressing functoriality and
+%   naturality conditions, we aim to develop a directed analogue of
+%   Second-Order Generalized Algebraic Theories (SOGATS). This will support a modular
+%   and scalable syntax for 1-DTT. 
+
+% \item \textbf{Multimodal formulation:} We will explore a reformulation
+%   of DCwFs as a multimodal type theory, where symmetry (or its
+%   absence) is tracked explicitly via modalities. This aligns with
+%   recent work on modal and directed type systems and may offer a
+%   unified framework for both symmetric and asymmetric reasoning.
+% \end{enumerate}
+
+% \paragraph{WP 2: Syntax and semantics of $\omega$-DTT}
+
+% The theory of DCwFs is truncated, that is we assume uniqueness of
+% equalities for elements of homtypes, which is similar to the groupoid
+% model. To model higher categories we want to give up this restriction
+% and we need to address the coherence issues which arise.
+
+% We are going to pursue the following directions:
+% \begin{enumerate}
+% \item Use Simplicial Type Theory (STT) as a semantic framework to
+%   interpret untruncated DCwFs.
+% \item  Work with Higher Observational Type Theory which is based on a
+%   semantics in cubical sets. In HOTT a notion of fibrant types and
+%   this can be weakened to directed fibrancy, providing a framework to
+%   interpet DTT.
+% \item Investigate the relation between cubical (non-directed) and
+%   simplicial (directed) models of Type Theory.
+% \end{enumerate}
+
+\paragraph{WP 2: Syntax and Semantics of $\infty$-DTT}
+
+The theory of Directed Categories with Families (DCwFs) as currently
+developed is \emph{truncated}, meaning that identity proofs for
+morphisms are assumed to be unique. This corresponds to a
+groupoid-level semantics and prevents the modelling of
+higher-dimensional categorical structures. To move toward an
+$(\infty,1)$-categorical setting, we must drop this uniqueness assumption
+and address the resulting coherence issues. 
+
+We will pursue the following directions:
+
+\begin{enumerate}
+\item \textbf{Semantic interpretation via Simplicial Type Theory
+    (STT):} We will use STT as a framework for interpreting
+  untruncated DCwFs. This approach enables modelling
+  higher-dimensional morphisms with directed structure and naturally
+  accommodates coherence data. 
+
+\item \textbf{Directed fibrancy in Higher Observational Type Theory
+    (HOTT):} We will investigate a variant of HOTT based on a
+  semantics in cubical sets. While standard HOTT uses fibrant types to
+  model homotopy-invariant behavior, we propose a weakening to
+  \emph{directed fibrancy}, which may yield a constructive semantic
+  foundation for $\infty$-DTT. 
+
+\item \textbf{Bridging cubical and simplicial semantics:} We will
+  explore the relationship between cubical (typically undirected) and
+  simplicial (directed) models of type theory. Understanding this
+  correspondence will clarify the conceptual and technical connections
+  between different geometries of type-theoretic semantics.
+
+\item \textbf{More general semantics:} We will explore wether
+  $\infty$-DTT can be modelled in general $(\infty,2)$-toposes, not only
+  the sheaves of $(\infty,1)$-categories over an $(\infty,1)$-topos as
+  described by STT. This
+  would further generalise the previous points.
+\end{enumerate}
+
+\textbf{Deliverables:} Peer reviewed publications on some of the
+topics discussed above. \\
+\textbf{Risks:} While some goals are ambitious—particularly the full
+semantic account of $\infty$-DTT—we are confident that substantial
+progress can be made. Even if the general case remains out of reach,
+we expect to develop robust semantic frameworks for key fragments,
+which will be sufficient for our intended applications and provide a
+solid foundation for future work.\\
+\textbf{Collaborators:} North, Gratzer, Weinberger, Riehl
+
+% \paragraph{WP 3: Metatheory}
+
+% In the intrinsic apporach we identify the syntax with the initial mode
+% which always exist, but this is not enough if we want to implement the
+% theory and compute within it. 
+
+% Our goals are to show canonicity (every term reduces to a value) and
+% normalsiation (every term reduces to a normal form. The fomer
+% establishes that the calculus is computationally well behaved and 
+% the latter shows that the euqational theory is decidable.
+
+% We are going to extend normalisation by evaluation based on glueing
+% for DTT first for 1-DTT. extending this to higher types is a challenge
+% but we hope that we can reused ideas from the parametricity calculus. 
+
+\paragraph{WP 3: Metatheory}
+
+In the intrinsic approach, we identify the syntax of Directed Type
+Theory with the initial model (or initial mode), which always
+exists. However, this is not sufficient if we aim to implement the
+theory and compute within it: we must also establish its metatheoretic
+properties.
+
+Our main goals are to prove:
+\begin{itemize}
+\item \textbf{Canonicity:} Every closed term reduces to a value. This
+  ensures that the theory has a well-behaved computational
+  interpretation.
+\item \textbf{Normalisation:} Every term reduces to a normal
+  form. This implies that the equational theory is decidable and
+  supports effective proof checking.
+\end{itemize}
+
+To achieve this, we will extend the technique of \emph{normalisation
+  by evaluation} (NbE), using a gluing construction adapted to
+Directed Type Theory. Our first focus will be 1-DTT, where we expect
+this to be tractable. Extending this approach to higher-dimensional
+types presents significant challenges, but we aim to build on
+work by Nguyen and Uemura~\cite{uemura:2025} and ideas
+from the parametricity calculus \cite{popl-paper}, which shares key structural
+similarities.
+
+\textbf{Deliverables:} A peer-reviewed conference paper on 
+NbE for 1st order directed Type Theory.\\
+\textbf{Risks:} The 1-DTT case is expected to be tractable using known
+techniques, but extending to higher dimensions is more
+challenging. Nonetheless, success would yield significant insights
+into the computational foundations of $\infty$-DTT.\\
+\textbf{Collaborators:} Kaposi, Gratzer, Neumann and Uustalu
+% \paragraph{WP 4: Relate DTT to other Type Theories }
+
+% There are a number of evolving approaches to DTT and we are planning
+% to establish a contuininn interaction with other groups to discuss
+% different ideas.
+
+% \begin{enumerate}
+
+% \item Altenrative approaches to synthetic category theory
+
+%   Recently a number of approaches to synthetic category theory have
+%   been suggested, for example \cite{paige} or \cite{uustalu}. We plan
+%   to collaborate with thise researchers and learn from each
+%   other. This will be supported by organizing joint workshops. 
+  
+% \item Higher Observational Type Theory (HOTT)
+
+% This is an approach to HoTT using logical relation (bridges) as the
+% foundation. Within this framework one can identify the \emph{fibrant
+%   types} such that bridges between fibrant types come with transports
+% giving rise to equivalences. One direction we want to explore is to
+% use semi-fibrant types (ie with transports only in one direction) as a
+% basis to model DTT within this framework.
+
+% \item Simplicial Type Theory (STT)
+
+% Simplicial Type Theory is modelling higher categories by providing a
+% framework for the simplicial set model using multi-modal type thoery.
+% In STT higher categories are modelled using midal types within a type
+% theory. This is certianly complentary to our approach but we hope that
+% we can provide a semantic explanation for higher DTT going via STT or
+% at least exploiting constrictions from STT to do this.
+  
+
+%\end{enumerate}
+
+% \paragraph{WP 4: Comparative Semantics and Collaboration}
+% % omit?
+
+% A number of emerging approaches aim to provide a synthetic foundation
+% for directed and higher-dimensional structures in type theory. While
+% our core work packages focus on the development of Directed Type
+% Theory (DTT) from a specific categorical and computational
+% perspective, we also aim to engage actively with alternative
+% frameworks. This comparative and collaborative effort will help guide
+% our design choices and promote convergence in the broader community.
+
+% \begin{enumerate}
+% \item \textbf{Synthetic category theory:} Recent
+%   proposals~\cite{paige,uustalu} offer alternative approaches to
+%   synthetic category theory, often emphasising different logical or
+%   structural primitives. We will engage with these efforts through
+%   collaboration and joint workshops to facilitate mutual understanding
+%   and alignment.
+
+% \item \textbf{Higher Observational Type Theory (HOTT):} This variant
+%   of HoTT uses logical relations (bridges) as its foundation. We aim
+%   to explore whether \emph{semi-fibrant} types—types with directed
+%   transport—can serve as a model of DTT within this framework.
+
+% \item \textbf{Simplicial Type Theory (STT):} STT provides a semantic
+%   foundation for higher categories via multi-modal type theory and
+%   simplicial sets. We will investigate how STT constructions might
+%   inform a semantics for higher DTT, particularly in handling
+%   coherence.
+% \end{enumerate}
+
+% \textbf{Risks:}  Low, the interaction we anticipate will provide
+% valuable input for all parters.
+
+
+
+% \paragraph{WP 5: Protypical implementation}
+
+% To show the feasibility of our approach we pan to implement a
+% prototyocal type checker which uses the results form WP3 to implement
+% a bidirectional typechecker. We pllan to implmenet this in agda using
+% the agda to Haskell compiler to extract a type checker which can be
+% used as a demonstration prototype. To make this actually applicable
+%for bigger example, we may construct a variant of Agda (or Narya). 
+
+\paragraph{WP 4: Prototypical Implementation}
+
+To demonstrate the feasibility and applicability of Directed Type
+Theory, we will develop a prototypical implementation of a type
+checker. This implementation will serve both as a testbed for our
+theoretical developments and as a concrete vehicle for experimentation
+with example formal systems and constructions.
+
+We will build a bidirectional type checker based on the metatheoretic
+results established in WP~3, such as normalisation and
+canonicity. Bidirectional type checking is well-suited for
+intrinsically typed languages, enabling both efficient implementation
+and readable diagnostics.
+
+The prototype will be developed in Agda, leveraging Agda’s support for
+dependent types and its verified compilation pipeline to
+Haskell. Using Agda's compilation mechanism, we will generate a
+standalone Haskell program that serves as a lightweight demonstrator
+for Directed Type Theory.
+
+To support larger examples and more user-friendly interaction, we may
+also investigate adapting or extending an existing proof assistant
+such as Agda or Narya, either by embedding DTT constructs or building
+a custom front-end. This will allow us to evaluate how Directed Type
+Theory scales in practice and how it integrates with existing
+ecosystems.
+
+\textbf{Deliverables:} An Agda or Narya implementation of a directed type theory.
+\\
+\textbf{Risks:} A proof of concept is feasible, but the extent of the
+implementation depends on prior progress and the experience of the
+research staff.
+\\
+\textbf{Collaborators:} Kaposi
+
+% \paragraph{WP 6: Parametricity}
+
+% One application of directed Type Theory we want to explore is the
+% relation between univalence and parametricity. Parametricity is based
+% on the observation that functions cannot access the representation of
+% a type. On the other hand using univalence we can prove that
+% equivalences cannot depend on a choice of rerpresentation. It seems
+% natural to suggest that in DTT at least some
+% instances of parametricity should be provable.
+
+% Our goal in this WP is to formally establish a result along these
+% lines, investigating in detail wether relational parametricity can be
+% justified in general or only in some instances. We will also look at
+% this question wrt higher categories drawing on WP2.
+
+\paragraph{WP 5: Parametricity}
+
+One promising application of Directed Type Theory is to clarify the
+relationship between \emph{univalence} and
+\emph{parametricity}. Parametricity expresses the idea that
+polymorphic functions behave uniformly — they cannot inspect or branch
+on the internal representation of their type arguments. In contrast,
+the univalence axiom implies that equivalences between types can be
+treated as equalities, and that constructions should be invariant
+under equivalence.
+
+% These two principles seem aligned in spirit: both enforce a form of
+% representation independence. However, in standard Homotopy Type Theory
+% (HoTT), univalence and parametricity have proven difficult to
+% reconcile. We propose that DTT may provide a better setting for
+% integrating the two, particularly by modelling directed identity types
+% and directional transport. Intuitively, directed paths may capture the
+% “free variation” implicit in relational reasoning.
+
+
+These two principles seem aligned in spirit: both enforce a form of
+representation independence. However, in standard Homotopy Type Theory
+(HoTT), univalence and parametricity have proven difficult to
+reconcile, and existing approaches—such as the internal parametricity
+of Cavallo and Harper~\cite{cavallo2020}—treat them as distinct,
+interacting mechanisms. We propose that Directed Type Theory (DTT) may
+instead provide a setting where both arise from a single underlying
+notion: directed identity types and directional
+transport. Intuitively, directed paths capture the “free variation”
+implicit in relational reasoning, potentially unifying parametricity
+and univalence at the foundational level.
+
+The goal of this work package is to investigate whether relational
+parametricity can be derived internally within DTT—either in general
+or in specific fragments. We will study how directed type structure
+can express uniform behaviour over morphisms and equivalences, and
+whether logical relations (e.g., bridges and paths) can be
+internalised. This investigation will extend to higher-dimensional
+settings, building on the semantic foundations developed in WP~2.
+
+\textbf{Deliverables:} A computer science conference paper on
+parametricity in directed type theory.
+\\
+\textbf{Risks:} This work is exploratory, and the extent to which the
+goal can be achieved will depend on insights developed during the
+project. However, even partial results will advance our understanding
+of parametricity in a directed setting.
+\\
+\textbf{Collaborators:} Kaposi, Shulman
+% \paragraph{WP 7: Universal higher inductive types}
+
+% In Type Theory inductive definitions can be reduced to W-types, the
+% type of well-founded trees. Indeed the reduction extends to
+% coinductive types (in the presence of function types) and
+% inductive-inductive types (mutual inductive types dependening on each
+% other).  In cubical type theory we can define quotient types (without
+% destroying computations) but we cannot reduce Quotient Inductive types
+% (set truncated HITs) just using quotient types and W-types
+% \cite{shulmann-lumsdene}. Hence the question is what is a QW type
+% which is universal for QITs (or in general QIITs).
+
+% There are at least two answers to this question which are not
+% completely satisfactory: \cite{steenkamp-pitts} propose a ery concrete
+% definition of a QW type which can encode QITs, \cite{ambrus-andras-me}
+% show that the theory of signatures is a universal QIIT. The QW type
+% introduced by both approaches are quite complex and it isn't clear how
+% to extend them to higher homotopy types.
+
+% In the directed setting we can introduce $\Sigma$-types corresponding
+% to coends and directed W-type which implement the initial algebra of
+% categorified container \cite{gylterud}. We are going to investigate
+% wether this very simple setting is enough to encode QIITs. The
+% generalisation to HIITs should come for free in untruncated DTT
+% where types correspond to inifnity categories.
+
+\paragraph{WP 6: Universal Higher Inductive Types}
+
+In type theory, many inductive constructions can be reduced to W-types
+— the type of well-founded trees. This reduction extends to
+coinductive types (given function types) and even to
+inductive-inductive types, where families of mutually defined types
+depend on each other.
+
+In cubical type theory, quotient types can be defined constructively,
+preserving computation. However, this is insufficient to define
+general \emph{Quotient Inductive Types} (QITs) — particularly
+set-truncated Higher Inductive Types (HITs) — solely from W-types and
+quotients~\cite{lumsdaine2020semantics}. This raises the question: what
+kind of generalised W-types (QW-types) serves as a universal encoding
+for QITs or, more broadly, QIITs? There are proposals for
+universal QW-types,
+e.g.~\cite{fiore2022quotients,kaposi2019constructing} but they are
+quite complex. We envisage a solution based on Gylterud's notion of
+categorified containers \cite{gylterud2011symmetric,altenkirch2024qits}. 
+
+% Too detailed
+% There are at least two known answers, both with limitations. Steenkamp
+% and Pitts~\cite{steenkamp-pitts} propose a concrete definition of a
+% QW-type capable of encoding QITs. Separately, Kaposi et
+% al.~\cite{ambrus-andras-me} show that the type of signatures is
+% universal for QIITs. However, both constructions are technically
+% complex and difficult to extend to higher homotopy levels.
+
+% In the directed setting, we gain new expressive tools. In particular,
+% we can define $\Sigma$-types corresponding to coends and introduce a
+% notion of directed W-types as initial algebras for categorified
+% containers~\cite{gylterud}. In this work package, we will investigate
+% whether this simpler setting suffices to encode QIITs, potentially
+% offering a more elegant universal construction.
+
+Moreover, in untruncated Directed Type Theory — where types model
+$\infty$-categories — the generalisation to higher inductive-inductive
+types (HIITs) may arise naturally. We aim to explore whether this
+directed perspective allows us to unify and simplify the treatment of
+higher inductive constructions.
+
+\textbf{Deliverables:} A peer-reviewed conference paper on datatypes
+definable in DTT.\\
+\textbf{Risks:} This work is exploratory, and the feasibility of a
+universal construction for QIITs in the directed setting remains to be
+established. However, even partial results—such as simplified
+encodings for specific classes of types—would constitute meaningful
+progress and clarify the role of directionality in higher inductive
+constructions.\\
+\textbf{Collaborators:} Kaposi, Shulman
+
+% \paragraph{WP 8: Applications to Mathematics and Physics}
+
+% Higher categories show up in recent work in theoretical physics,
+% trying to find better matehmatial models of quantum field theory with
+% the hope to attack quatum gravity. On the other hand this work also
+% has applications in quantum computing.
+
+% One issue working with higher categroies is that the combinatoric
+% complexities of coherence conditions becomes very quickly
+% unfeasible. We hope that this can be overcome by providing a synthetic
+% framework to work with higher categories. We plan to work closely with
+% our collaborators in theoretical physics.
+
+% One particular application is the notion of "non-invertible
+% symmetries". which has seen enourmous popularity in the high energy
+% community.. Mostly people are quite vague about what it would mean,
+% but the basic intuition is, in paraphrase, to generalize (gauge
+% symmetry-)groupoids to categories.
+
+\paragraph{WP 7: Applications to Mathematics and Physics}
+
+Higher categories have recently emerged as central tools in
+theoretical physics, particularly in efforts to model quantum field
+theories (QFTs), either via homotopical algebraic QFTs~\cite{benini2017,benini2019}
+or geometrically via the Baez--Dolan cobordism hypothesis~\cite{baez-dolan}
+for the topological case~\cite{lurie-tft}
+and its geometric generalization for the general case~\cite{grady-pavlov}.
+
+Related ideas are also finding applications in quantum
+computing, where categorical structures, in particular dagger categories,
+are used to model
+entanglement, quantum processes, and compositional reasoning~\cite{Abramsky2004}.
+Higher dagger categories~\cite{ferrer2024daggerncategories} should prove useful
+for studying higher quantum computation. This might involve anyons~\cite{sati-schreiber-2023}, which underlie topological quantum gates,
+and has already made contact with HoTT~\cite{Myers2024}.
+
+A major barrier to practical use of higher categories is the
+overwhelming combinatorial complexity of coherence conditions, which
+quickly become unmanageable even in relatively simple settings. Our
+hypothesis is that Directed Type Theory can provide a synthetic
+framework for working with higher categorical structures that
+abstracts away low-level coherence data, enabling more scalable and
+conceptual reasoning.
+
+We plan to collaborate closely with researchers in theoretical physics
+to identify suitable use cases and develop formal models that bridge
+the language of DTT with the needs of physics. One particular area of
+interest is the emerging notion of \emph{non-invertible symmetries},
+which has gained substantial attention in high-energy physics. These
+generalise traditional symmetry groups or groupoids to higher
+categories in which morphisms are not necessarily invertible. While
+the physical literature often lacks precise mathematical formulations,
+we believe that DTT offers the right abstractions to give rigorous
+meaning to these ideas, and we aim to formalise and validate this
+connection.
+
+\textbf{Risks:} While exploratory, this work targets a key application
+area with high potential impact. Even partial success would mark
+significant progress and strongly validate the relevance of DTT to
+real-world mathematical and physical reasoning.
+
+\textbf{Deliverables:} A peer-reviewed journal publication on
+applications of DTT in Mathematics and Physics.\\
+\textbf{Risks:} While exploratory, this work targets a key application
+area with high potential impact. Even partial success would mark
+significant progress and strongly validate the relevance of DTT to
+real-world mathematical and physical reasoning.\\
+\textbf{Collaborators:} Schreiber, Schenkel
+
+
+
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Workplan}
+\makeatletter
+\begin{center}
+	%  {\Large {\bf \centerline{Vision and Approach: \@title}}}
+	%  \centerline{\rule{185mm}{.5mm}}
+	{\Large {\bf \centerline{\@title: Workplan}}}
+	\centerline{\rule{165mm}{.5mm}}
+\end{center}
+\makeatother
+
+\begin{center}
+	\begin{ganttchart}[
+		hgrid,
+		%vgrid,
+		%canvas/.style={draw=none},
+		expand chart=16cm,
+		bar height=1,%0.8,
+		bar top shift=0,
+		title height=1,
+		y unit title=0.75cm,
+		y unit chart=0.75cm,
+		bar label font=\small,
+		bar/.style={draw=black},
+		title label font=\small,
+		%title/.style={fill=none},
+		]{1}{8}
+		\gantttitle{Year 1}{2}
+		\gantttitle{Year 2}{2}
+		\gantttitle{Year 3}{2}
+		\gantttitle{Year 4}{2}\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{1-DTT}{1}{2}
+		\ganttbar[bar/.append style={draw=none}]{WP1}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{$\infty$-DTT}{2}{5}
+		\ganttbar[bar/.append style={draw=none}]{WP2}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Metatheory}{2}{7}
+		\ganttbar[bar/.append style={draw=none}]{WP3}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{3}{2}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Prototypical Implementation}{3}{7}
+		\ganttbar[bar/.append style={draw=none}]{WP4}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{6}{5}
+		\\
+		%
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Parametricity}{2}{5}
+		\ganttbar[bar/.append style={draw=none}]{WP5}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Universal HITs}{6}{8}
+		\ganttbar[bar/.append style={draw=none}]{WP6}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+		\\
+		\ganttbar[inline, bar/.append style={fill=WPcolour}]{Applications}{6}{8}
+		\ganttbar[bar/.append style={draw=none}]{WP7}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
+		\\
+		\ganttbar[bar/.append style={draw=none}]{Workshops}{0}{-1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
+%		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
+		\ganttbar[inline, bar/.append style={draw=none,left=2mm}]{\wsOne}{2}{1}
+		\ganttbar[inline, bar/.append style={draw=none,left=5mm}]{\wsTwo}{6}{5}
+%		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
+%		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
+%		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
+%		\\
+		%\ganttbar[inline, bar/.append style={fill=WPcolour, dashed}]{Strathclyde RA}{5}{8}
+%		\ganttbar[inline, bar/.append style={fill=WPcolour, dashed}]{Strathclyde RA}{3}{8}
+%		\ganttvrule{AIM Nottingham}{4}
+%		\ganttvrule{AIM Strathclyde}{7}
+	\end{ganttchart}
+\end{center}
+%\vspace*{-0.2in}
+%{\small
+%	\hspace*{5cm}{($\solidbowtie$ = In-person workshops, \deliv\, = Deliverable)}
+%}
+
+\vspace*{0.1in}
+\paragraph{Work package relationships and durations}
+
+Many of our WPs are interconnected and cannot be approached in a strict linear order. Instead, we will have to go back and forth to make adjustments and improvements. %We explain the relationships in detail 
+%The bars in the chart above outline the time periods during which we expect to focus on the relevant WP
+
+\emph{1-dimensional Directed Type Theory (1-DTT)} is of independent interest but, in the context of our project, it serves as an important stepping stone towards \emph{$\infty$-dimensional Directed Type Theory ($\infty$-DTT)}.
+Therefore, we start with WP1 right at the beginning of the project. Given our current ongoing work and previous experience, we anticipate that we will have a working theory within the first six project months, although it is likely that we will have to make further tweaks during months 7--12.
+
+After creating a workable version of 1-DTT, we will focus on $\infty$-DTT (WP2). It will be helpful to develop $\infty$-DTT in parallel with its meta-theoretic properties (WP3) and, a bit later, a prototypical implementation (WP4).
+Similarly, the study of parametricity (WP5) may influence the concrete design of 1-DTT.
+Although we expect that we will have a first version of $\infty$-DTT early on,
+the precise syntax and semantics of $\infty$-DTT is so central to the project that we anticipate the need to revisit and tweak it frequently during a 2-year period.
+Naturally, WP3 and WP4 can only be finalised after a definite result of WP2 (and WP5) is available.
+
+As soon as our $\infty$-DTT is complete, we will study a core expected application within type theory itself, namely a universal family of higher inductive types (WP6).
+In parallel, we will explore applications of the language to mathematics and theoretical physics (WP7).
+
+\paragraph{Leadership and team meetings}
+
+We will have frequent local team meetings (weekly during term time, flexible out of term time) to discuss our progress and supervise the PDRA.
+Most meetings with our external project partners and collaborators will take place online and scheduled based on the current requirements.
+
+We will organise two in-person workshops with the possibility to attend online.
+The purpose of the workshops will be to discuss our plans with several collaborators at the same time, and solicit valuable feedback.
+The first workshop will take place early during the project, and we will invite the project partners for WPs 1--5.
+At this point, we will present a preliminary version of 1-DTT and plan the next steps.
+At the time of the second workshop, we will have a version of $\infty$-DTT to present and will focus on the applications of this theory. We will invite our project partners for WPs 6 and 7, but the workshop will also be open to interested members of the community.
+
+
+
+\newpage
+
+\todo[inline]{Remove before submitting.}
+
+%\nocite{*} % remove before submitting
+\printbibliography
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:
