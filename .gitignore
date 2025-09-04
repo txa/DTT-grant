@@ -3,7 +3,7 @@
 *.maf
 *.mtc
 *.mtc0
-*.pdf
+./*.pdf
 *.dvi
 *.xcp
 *.aux
