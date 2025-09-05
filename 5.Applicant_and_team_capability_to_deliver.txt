@@ -28,7 +28,7 @@ While the spring school MGS focusses on theory, it consistently attracts 10–20
 
 Agda plays a prominent role in industry applications: at Input Output (IOHK), it underpins the machine-checked formalisation of the Cardano ledger (Chapman et al., 2019) and the semantics of the Plutus and Marlowe smart contract languages. Type-theoretic verification ensures the correctness of consensus protocols, smart contract interpreters, and compilers, providing strong safety and liveness guarantees for distributed systems.
 
-A further example of outreach is the HoTTeST summer school, where Buchholtz lectured. The event attracted roughly 2,000 participants—many of them non-specialists—who engaged with homotopy type theory and joined the wider community.
+A further example of outreach is the HoTTeST summer school 2022, where Buchholtz lectured. The event attracted roughly 2,000 participants—many of them non-specialists—who engaged with homotopy type theory and joined the wider community.
 
 ### TEAM STATEMENT END ### => 1006/1000 words (might be counter differently by the UKRI system!)
 
