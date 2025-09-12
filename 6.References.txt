@@ -1,0 +1,52 @@
+[AM24] Fernando Abellán and Louis Martini. (∞,2)-Topoi and descent. 2024. arXiv: 2410.02014 [math.CT].
+[AC04] Samson Abramsky and Bob Coecke. ‘A categorical semantics of quantum protocols’. In: Proceedings of the 19th Annual IEEE Symposium on Logic in Computer Science, 2004. 2004, pp. 415–425. DOI: 10.1109/LICS.2004.1319636.
+[Alt24] Thorsten Altenkirch. ‘Quotient Inductive Types as Categorified Containers’. In: (Apr. 2024). Talk presented at the HoTT-UF Workshop, co-located with EuroProofNet WG6. URL: https://hott- uf.github.io/2024/abstracts/HoTTUF_2024_paper_10.pdf.
+[Alt+24] Thorsten Altenkirch, Yorgo Chamoun, Ambrus Kaposi and Michael Shulman. ‘Internal Parametricity, without an Interval’. In: Proc. ACM Program. Lang. 8.POPL (Jan. 2024). DOI: 10.1145/3632920.
+[AK16] Thorsten Altenkirch and Ambrus Kaposi. ‘Type theory in type theory using quotient inductive types’.
+In: SIGPLAN Not. 51.1 (Jan. 2016), pp. 18–29. ISSN: 0362-1340. DOI: 10.1145/2914770.2837638.
+[AN24] Thorsten Altenkirch and Jacob Neumann. ‘Synthetic 1-Categories in Directed Type Theory’. In: (2024). arXiv: 2410.19520 [math.CT].
+[BD95] John C. Baez and James Dolan. ‘Higher-dimensional algebra and topological quantum field theory’.
+In: Journal of Mathematical Physics 36.11 (Nov. 1995), pp. 6073–6105. ISSN: 0022-2488. DOI: 10.1063/1.531236.
+[BS17] Marco Benini and Alexander Schenkel. ‘Quantum Field Theories on Categories Fibered in Group- oids’. In: Communications in Mathematical Physics 356.1 (Aug. 2017), pp. 19–64. ISSN: 1432-0916.
+DOI: 10.1007/s00220-017-2986-7.
+[BS19] Marco Benini and Alexander Schenkel. ‘Higher Structures in Algebraic Quantum Field Theory’.
+In: Fortschritte der Physik 67.8-9 (2019), p. 1910015. DOI: https://doi.org/10.1002/prop.
+201910015.
+[Ble23] Ingo Blechschmidt. A general Nullstellensatz for generalized spaces. Draft. 2023. URL: https: //rawgit.com/iblech/internal-methods/master/paper-qcoh.pdf.
+[CH20] Evan Cavallo and Robert Harper. ‘Internal Parametricity for Cubical Type Theory’. In: 28th EACSL Annual Conference on Computer Science Logic (CSL 2020). Ed. by Maribel Fern´andez and Anca Muscholl. Vol. 152. Leibniz International Proceedings in Informatics (LIPIcs). Dagstuhl, Germany: Schloss Dagstuhl – Leibniz-Zentrum f¨ur Informatik, 2020, 13:1–13:17. ISBN: 978-3-95977-132-0.
+DOI: 10.4230/LIPIcs.CSL.2020.13.
+[Erb+19] Andres Erbsen, Jade Philipoom, Jason Gross, Robert Sloan and Adam Chlipala. ‘Simple High-Level Code for Cryptographic Arithmetic - With Proofs, Without Compromises’. In: 2019 IEEE Symposium on Security and Privacy (SP). 2019, pp. 1202–1219. DOI: 10.1109/SP.2019.00005.
+[Fer+24] Giovanni Ferrer, Brett Hungar, Theo Johnson-Freyd, Cameron Krulewski, Lukas M¨uller, Nivedita, David Penneys, David Reutter, Claudia Scheimbauer, Luuk Stehouwer and Chetan Vuppulury.
+Dagger n-categories. 2024. arXiv: 2403.01651 [math.CT].
+[FPS22] Marcelo P. Fiore, Andrew M. Pitts and S. C. Steenkamp. ‘Quotients, inductive types, and quotient inductive types’. In: Logical Methods in Computer Science Volume 18, Issue 2, 15 (June 2022).
+ISSN: 1860-5974. DOI: 10.46298/lmcs-18(2:15)2022.
+[GP22] Daniel Grady and Dmitri Pavlov. The geometric cobordism hypothesis. 2022. arXiv: 2111.01095 [math.AT].
+[Gra+20] Daniel Gratzer, G.A. Kavvos, Andreas Nuyts and Lars Birkedal. ‘Multimodal Dependent Type Theory’.
+In: Proceedings of the 35th Annual ACM/IEEE Symposium on Logic in Computer Science. LICS ’20.
+ACM, 2020. DOI: 10.1145/3373718.3394736.
+[GWB24] Daniel Gratzer, Jonathan Weinberger and Ulrik Buchholtz. Directed univalence in simplicial homotopy type theory. 2024. arXiv: 2407.09146 [cs.LO].
+[GWB25] Daniel Gratzer, Jonathan Weinberger and Ulrik Buchholtz. The Yoneda embedding in simplicial type theory. 2025. arXiv: 2501.13229 [cs.LO].
+[Gyl11] Håkon Robbestad Gylterud. ‘Symmetric containers’. MSc thesis. University of Oslo, 2011.
+[KKA19] Ambrus Kaposi, András Kovács and Thorsten Altenkirch. ‘Constructing quotient inductive-inductive types’. In: Proc. ACM Program. Lang. 3.POPL (Jan. 2019). DOI: 10.1145/3290315.
+[Kle+14] Gerwin Klein, June Andronick, Kevin Elphinstone, Toby Murray, Thomas Sewell, Rafal Kolanski and Gernot Heiser. ‘Comprehensive formal verification of an OS microkernel’. In: ACM Trans. Comput.
+Syst. 32.1 (Feb. 2014). ISSN: 0734-2071. DOI: 10.1145/2560537.
+[KRW24] Nikolai Kudasov, Emily Riehl and Jonathan Weinberger. ‘Formalizing the ∞-Categorical Yoneda Lemma’. In: Proceedings of the 13th ACM SIGPLAN International Conference on Certified Programs and Proofs. CPP 2024. London, UK: Association for Computing Machinery, 2024, pp. 274–290.
+ISBN: 9798400704888. DOI: 10.1145/3636501.3636945.
+[Ler09] Xavier Leroy. ‘Formal verification of a realistic compiler’. In: Commun. ACM 52.7 (July 2009), pp. 107–115. ISSN: 0001-0782. DOI: 10.1145/1538788.1538814.
+[LS16] Daniel Licata and Michael Shulman. ‘Calculating the Fundamental Group of the Circle in Homotopy Type Theory’. In: Mathematical Structures in Computer Science 26.1 (2016), pp. 99–114. DOI: 10.1017/S0960129514000566.
+[LH11] Daniel R. Licata and Robert Harper. ‘2-Dimensional Directed Type Theory’. In: Electronic Notes in Theoretical Computer Science 276 (Sept. 2011), pp. 263–289. ISSN: 1571-0661. DOI: 10.1016/j.
+entcs.2011.09.026.
+[LS20] Peter LeFanu Lumsdaine and Michael Shulman. ‘Semantics of higher inductive types’. In: Math- ematical Proceedings of the Cambridge Philosophical Society 169.1 (2020), pp. 159–208. DOI: 10.1017/S030500411900015X.
+[Lur09] Jacob Lurie. On the Classification of Topological Field Theories. 2009. arXiv: 0905.0465 [math.CT].
+[MSS24] David Jaz Myers, Hisham Sati and Urs Schreiber. ‘Topological Quantum Gates in Homotopy Type Theory’. In: Communications in Mathematical Physics 405.7 (July 2024). ISSN: 1432-0916. DOI: 10.1007/s00220-024-05020-8.
+[NU25] Hoang Kim Nguyen and Taichi Uemura. ‘∞-type theories’. In: Higher Structures 9.1 (2025), pp. 179– 226. DOI: 10.21136/HS.2025.04.
+[Nor19] Paige Randall North. ‘Towards a Directed Homotopy Type Theory’. In: Electronic Notes in Theoretical Computer Science 347 (2019). Proceedings of the Thirty-Fifth Conference on the Mathematical Foundations of Programming Semantics, pp. 223–239. ISSN: 1571-0661. DOI: https://doi.org/ 10.1016/j.entcs.2019.09.012.
+[PES00] Simon Peyton Jones, Jean-Marc Eber and Julian Seward. ‘Composing contracts: an adventure in financial engineering (functional pearl)’. In: Proceedings of the Fifth ACM SIGPLAN International Conference on Functional Programming. ICFP ’00. New York, NY, USA: Association for Computing Machinery, 2000, pp. 280–292. ISBN: 1581132026. DOI: 10.1145/351240.351267.
+[RS17] Emily Riehl and Michael Shulman. ‘A type theory for synthetic ∞-categories’. In: Higher Structures 1.1 (2017), pp. 147–224. DOI: 10.21136/HS.2017.06.
+[RH93] J.M. Rushby and F. von Henke. ‘Formal verification of algorithms for critical systems’. In: IEEE Transactions on Software Engineering 19.1 (1993), pp. 13–23. DOI: 10.1109/32.210304.
+[SS23] Hisham Sati and Urs Schreiber. ‘Anyonic topological order in twisted equivariant differential (TED) K- theory’. In: Reviews in Mathematical Physics 35.03 (2023), p. 2350001. DOI: 10.1142/S0129055X23500010.
+[Shu22] Michael Shulman. Towards a Third-Generation HOTT. Talk at Homotopy Type Theory seminar at CMU. 2022.
+[Shu25] Michael Shulman. Narya: a proof assistant for higher-dimensional type theory. GitHub repository.
+Available at https://github.com/mikeshulman/narya, retrieved July 2025. 2025.
+[Str82] Ross Street. ‘Two-dimensional sheaf theory’. In: J. Pure Appl. Algebra 23.3 (1982), pp. 251–270.
+ISSN: 0022-4049. DOI: 10.1016/0022-4049(82)90101-3.
