@@ -1,24 +1,22 @@
 Suggestions
 
-Ambrus Kaposi x
-Daniel Graetzer x y
-Jonathan Weinberger x y
-Paige North xy
-Tarmo Uustalu,  and Jacob Neumann xy
-Urs Schreiber xy
-Emily Riehl xy
-Mike Shulmann xy
-Alex Schenkel xy
+Ambrus Kaposi
+Daniel Graetzer 
+Jonathan Weinberger 
+Paige North 
+Tarmo Uustalu,  and Jacob Neumann 
+Urs Schreiber 
+Emily Riehl 
+Mike Shulmann 
+Alex Schenkel 
 
-Nicola Gambino
-
-Visitors
-
-Fernando Abellan
-
-CoI ?
-
-Alex Schenkel (CoI)
-
-+ Emily Riehl?
-+ Shulman
+Ambrus Kaposi - Eotvos Lorand University -  akaposi@inf.elte.hu - letter
+Daniel Gratzer — Aarhus University, Denmark — gratzer@cs.au.dk
+Jonathan Weinberger — Johns Hopkins University  — weinbergerjonathan@gmail.com
+Paige North — Utrecht University - p.r.north@uu.nl
+Tarmo Uustalu — Reykjavik University, Iceland — tarmo@cs.ioc.ee
+      Jacob Neumann — Reykjavik University, Iceland — psxjn5@exmail.nottingham.ac.uk
+Urs Schreiber — New York University Abu Dhabi — urs.schreiber@gmail.com - letter
+Emily Riehl — Johns Hopkins University — eriehl@math.jhu.edu
+Mike Shulman — University of San Diego — shulman@sandiego.edu -  letter
+Alex Schenkel — University of Nottingham — pmzas@exmail.nottingham.ac.uk -  letter

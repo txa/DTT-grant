@@ -12,7 +12,7 @@
 \usepackage{enumitem}
 \usepackage{csquotes}
 
-\usepackage[backend=biber,style=alphabetic,maxnames=99]{biblatex}
+\usepackage[backend=biber,style=alphabetic,sorting=nyt,natbib=true,maxcitenames=2,maxbibnames=99]{biblatex}
 \addbibresource{refs.bib}
 %%% Font:
 \usepackage{helvet}
@@ -101,6 +101,48 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ==== FINAL SQUEEZE tweaks (no geometry) ====
+\usepackage{microtype}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1em,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=0pt}
+\setlist[enumerate]{leftmargin=1em,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=0pt}
+
+\usepackage[compact]{titlesec}
+\titlespacing*{\section}{0pt}{*1.25}{*0.65}
+\titlespacing*{\subsection}{0pt}{*0.75}{*0.45}
+\titlespacing*{\subsubsection}{0pt}{*0.55}{*0.35}
+\titlespacing*{\paragraph}{0pt}{*0.45}{*0.3}
+
+\linespread{0.955}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0.75em}
+
+\raggedbottom
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{6.5pt}%
+  \setlength\belowdisplayskip{6.5pt}%
+  \setlength\abovedisplayshortskip{5pt}%
+  \setlength\belowdisplayshortskip{5pt}%
+}
+\@ifundefined{bibsep}{}{\setlength{\bibsep}{0pt plus 0.2ex}}
+\makeatother
+
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+  \small
+  \setlength{\parskip}{0pt}%
+  \setlength{\itemsep}{0pt plus 0.2ex}%
+}{\end{oldthebibliography}}
+% ==== END FINAL SQUEEZE tweaks ====
+
 \begin{document}
 
 	\makeatletter
@@ -145,43 +187,11 @@ a wide range of mathematicians.
 %, including those working in classical
 %(non-constructive) domains.
 
-Around 2010, Fields Medallist Vladimir Voevodsky introduced
-\emph{Homotopy Type Theor}y (HoTT), a novel approach that brings
-together type theory and algebraic topology, specifically homotopy
-theory. Voevodsky recognised that type theory provided a natural
-setting for reasoning about homotopical structures, and used Coq to
-formalise results in this emerging paradigm. This work culminated in a
-special year at the Institute for Advanced Study and the collaborative
-publication of the \emph{HoTT Book} \Cite{hottbook}.
-Since then, homotopical methods have become increasingly widespread
-across mathematics, reflecting what Yuri Manin described as a shift in
-the collective mathematical consciousness \cite{gelfand}.
-
-A central principle of HoTT is the \emph{univalence axiom}, which asserts
-that equivalent (i.e.\ isomorphic) types can be treated as equal. This
-reflects the inherently structural nature of type theory—only
-structural
-%, not set-theoretic,
-properties can be expressed. Univalence
-simplifies reasoning by allowing implicit substitution of isomorphic
-types, much as abstract data types are treated extensionally in
-programming.
-
-Univalence has profound consequences. In particular, identity types in
-HoTT are no longer just truth values (mere propositions) but
-themselves carry higher structure. Equalities between elements of a
-type form structured types in their own right, encoding paths, paths
-between paths, and so on. Types form groupoids—or rather,
-$\infty$-groupoids. Equality becomes a rich structure, not just a
-binary relation.
-
-We aim to extend this idea further. In category theory and functional
-programming, we frequently encounter constructions that involve
-coherence or naturality conditions. These are often consequences of
-parametricity—the idea that functions behave uniformly across all
-inputs. In a setting like DTT, such coherence could become intrinsic
-rather than externally imposed. We believe DTT offers a framework that
-links univalence and parametricity in a principled way.
+With univalence, identity types carry higher structure: equalities
+form paths, paths between paths, etc., so types behave like
+$\infty$-groupoids.  Many constructions require coherence or
+naturality, often consequences of parametricity. In DTT, coherence
+becomes intrinsic, linking univalence and parametricity.
 
 Formally, this amounts to replacing $\infty$-groupoids with
 $(\infty,1)$-categories, where morphisms need not be invertible. This
@@ -198,7 +208,11 @@ algebraic topology to systems verification and quantum physics.
 
 \subsection{Project outcomes}\label{project-outcomes}
 
-Our goal is to develop a \emph{workable and expressive system of Directed Type Theory (DTT)}, grounded in rigorous semantics and capable of supporting formal reasoning in higher categories and related domains. The outcomes we aim to deliver fall into three interrelated strands:
+Our goal is to develop a \emph{workable and expressive system of
+  Directed Type Theory (DTT)}, grounded in rigorous semantics and
+capable of supporting formal reasoning in higher categories and
+related domains. The outcomes we aim to deliver fall into three
+interrelated strands:
 
 \paragraph{1. Theory and Semantics}
 We will design a core DTT informed by recent developments in
@@ -503,7 +517,7 @@ following challenges:
   syntactic overhead associated with expressing functoriality and
   naturality conditions, we aim to develop a directed analogue of
   Second-Order Generalised Algebraic Theories (SOGATs). This will support a modular
-  and scalable syntax for 1-DTT. 
+  and scalable syntax~for~\mbox{1-DTT}. 
 
 \item \textbf{Multimodal formulation:} We will explore a reformulation
   of DCwFs as a multimodal type theory, where symmetry (or its
@@ -987,7 +1001,7 @@ applications of DTT in Mathematics and Physics.\\
 area with high potential impact. Even partial success would mark
 significant progress and strongly validate the relevance of DTT to
 real-world mathematical and physical reasoning.\\
-\textbf{Collaborators:} Schreiber, Schenkel
+\textbf{Collaborators:} Schreiber, Schenkel (UoN Mathematics)
 
 
 
@@ -1105,7 +1119,7 @@ At the time of the second workshop, we will have a version of $\infty$-DTT to pr
 
 \newpage
 
-\todo[inline]{Remove before submitting.}
+%\todo[inline]{Remove before submitting.}
 
 %\nocite{*} % remove before submitting
 \printbibliography
