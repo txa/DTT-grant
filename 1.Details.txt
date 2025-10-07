@@ -4,7 +4,7 @@
 
 Homotopy Type Theory (HoTT) has transformed type theory and formal reasoning, providing a powerful language for the mechanised foundations of mathematics and computer science. A cornerstone of HoTT is the univalence axiom, which equates isomorphic structures—capturing the abstract nature of types. However, HoTT fundamentally relies on *symmetry*; it treats equivalences, not general morphisms, as primitive.
 
-We propose a new foundation: **Directed Type Theory (DTT)**. By taking morphisms—rather than isomorphisms—as the basic notion, DTT offers a directed perspective on types that aligns more closely with concepts from category theory and higher-dimensional algebra. This promises a unifying framework that bridges HoTT and higher categories, potentially reshaping the theoretical underpinnings of both mathematics and computer science.
+We propose a new and more general foundation: **Directed Type Theory (DTT)**. By taking morphisms—rather than isomorphisms—as the basic notion, DTT offers a directed perspective on types that aligns more closely with concepts from category theory and higher-dimensional algebra. This promises a unifying framework that bridges HoTT and higher categories, potentially reshaping the theoretical underpinnings of both mathematics and computer science.
 
 DTT opens the door to addressing several foundational questions:
 
