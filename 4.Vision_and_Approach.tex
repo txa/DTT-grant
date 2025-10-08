@@ -39,7 +39,10 @@
 \newcommand{\tmN}{\teamm{N}{WPcolour}}
 \newcommand{\tmS}{\teamm{S}{strathColour}}
 \newcommand{\wsOne}{\teamm{WS1}{WPcolour}}
-\newcommand{\wsTwo}{\teamm{WS2}{WPcolour}}
+%\newcommand{\wsTwo}{\teamm{WS2}{WPcolour}}
+\newcommand{\hybridOne}{\teamm{HM1}{WPcolour}}
+\newcommand{\hybridTwo}{\teamm{HM2}{WPcolour}}
+
 
 \usepackage[colorlinks=true  % Remove the boxes
 , linktocpage=true % Make page numbers (not section titles) links in ToC
@@ -1065,12 +1068,19 @@ real-world mathematical and physical reasoning.\\
 		\ganttbar[bar/.append style={draw=none}]{WP7}{0}{-1}
 %		\ganttbar[inline, bar/.append style={draw=none}]{\deliv}{9}{8}
 		\\
-		\ganttbar[bar/.append style={draw=none}]{Workshops}{0}{-1}
+		\ganttbar[bar/.append style={draw=none}]{Hybrid Meetings}{0}{-1}
 %		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
 %		\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
 %		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
-		\ganttbar[inline, bar/.append style={draw=none,left=2mm}]{\wsOne}{2}{1}
-		\ganttbar[inline, bar/.append style={draw=none,left=5mm}]{\wsTwo}{6}{5}
+		\ganttbar[inline, bar/.append style={draw=none,left=2mm}]{\hybridOne}{2}{1}
+		\ganttbar[inline, bar/.append style={draw=none,left=5mm}]{\hybridTwo}{6}{5}
+		\\
+		\ganttbar[bar/.append style={draw=none}]{Workshops}{0}{-1}
+		%		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{2}{1}
+		%		\ganttbar[inline, bar/.append style={draw=none}]{\tmS}{3}{2}
+		%		\ganttbar[inline, bar/.append style={draw=none}]{\tmN}{4}{3}
+		\ganttbar[inline, bar/.append style={draw=none,right=1mm}]{\wsOne}{9}{7}
+%		\ganttbar[inline, bar/.append style={draw=none,left=5mm}]{\wsTwo}{6}{5}
 %		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{7}{6}
 %		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmN}{8}{7}
 %		\ganttbar[inline, bar/.append style={draw=none,left=3mm}]{\tmS}{9}{8}
@@ -1109,13 +1119,13 @@ In parallel, we will explore applications of the language to mathematics and the
 We will have frequent local team meetings (weekly during term time, flexible out of term time) to discuss our progress and supervise the PDRA.
 Most meetings with our external project partners and collaborators will take place online and scheduled based on the current requirements.
 
-We will organise two in-person workshops with the possibility to attend online.
-The purpose of the workshops will be to discuss our plans with several collaborators at the same time, and solicit valuable feedback.
-The first workshop will take place early during the project, and we will invite the project partners for WPs 1--5.
+We will organise two hybrid meetings (in-person with the possibility to attend online).
+The purpose of these meetings will be to discuss our plans with several collaborators at the same time, and solicit valuable feedback.
+The first meeting will take place early during the project, and we will invite the project partners for WPs 1--5.
 At this point, we will present a preliminary version of 1-DTT and plan the next steps.
-At the time of the second workshop, we will have a version of $\infty$-DTT to present and will focus on the applications of this theory. We will invite our project partners for WPs 6 and 7, but the workshop will also be open to interested members of the community.
+At the time of the second meeting, we will have a version of $\infty$-DTT to present and will focus on the applications of this theory. We will invite our project partners for WPs 6 and 7, but the workshop will also be open to interested members of the community.
 
-
+Towards the end of the project, we will organise a dissemination workshop, open to everyone who is interested, to present and discuss our results.
 
 \newpage
 
