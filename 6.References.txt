@@ -25,11 +25,12 @@ ISSN: 1860-5974. DOI: 10.46298/lmcs-18(2:15)2022.
 In: Proceedings of the 35th Annual ACM/IEEE Symposium on Logic in Computer Science. LICS ’20.
 ACM, 2020. DOI: 10.1145/3373718.3394736.
 [GWB24] Daniel Gratzer, Jonathan Weinberger and Ulrik Buchholtz. Directed univalence in simplicial homotopy type theory. 2024. arXiv: 2407.09146 [cs.LO].
-[GWB25] Daniel Gratzer, Jonathan Weinberger and Ulrik Buchholtz. The Yoneda embedding in simplicial type theory. 2025. arXiv: 2501.13229 [cs.LO].
+[GWB25] Daniel Gratzer, Jonathan Weinberger and Ulrik Buchholtz. The Yoneda embedding in simplicial type theory. 2025. LICS 2025, DOI: 10.1109/LICS65433.2025.00017
 [Gyl11] Håkon Robbestad Gylterud. ‘Symmetric containers’. MSc thesis. University of Oslo, 2011.
 [KKA19] Ambrus Kaposi, András Kovács and Thorsten Altenkirch. ‘Constructing quotient inductive-inductive types’. In: Proc. ACM Program. Lang. 3.POPL (Jan. 2019). DOI: 10.1145/3290315.
 [Kle+14] Gerwin Klein, June Andronick, Kevin Elphinstone, Toby Murray, Thomas Sewell, Rafal Kolanski and Gernot Heiser. ‘Comprehensive formal verification of an OS microkernel’. In: ACM Trans. Comput.
 Syst. 32.1 (Feb. 2014). ISSN: 0734-2071. DOI: 10.1145/2560537.
+[Kra21] Kraus, Nicolai. "Internal∞-categorical models of dependent type theory: Towards 2LTT eating HoTT." LICS21 , DOI: 10.1109/LICS52264.2021.9470667
 [KRW24] Nikolai Kudasov, Emily Riehl and Jonathan Weinberger. ‘Formalizing the ∞-Categorical Yoneda Lemma’. In: Proceedings of the 13th ACM SIGPLAN International Conference on Certified Programs and Proofs. CPP 2024. London, UK: Association for Computing Machinery, 2024, pp. 274–290.
 ISBN: 9798400704888. DOI: 10.1145/3636501.3636945.
 [Ler09] Xavier Leroy. ‘Formal verification of a realistic compiler’. In: Commun. ACM 52.7 (July 2009), pp. 107–115. ISSN: 0001-0782. DOI: 10.1145/1538788.1538814.
