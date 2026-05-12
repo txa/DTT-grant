@@ -1,0 +1,46 @@
+This is a proposal on the topic of directed type theory, a particularly difficult area of research with the potential for wide impact on both the foundations of mathematics and computer science.
+
+Vision
+
+The proposed work is top-notch.
+
+The importance of direction in homotopy theory and type theory is not well-understood, but has consequences for pretty much every topic in mathematics and computer science. An understanding of parametricity through this lens is sorely missed.
+
+There have been many previous proposals, all subtly broken or limited to certain application domains. The authors want to try solving the issue again, using things they have learned in the last few years.
+
+The vision is very ambitious. If successful, the outcome will be hugely impactful in many areas. Coupled with frontier Large Language Models, this could open up the possibility of the automated, synthetic verification of modern mathematics and a host of new approaches program verification.
+
+Approach
+
+The approach is clear and coherent, starting from applying new tools to the 1-dimensional setting, and then using Shulman's frontier work on Higher Observational Type Theory.
+
+The work is staged well, with appropriate work packages that serve the goal.
+
+Much attention is paid to previous work. This is necessary and desirable because the applicants have to internalize all the mistakes made by previous attempts.
+
+There is a good plan for dissemination, including publications at world-leading venues and a workshop. This will reach pretty much everyone that will benefit from the results of the project.
+
+The risk management is excellent for a theoretical project: very often such projects have to change direction. The track record of the applicants means they will be able to deliver quite good work irrespective of that risk.
+
+The application comes from letter from virtually every top-notch researcher in the field, including pioneers such as Mike Shulman, Emily Riehl, and Daniel Gratzer. Their input, help, and seal of approval is surefire sign of quality.
+
+Applicant and team capability to deliver
+
+The applicants are all famous researchers with a proven track record. If a team could deliver this project, it would include them.
+
+Ethics and responsible research and innovation (RRI)
+
+Ethical and responsible management is appropriate. t is important for all of us to keep publishing (and possibly donating) to arXiv, and to use Zenodo for archival of code (so that it's available outside Microsoft's GitHub).
+
+Resources and cost justification
+
+The resources are well-justified. The only shortcoming is that more could be asked for:
+
+One postdoc between the three applicants. Could have been two. This is somewhat counterbalanced by the fact the project is 4 years long, so the funding could be used for two people in 2 year blocks.
+20% of PI time is good enough, but probably not enough for the host institution to relieve them of some duties. Could have been 30% or 40%.
+Conference budget is adequate, but with airline tickets and registrations going up it could be more. Nevertheless it should suffice.
+Despite this frugal budget I am certain the applicants can deliver high-quality work.
+
+Expert review score
+
+6 / 6
