@@ -1,0 +1,14 @@
+Two reviewers have given an overall rating of 6/6 ([TBD]), writing very positive and
+supportive reports. Reviewer 1 writes “[TBD]” and reviewer 2 writes “[TBD]”.
+In contrast, reviewer 3 has given a rating of 2/6 ([TBD]). In this response, we …
+
+- R3 critizes impact because of theory, no industrial involvement
+- R3 that the impact incremental, reject this with the reviewers and
+  the fact that community thinks otherwise
+  Mtivate fundemental impact 
+- R3 workplan
+- Implementation : large libraries not required, recent formalisation
+  work on SAG and analysis
+- RA position: R1 says that we should we asked for 2.
+- Resources: incorrect, and is irrelevant because these people work on
+  other projects
