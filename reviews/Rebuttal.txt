@@ -1,14 +1,99 @@
-Two reviewers have given an overall rating of 6/6 ([TBD]), writing very positive and
-supportive reports. Reviewer 1 writes “[TBD]” and reviewer 2 writes “[TBD]”.
-In contrast, reviewer 3 has given a rating of 2/6 ([TBD]). In this response, we …
+We received three reviews, two of which were highly supportive and
+awarded the proposal the highest possible score, while Reviewer 3
+provided a substantially more critical assessment.
 
-- R3 critizes impact because of theory, no industrial involvement
-- R3 that the impact incremental, reject this with the reviewers and
-  the fact that community thinks otherwise
-  Mtivate fundemental impact 
-- R3 workplan
-- Implementation : large libraries not required, recent formalisation
-  work on SAG and analysis
-- RA position: R1 says that we should we asked for 2.
-- Resources: incorrect, and is irrelevant because these people work on
-  other projects
+While Reviewer 3 raises a number of concerns regarding the motivation,
+feasibility, and resourcing of the project, these concerns stand in
+marked contrast to the assessments of Reviewers 1 and 2, who
+independently describe the proposal as “excellent” and “top-notch”,
+with “clear and coherent” methodology and deliverables that “would be
+very valuable if achieved".
+
+Moreover, several criticisms in Review 3 appear to stem from
+misunderstandings of the proposal or contain factual inaccuracies,
+which we would like to clarify below.
+
+The most concrete concerns are factual inaccuracies in Review 3. The
+review states that in WP7 “no specific collaborators are identified”
+and that the proposal mentions “non-invertible symmetries” but “does
+not provide citations.” Both statements are incorrect: WP7 explicitly
+names Schreiber and Schenkel as collaborators, and the relevant
+discussion is supported by citations in the proposal. Review 3 also
+states that the investigators supervise “7 PDRAs and 13 PhD students
+collectively.” This is factually incorrect: Kraus currently has 2
+PDRAs and one long-term visitor (Ulrik Buchholtz), and the
+investigators supervise 5 PhD students. In any case, existing staff
+and PhD students are committed to other projects and are not a
+substitute for dedicated research capacity on this proposal.
+
+More broadly, several of the conceptual criticisms in Review 3 are
+difficult to reconcile both with other parts of the same review and
+with the assessments of Reviewers 1 and 2. Review 3 characterises the
+proposal as “closer to an incremental extension (HoTT+) rather than a
+fundamentally new direction”, while at the same time repeatedly
+emphasising the technical difficulty and complexity of the proposed
+programme. By contrast, Reviewer 1 explicitly states that “the
+difference between (∞,1)-categories and (∞,n)-categories is closely
+related to the difference between undirected and directed type
+theories which forms the core of this proposal,” while Reviewer 2
+emphasises that “the importance of direction in homotopy theory and
+type theory is not well understood, but has consequences for pretty
+much every topic in mathematics and computer science.”
+
+Review 3 also repeatedly criticises the proposal for being
+foundational and theoretical, and for lacking immediate industrial
+applications. However, the proposal is explicitly a foundational
+theoretical computer science project, whose primary aim is to develop
+new mathematical and typetheoretic foundations. In this context, the
+absence of short-term industrial deliverables should not be viewed as
+a weakness. Indeed, many advances in formal verification and proof
+assistants originated in similarly foundational work, including
+Homotopy Type Theory itself. Reviewer 1 explicitly highlights the
+growing importance of foundational type theory in formalised
+mathematics and verification, while Reviewer 2 notes that the project
+could become “hugely impactful in many areas.”
+
+Review 3 further states that “no convincing case studies or motivating
+examples are provided.” We do not believe this accurately reflects the
+contents of the proposal. The proposal explicitly discusses several
+motivating directions and use cases, including parametricity and
+coherence, generalised inductive types, synthetic higher category
+theory, and applications to mathematics and theoretical physics, in
+particular higher quantum computation and non invertible
+symmetries. Naturally, as a foundational theoretical project, these
+applications are intended as mathematically substantial case studies
+rather than industrial applications. In fact, Reviewer 2 explicitly
+notes that “the importance of direction in homotopy theory and type
+theory is not well understood, but has consequences for pretty much
+every topic in mathematics and computer science,” and further comments
+that “If successful, the outcome will be hugely impactful in many
+areas.”
+
+Review 3 also questions the need for dedicated research staffing,
+suggesting that “the investigators, together with existing
+collaborators and PhD students, could achieve most of project goals
+without additional staffing.” We do not believe this reflects either
+the scope of the proposed programme or the realities of research
+funding and supervision. The project consists of seven interconnected
+work packages spanning semantics, metatheory, implementation,
+parametricity, higher inductive types, and applications to mathematics
+and physics over a four year period. Existing staff, collaborators,
+visitors, and PhD students are funded for distinct projects and cannot
+simply be reassigned to deliver the objectives of this
+proposal. Moreover, this assessment contrasts sharply with Reviewer 2,
+who considered the requested staffing comparatively modest, commenting
+that “One postdoc between the three applicants … could have been two.”
+
+In summary, while we appreciate Reviewer 3’s engagement with the
+proposal, we believe that a substantial number of the concerns raised
+either stem from factual inaccuracies or do not accurately reflect the
+aims and scope of the proposed research. In several key areas,
+including the significance of Directed Type Theory, the clarity of the
+workplan, the appropriateness of the requested resources, and the
+existence of motivating applications - the assessment in Review 3
+stands in direct contrast to the independently written evaluations of
+Reviewers 1 and 2, both of whom strongly endorse the proposal as
+ambitious, timely, feasible, and potentially highly impactful. We
+therefore hope that the panel will place particular weight on the
+consistency of the positive expert assessments together with the
+clarifications provided above when evaluating the proposal as a whole.
