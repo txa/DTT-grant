@@ -20,11 +20,10 @@ not provide citations.” Both statements are incorrect: WP7 explicitly
 names Schreiber and Schenkel as collaborators, and the relevant
 discussion is supported by citations in the proposal. Review 3 also
 states that the investigators supervise “7 PDRAs and 13 PhD students
-collectively.” This is factually incorrect: Kraus currently has 2
-PDRAs and one long-term visitor (Ulrik Buchholtz), and the
-investigators supervise 5 PhD students. In any case, existing staff
-and PhD students are committed to other projects and are not a
-substitute for dedicated research capacity on this proposal.
+collectively.” This is factually incorrect: between us we have 3 PDRAs
+and 7 PhD students. In any case, existing staff and PhD students are
+committed to other projects and are not a substitute for dedicated
+research capacity on this proposal.
 
 More broadly, several of the conceptual criticisms in Review 3 are
 difficult to reconcile both with other parts of the same review and
@@ -44,7 +43,7 @@ Review 3 also repeatedly criticises the proposal for being
 foundational and theoretical, and for lacking immediate industrial
 applications. However, the proposal is explicitly a foundational
 theoretical computer science project, whose primary aim is to develop
-new mathematical and typetheoretic foundations. In this context, the
+new mathematical and type theoretic foundations. In this context, the
 absence of short-term industrial deliverables should not be viewed as
 a weakness. Indeed, many advances in formal verification and proof
 assistants originated in similarly foundational work, including
@@ -52,6 +51,16 @@ Homotopy Type Theory itself. Reviewer 1 explicitly highlights the
 growing importance of foundational type theory in formalised
 mathematics and verification, while Reviewer 2 notes that the project
 could become “hugely impactful in many areas.”
+
+Additionally, Reviewer 3 claims that Agda and Narya lack mature
+libraries for algebra and analysis necessary for our
+applications. First, this beyond the scope of the current project it
+would only be relevant in future developments building on the project
+outcomes. Secondly, the criticism that "Narya has even deeper concerns
+regarding maturity and stability" is not applicable for experimental
+tools developed in an academic context. Thirdly, there is a lot of
+ongoing activity to build formal libraries for algebra and analysis
+in Agda. 
 
 Review 3 further states that “no convincing case studies or motivating
 examples are provided.” We do not believe this accurately reflects the
@@ -87,7 +96,7 @@ that “One postdoc between the three applicants … could have been two.”
 In summary, while we appreciate Reviewer 3’s engagement with the
 proposal, we believe that a substantial number of the concerns raised
 either stem from factual inaccuracies or do not accurately reflect the
-aims and scope of the proposed research. In several key areas,
+aims and scope of the proposed research. In several key areas -
 including the significance of Directed Type Theory, the clarity of the
 workplan, the appropriateness of the requested resources, and the
 existence of motivating applications - the assessment in Review 3
