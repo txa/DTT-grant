@@ -6,7 +6,7 @@ while emphasising that “the risk management is excellent for a theoretical pro
 
 Reviewer 2 characterises the proposal as “an excellent proposal” and highlights the timeliness of the work in light of recent developments in formal verification, AI, homotopy theory and higher category theory, concluding that "the stated deliverables would be very valuable if achieved”.
 
-Reviewer 3 regards the research as “potentially groundbreaking” and identifies as strengths the proposal’s "clear” state-of-the-art presentation, “convincing” methodology, and “excellent” capability to deliver.
+Reviewer 3 (here, and below, we refer to the off-system review) regards the research as “potentially groundbreaking” and identifies as strengths the proposal’s "clear” state-of-the-art presentation, “convincing” methodology, and “excellent” capability to deliver.
 
 We are grateful for these encouraging assessments and for the constructive questions raised, which focus primarily on (1) clarifying the broader significance and envisioned applications of Directed Type Theory and (2) further explaining the mitigation strategy and staged structure of WP2. We address these points below.
 
